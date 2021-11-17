@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
+import backgroundImage from '../assets/main_background.jpg'
 
 const GlobalStyle = createGlobalStyle `
   ${ normalize }
@@ -17,6 +18,9 @@ const GlobalStyle = createGlobalStyle `
   }
 
   body {
+    background: url(${ backgroundImage });
+    background-size: cover;
+    background-position-x: center;
     font-family: "Inter", sans-serif;
     font-size: 1.8rem;
   }

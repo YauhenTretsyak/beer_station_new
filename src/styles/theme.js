@@ -1,5 +1,8 @@
 const colors = {
-  color_black: '#1B1D24',
+  black: '#1B1D24',
+  orange: '#ff8a00',
+  red: '#f63939',
+  grey: '#43413e',
   // color_blue: '#0028FF',
   // color_white: '#fff',
   // color_white1: '#FBFBFB',
