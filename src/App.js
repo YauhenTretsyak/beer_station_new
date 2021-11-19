@@ -3,15 +3,27 @@ import { theme } from './styles/theme';
 import SwitchContextProvider from './context/SwitchContext';
 import GlobalStyle from './styles/GlobalStyle';
 import { MainPage } from './pages';
+import { HelmetProvider } from 'react-helmet-async';
+import { HelmetBlock } from './blocks/index';
+
 
 function App() {
   return (
-    <ThemeProvider theme={ theme } > 
-      <SwitchContextProvider>
-        <GlobalStyle /> 
-        <MainPage />
-      </SwitchContextProvider>
-    </ThemeProvider>
+    <HelmetProvider>
+      <ThemeProvider theme={ theme } > 
+        <SwitchContextProvider>
+          <GlobalStyle /> 
+          <HelmetBlock
+            title={ 'BeerStation' }
+            name={ 'BeerStation' }
+            content={ 'beer' }
+            description='beerstation'
+            // faviconUrl={ favicon }
+          />
+          <MainPage />
+        </SwitchContextProvider>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 }
 

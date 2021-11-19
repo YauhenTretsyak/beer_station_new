@@ -3,14 +3,28 @@ import { Navigation } from '../index';
 import { SwitchContext } from '../../context/SwitchContext';
 
 import styled from "styled-components";
+import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints';
 import { FlexContainer, SectionContainer } from "../../styles/StyledElements";
 
 
 const HeaderContainer = styled(SectionContainer)``
+const AdressInfo = styled.p`
+  font-weight: ${({theme}) => theme.fontWeight.font_weightSemiBold};
+
+  ${ screen_breakpoint.md } {
+    font-size: 2rem;
+  }
+
+  ${ screen_breakpoint.xl } {
+    font-size: 2.2rem;
+  }
+`
 const LanguageWrapper = styled(FlexContainer)`
   display: flex;
   justify-content: space-between;
-  width: 10rem;
+  margin: auto;
+  margin-right: 0;
+  width: 8.9rem;
 `
 const LanguageSwicthButton = styled.button`
   display: flex;
@@ -20,8 +34,6 @@ const LanguageSwicthButton = styled.button`
   width: 4rem;
   height: 4.5rem;
   border: none;
-  /* background: linear-gradient(#d1e8ea6b 100%, #f0d04b 24%); */
-  /* background: linear-gradient(#d1e8ea6b 22%, #8f7c2e 77%); */
   background-image: ${ props => props.langActive ?
     'linear-gradient(#fff 22%, #f0d04b 77%);' :
     'linear-gradient(#d1e8ea6b 22%, #8f7c2e 77%);'
@@ -48,9 +60,12 @@ const LanguageSwicthButton = styled.button`
 
 const Header = () => {
 
-  const { langSwitch, LanguageSwitcher } = useContext(SwitchContext);
+  const { locationSwitch, langSwitch, LanguageSwitcher } = useContext(SwitchContext);
   
   let langActive;
+  const barAdress = locationSwitch === 'KEPNA' ? 
+                    'Warszawa, ul. Kępna 15' :
+                    'Warszawa, ul. Lwowska 17';
 
   switch (langSwitch) {
     case 'PL': 
@@ -63,23 +78,30 @@ const Header = () => {
       langActive = true;
   }
 
+
+
   return (
     <HeaderContainer>
       
       <Navigation />
-      <LanguageWrapper>
-        <LanguageSwicthButton 
-          onClick={ () => LanguageSwitcher('PL') }
-          langActive={langActive}
-        >PL
-        </LanguageSwicthButton>
+      <FlexContainer>
+        <AdressInfo>
+          { barAdress }
+        </AdressInfo>
+        <LanguageWrapper>
+          <LanguageSwicthButton 
+            onClick={ () => LanguageSwitcher('PL') }
+            langActive={langActive}
+          >PL
+          </LanguageSwicthButton>
 
-        <LanguageSwicthButton 
-          onClick={ () => LanguageSwitcher('RU') }
-          langActive={!langActive}
-        >RU
-        </LanguageSwicthButton>
-      </LanguageWrapper>
+          <LanguageSwicthButton 
+            onClick={ () => LanguageSwitcher('RU') }
+            langActive={!langActive}
+          >RU
+          </LanguageSwicthButton>
+        </LanguageWrapper>
+      </FlexContainer>
     </HeaderContainer>
   )
 }

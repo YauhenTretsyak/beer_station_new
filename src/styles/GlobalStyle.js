@@ -5,8 +5,6 @@ import backgroundImage from '../assets/main_background.jpg'
 const GlobalStyle = createGlobalStyle `
   ${ normalize }
 
-  @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
   * {
     box-sizing: border-box;
     margin: 0;
@@ -23,6 +21,11 @@ const GlobalStyle = createGlobalStyle `
     background-position-x: center;
     font-family: "Inter", sans-serif;
     font-size: 1.8rem;
+  }
+
+  p {
+    color: #3d1a02;
+    text-shadow: .1rem .1rem .1rem #55290a;
   }
 `
 

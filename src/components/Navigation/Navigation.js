@@ -13,6 +13,8 @@ import {
   WorkTimeInfoWrapper,
   WorkTimeTitle,
   WorkTime, 
+  MenuWrapper,
+  MenuLink
 } from './Navigation.style';
 
 const icons = socialsData.map(item => {
@@ -29,17 +31,33 @@ const Navigation = () => {
   const { locationSwitch, langSwitch } = useContext(SwitchContext);
   const locationHeaderData = locationSwitch === 'KEPNA' ? navigationData.kepna : navigationData.lwowska;
   let locationInfo;
+  let menuInfo;
 
   switch (langSwitch) {
     case 'PL':
       locationInfo = locationHeaderData.PL
+      menuInfo = navigationData.menu.PL
       break
     case 'RU':
       locationInfo = locationHeaderData.RU
+      menuInfo = navigationData.menu.RU
       break
     default: 
       locationInfo = locationHeaderData.PL
+      menuInfo = navigationData.menu.PL
   }
+
+  const MenuLinks = menuInfo.map(item => {
+    return(
+      <MenuLink
+        key={ uuidv4() }
+        href={ item.link }
+      >
+        { item.linkText }
+      </MenuLink>
+    )
+  })
+
   return (
     <NavigationWrapper>
       <LogoImage>
@@ -53,6 +71,9 @@ const Navigation = () => {
           { locationInfo.workTime }
         </WorkTime>
       </WorkTimeInfoWrapper>
+      <MenuWrapper>
+        { MenuLinks }
+      </MenuWrapper>
       <IconsWrapper>
         { icons }
       </IconsWrapper>

@@ -1,13 +1,17 @@
 import styled from 'styled-components';
+import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints';
 
 const IconLinkWrapper = styled.a`
   display: block;
-  width: 2rem;
-  color: ${({theme}) => theme.colors.grey};
+  width: 3rem;
+  color: ${({theme}) => theme.colors.brown};
   transition: all .3s ease-in-out;
 
+  ${ screen_breakpoint.md } {
+    width: 4rem;
+  }
+
   &:hover {
-    width: 2.5rem;
     color: ${({theme}) => theme.colors.orange};
   }
 `

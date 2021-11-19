@@ -3,6 +3,7 @@ const colors = {
   orange: '#ff8a00',
   red: '#f63939',
   grey: '#43413e',
+  brown: '#55290a',
   // color_blue: '#0028FF',
   // color_white: '#fff',
   // color_white1: '#FBFBFB',
