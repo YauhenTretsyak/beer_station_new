@@ -19,8 +19,8 @@ const GlobalStyle = createGlobalStyle `
     background: url(${ backgroundImage });
     background-size: cover;
     background-position-x: center;
-    font-family: "Inter", sans-serif;
-    font-size: 1.8rem;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-size: 2.5rem;
   }
 
   p {

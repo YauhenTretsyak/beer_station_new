@@ -5,14 +5,14 @@ const IconLinkWrapper = styled.a`
   display: block;
   width: 3rem;
   color: ${({theme}) => theme.colors.brown};
-  transition: all .3s ease-in-out;
+  transition: all .15s ease-in-out;
 
   ${ screen_breakpoint.md } {
     width: 4rem;
   }
 
   &:hover {
-    color: ${({theme}) => theme.colors.orange};
+    color: ${({theme}) => theme.colors.gold};
   }
 `
 

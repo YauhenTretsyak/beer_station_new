@@ -5,6 +5,7 @@ import GlobalStyle from './styles/GlobalStyle';
 import { MainPage } from './pages';
 import { HelmetProvider } from 'react-helmet-async';
 import { HelmetBlock } from './blocks/index';
+import favicon from './assets/favicon.png';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
             name={ 'BeerStation' }
             content={ 'beer' }
             description='beerstation'
-            // faviconUrl={ favicon }
+            faviconUrl={ favicon }
           />
           <MainPage />
         </SwitchContextProvider>

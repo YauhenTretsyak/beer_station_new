@@ -4,6 +4,8 @@ const colors = {
   red: '#f63939',
   grey: '#43413e',
   brown: '#55290a',
+  brown_dark: '#3d1a02',
+  gold: '#cfc600',
   // color_blue: '#0028FF',
   // color_white: '#fff',
   // color_white1: '#FBFBFB',
