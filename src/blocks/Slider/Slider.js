@@ -42,7 +42,7 @@ const Slider = ({ ...props }) => {
   // console.log(sliderEl.current)
 
   return(
-    <CarouselWrapper ref={ sliderEl } >
+    <CarouselWrapper ref={ sliderEl }  onLoad={destroy}>
       <Swiper 
         
         id={ settings.id }
