@@ -1,9 +1,10 @@
-import { Header, Footer } from '../../components/index';
+import { Header, Product, Footer } from '../../components/index';
 
 const MainPage = () => {
   return(
     <>
       <Header />
+      <Product />
       <Footer />
     </>
   )

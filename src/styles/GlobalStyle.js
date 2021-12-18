@@ -27,6 +27,30 @@ const GlobalStyle = createGlobalStyle `
     color: #3d1a02;
     text-shadow: .1rem .1rem .1rem #55290a;
   }
+
+  @keyframes run {
+    from {
+      left: -.6rem;
+    }
+    50% {
+      left: 0;
+    }
+    to {
+      left: -.6rem;
+    }
+  }
+
+  @keyframes run-breake {
+    from {
+      right: -.4rem;
+    }
+    50% {
+      right: .2rem;
+    }
+    to {
+      right: -.4rem;
+    }
+  }
 `
 
 export default GlobalStyle;

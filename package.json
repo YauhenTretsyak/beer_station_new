@@ -11,6 +11,7 @@
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.3",
     "styled-normalize": "^8.0.7",
+    "swiper": "^7.3.2",
     "uuid": "^3.4.0"
   },
   "scripts": {

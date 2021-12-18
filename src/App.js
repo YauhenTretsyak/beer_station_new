@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
-import SwitchContextProvider from './context/SwitchContext';
+import SwitchContextProvider from './hoc/SwitchContext';
 import GlobalStyle from './styles/GlobalStyle';
 import { MainPage } from './pages';
 import { HelmetProvider } from 'react-helmet-async';

@@ -51,7 +51,7 @@ const WorkTimeInfoWrapper = styled.div`
 
   ${ screen_breakpoint.xl } {
     display: flex;
-    width: 28rem;
+    width: 29rem;
     font-size: 3rem;
   }
 `
@@ -60,7 +60,13 @@ const WorkTimeTitle = styled.p`
     margin-right: .5rem;
   }
 `
-const WorkTime = styled.p``
+const WorkTime = styled.p`
+  font-size: 1.9rem;
+
+  ${ screen_breakpoint.sm } {
+    font-size: 2.6rem
+  }
+`
 
 const MenuWrapper = styled(FlexContainer)`
   display: none;

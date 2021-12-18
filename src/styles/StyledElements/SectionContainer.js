@@ -6,7 +6,7 @@ const SectionContainer = styled.div`
   position: relative;
   min-height: .1rem;
   box-sizing: border-box;
-  padding: 2rem;
+  padding: 2rem 2.7rem;
   background: linear-gradient(#f4eed5 24%, #d1e8ea6b 100%);
   box-shadow: inset 0 .3rem 1rem .1rem #00000059;
   border-radius: 1.1rem;

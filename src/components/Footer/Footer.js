@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { SwitchContext } from '../../context/SwitchContext';
+import { SwitchContext } from '../../hoc/SwitchContext';
 import { footerData } from '../../dataComponents/footer.data.js';
 
 import styled from 'styled-components';

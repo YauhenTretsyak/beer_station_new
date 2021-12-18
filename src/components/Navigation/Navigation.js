@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { IconLink } from '../../blocks';
-import { SwitchContext } from '../../context/SwitchContext';
+import { SwitchContext } from '../../hoc/SwitchContext';
 import navigationData from '../../dataComponents/navigation.data';
 import socialsData from '../../dataComponents/socials.data';
 
@@ -29,7 +29,7 @@ const icons = socialsData.map(item => {
 
 const Navigation = () => {
   const { locationSwitch, langSwitch } = useContext(SwitchContext);
-  const locationHeaderData = locationSwitch === 'KEPNA' ? navigationData.kepna : navigationData.lwowska;
+  const locationHeaderData = locationSwitch ? navigationData.kepna : navigationData.lwowska;
   let locationInfo;
   let menuInfo;
 
