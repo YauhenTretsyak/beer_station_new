@@ -6,10 +6,10 @@ const beerSliderSettings = {
     nextEl: '.arrowNext',
     prevEl: '.arrowPrev',
   },
-  pagination: { 
-    clickable: true,
-    el: '.dots',
-  },
+  // pagination: { 
+  //   clickable: true,
+  //   el: '.dots',
+  // },
   breakpoints: {
     576: {
       slidesPerView: 2,

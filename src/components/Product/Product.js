@@ -7,9 +7,15 @@ import { beerSlidesData } from '../../dataComponents/beerSlides.data'
 import beerSliderSettings from '../../dataComponents/beerSliderSettings.data'
 
 import styled from 'styled-components'
-import { SectionContainer } from '../../styles/StyledElements'
+import { SectionContainer, SectionTitle } from '../../styles/StyledElements'
 
 const ProductContainer = styled(SectionContainer)``
+const ProductTitle = styled(SectionTitle)`
+  & > span {
+    text-shadow: .3rem .4rem .2rem ${({theme}) => theme.colors.black};
+    color: #ea8f0a;
+  }
+`
 
 const Product = () => {
 
@@ -17,31 +23,30 @@ const Product = () => {
   const { langSwitch, locationSwitch } = useContext(SwitchContext);
   const [ isMobileMode, setIsMobileMode ] = useState(true);
 
-  const slidesData = locationSwitch ? beerSlidesData.kepna : beerSlidesData.lwowska;
+  const [slidesData, setSlidesData] = useState(beerSlidesData.kepna);
+  const [location, setLocation] = useState(' Kępna, 15');
 
-  // const wdth = document.querySelector('.productContainer').addEventListener('resize', () => {
-  //   return(
-  //     document.querySelector('.productContainer').clientWidth
-  //   )
-  // })
+  useEffect(() => {
+    if(locationSwitch) {
+      setSlidesData(beerSlidesData.kepna)
+      setLocation(' Kępna, 15');
+    } else {
+      setSlidesData(beerSlidesData.lwowska)
+      setLocation(' Lwowska, 17');
+    }
+  }, [locationSwitch])
 
-  // window.addEventListener('resize', () => {
-  //   if (window.innerWidth >= 1104) {
-  //     setIsMobileMode(false);
-  //   }
-  //   return window.innerWidth
-  // })
+  const startWidth = () => {
+    if (document.documentElement.clientWidth <= 1104) {
+      setIsMobileMode(true);
+    } else {
+      setIsMobileMode(false);
+    }
+  }
 
-  // useEffect(() => {
-  //   windowSize >= 1104 ? setIsMobileMode(false) : setIsMobileMode(true)
-  //   console.log(isMobileMode)
-  // }, [isMobileMode])
-
-  // useEffect(() => {
-  //   windowSize < 1104 ? setIsMobileMode(true) : setIsMobileMode(false)
-  // },[isMobileMode])
-
-  console.log(window.innerWidth);
+  window.addEventListener('resize', () => {
+    startWidth();
+  })
   
   switch (langSwitch) {
     case 'PL':
@@ -59,6 +64,7 @@ const Product = () => {
     return(
       <SwiperSlide key={ uuidv4() }>
         <BeerSlide 
+          country={ item.country }
           cardNumber={ item.cardNumber }
           title={ item.title }
           name={ item.name }
@@ -72,9 +78,14 @@ const Product = () => {
   })
 
   return (
-    <ProductContainer>
-      { productTitle }
+    <ProductContainer onLoad={ startWidth }>
+      <ProductTitle>
+        { productTitle }
+        <span>{ location }</span>
+      </ProductTitle>
+      
       <Slider 
+        isMobileMode={ isMobileMode }
         sliderSettings={ beerSliderSettings }
         slides={ slides }
       />

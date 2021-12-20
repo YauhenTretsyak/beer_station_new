@@ -1,17 +1,48 @@
 import styled from 'styled-components';
 import { FlexContainer, ImageContainer } from '../../styles/StyledElements/index';
+import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints';
 
 const CarouselWrapper = styled.div`
-  & .swiper-container {
-    padding-bottom: 20px;
+  & .swiper {
+    height: 20rem;
+
+    ${ screen_breakpoint.md } {
+      height: auto;
+    }
+
+    ${ screen_breakpoint.xl } {
+        overflow: ${({isMobileMode}) => isMobileMode ? 
+          'hidden' : 'unset' 
+        };
+      }
 
     & > .swiper-wrapper {
+      align-items: center;
+
+      ${ screen_breakpoint.xl } {
+        ${({isMobileMode}) => isMobileMode ? 
+          'flex-wrap:nowrap; transform: translate3d(-1200px, 0px, 0px);' 
+          : 
+          'flex-wrap:wrap; transform: translate3d(0, 0, 0) !important; justify-content:space-between;'
+        };
+      }
+
       & > .swiper-slide {
         display: flex;
         justify-content: center;
         
-        @media only screen and (min-width: 1104px) {
-          width: 400px;
+        ${ screen_breakpoint.xl } {
+            width: ${({isMobileMode}) => isMobileMode ? 
+            '40rem' : '29rem !important' 
+          };
+        }
+      }
+
+      & > .swiper-slide-duplicate {
+        ${ screen_breakpoint.xl } {
+          display: ${({isMobileMode}) => isMobileMode ? 
+            'flex' : 'none'
+          };
         }
       }
     }
@@ -45,6 +76,12 @@ const ArrowBox = styled(ImageContainer)`
   height: 32px;
   outline: none;
 
+  ${ screen_breakpoint.xl } {
+    display: ${({isMobileMode}) => isMobileMode ? 
+      'flex' : 'none'
+    };
+  }
+
   & > svg {
     position: absolute;
     top: 50%;
@@ -75,13 +112,13 @@ const ArrowPrev = styled(ArrowBox)`
 `
 
 const DotsWrapper = styled(FlexContainer)`
+  display: none;
   flex-direction: row;
   justify-content: center;
-  height: 15px;
 
-  @media only screen and (min-width: 576px) {
+  /* @media only screen and (min-width: 576px) {
     display: none;
-  }
+  } */
 
   & > .dots {
     display: flex;

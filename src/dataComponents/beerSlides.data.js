@@ -2,24 +2,27 @@ const beerSlidesData = {
   kepna: [
     {
       cardNumber: 1,
-      title: 'SEVEN BREWERS',
-      name: 'GOLDEN MALTY',
-      type: 'ALE 5.5%',
-      vol03: '10',
-      vol05: '12',
-      vol1: '15'
+      country: 1,
+      title: 'BASTION',
+      name: 'JEDNO PROSZE',
+      type: 'STOUT 4.9%',
+      vol03: '12',
+      vol05: '15',
+      vol1: '24'
     },
     {
       cardNumber: 2,
-      title: 'SEVEN BREWERS',
-      name: 'GOLDEN MALTY',
-      type: 'ALE 5.5%',
+      country: 2,
+      title: 'CYDR',
+      name: 'FLIRT ANANAS',
+      type: '4.5%',
       vol03: '10',
-      vol05: '12',
-      vol1: '15'
+      vol05: '13',
+      vol1: '20'
     },
     {
       cardNumber: 3,
+      country: 1,
       title: 'SEVEN BREWERS',
       name: 'GOLDEN MALTY',
       type: 'ALE 5.5%',
@@ -29,87 +32,217 @@ const beerSlidesData = {
     },
     {
       cardNumber: 4,
-      title: 'SEVEN BREWERS',
-      name: 'GOLDEN MALTY',
-      type: 'ALE 5.5%',
-      vol03: '10',
-      vol05: '12',
-      vol1: '15'
+      country: 1,
+      title: 'ALEBROWAR',
+      name: 'HOP CONE...2',
+      type: 'HAZY APA-4.8%',
+      vol03: '12',
+      vol05: '15',
+      vol1: '24'
     },
     {
       cardNumber: 5,
-      title: 'SEVEN BREWERS',
-      name: 'GOLDEN MALTY',
-      type: 'ALE 5.5%',
-      vol03: '10',
-      vol05: '12',
-      vol1: '15'
+      country: 1,
+      title: 'ALEBROWAR',
+      name: 'ROWING JACK',
+      type: 'IPA 6.2%',
+      vol03: '12',
+      vol05: '15',
+      vol1: '24'
     },
     {
       cardNumber: 6,
-      title: 'SEVEN BREWERS',
-      name: 'GOLDEN MALTY',
-      type: 'ALE 5.5%',
-      vol03: '10',
-      vol05: '12',
-      vol1: '15'
+      country: 1,
+      title: 'LASOWIAK',
+      name: 'DOLARNIK',
+      type: 'AIPA 5.4%',
+      vol03: '12',
+      vol05: '15',
+      vol1: '24'
     },
     {
       cardNumber: 7,
-      title: 'SEVEN BREWERS',
-      name: 'GOLDEN MALTY',
-      type: 'ALE 5.5%',
-      vol03: '10',
-      vol05: '12',
-      vol1: '15'
+      country: 1,
+      title: 'NA JURZE',
+      name: 'JU-RAJSKA POMORANCZA',
+      type: 'PSZENICZNE 4,7%',
+      vol03: '12',
+      vol05: '15',
+      vol1: '24'
     },
     {
       cardNumber: 8,
-      title: 'SEVEN BREWERS',
-      name: 'GOLDEN MALTY',
-      type: 'ALE 5.5%',
-      vol03: '10',
-      vol05: '12',
-      vol1: '15'
+      country: 6,
+      title: 'MACCARI PROSECCO',
+      name: 'GLERA VENETO FRIZZANTE',
+      type: '10.5%',
+      vol03: '16',
+      vol05: '--',
+      vol1: '35'
     },
     {
       cardNumber: 9,
-      title: 'SEVEN BREWERS',
-      name: 'GOLDEN MALTY',
-      type: 'ALE 5.5%',
-      vol03: '10',
-      vol05: '12',
-      vol1: '15'
+      country: 3,
+      title: 'OPAT',
+      name: 'PREMIUM',
+      type: 'DARK 4.8%',
+      vol03: '8',
+      vol05: '10',
+      vol1: '16'
     },
     {
       cardNumber: 10,
-      title: 'SEVEN BREWERS',
-      name: 'GOLDEN MALTY',
-      type: 'ALE 5.5%',
-      vol03: '10',
-      vol05: '12',
-      vol1: '15'
+      country: 1,
+      title: 'TRADYCYNIS',
+      name: 'TRADYCYNIS',
+      type: 'LAGER 5.6%',
+      vol03: '8',
+      vol05: '10',
+      vol1: '16'
     },
     {
       cardNumber: 11,
-      title: 'SEVEN BREWERS',
-      name: 'GOLDEN MALTY',
-      type: 'ALE 5.5%',
-      vol03: '10',
+      country: 2,
+      title: 'KFRIEDENFELSER',
+      name: 'HEFE WEIZEN',
+      type: 'PSZENICZNE 5.2%',
+      vol03: '9',
       vol05: '12',
-      vol1: '15'
+      vol1: '18'
     },
     {
       cardNumber: 12,
-      title: 'SEVEN BREWERS',
-      name: 'GOLDEN MALTY',
-      type: 'ALE 5.5%',
-      vol03: '10',
-      vol05: '12',
-      vol1: '15'
+      country: 3,
+      title: 'BAKALAR',
+      name: 'SVETLY LEZAK',
+      type: 'PILS 4.9%',
+      vol03: '8',
+      vol05: '10',
+      vol1: '16'
     }
   ],
-  lwowska: []
+  lwowska: [
+    {
+      cardNumber: 1,
+      country: 7,
+      title: 'VICTORIA',
+      name: 'VICTORIA MALAGA',
+      type: 'LAGER 4.8%',
+      vol03: '10',
+      vol05: '13',
+      vol1: '20'
+    },
+    {
+      cardNumber: 2,
+      country: 2,
+      title: 'KAUNAS ALUS',
+      name: 'TRADYCYNIS',
+      type: 'JASNY LAGER 5.6%',
+      vol03: '9',
+      vol05: '12',
+      vol1: '18'
+    },
+    {
+      cardNumber: 3,
+      country: 3,
+      title: 'BERNARD',
+      name: '',
+      type: 'JASNY LAGER 4.9%',
+      vol03: '10',
+      vol05: '13',
+      vol1: '20'
+    },
+    {
+      cardNumber: 4,
+      country: 3,
+      title: 'BOGEMIA REGENT',
+      name: 'ESCOBEER',
+      type: 'IPA 5.6%',
+      vol03: '12',
+      vol05: '16',
+      vol1: '25'
+    },
+    {
+      cardNumber: 5,
+      country: 8,
+      title: 'INBEV',
+      name: 'HOEGAARDEN',
+      type: 'IPA 4.9%',
+      vol03: '13',
+      vol05: '17',
+      vol1: '26'
+    },
+    {
+      cardNumber: 6,
+      country: 4,
+      title: 'BERGQUELL',
+      name: 'KIRSH PORTER',
+      type: 'WIŚNIA 4.2%',
+      vol03: '12',
+      vol05: '15',
+      vol1: '24'
+    },
+    {
+      cardNumber: 7,
+      country: 1,
+      title: 'HOP CONE',
+      name: '№2',
+      type: 'HAZY APA 4.8%',
+      vol03: '12',
+      vol05: '16',
+      vol1: '25'
+    },
+    {
+      cardNumber: 8,
+      country: 1,
+      title: 'DZIKI WSCHÓD',
+      name: 'TOTEM',
+      type: 'DIPA 7.0%',
+      vol03: '13',
+      vol05: '17',
+      vol1: '26'
+    },
+    {
+      cardNumber: 9,
+      country: 3,
+      title: 'OPAT',
+      name: 'PREMIUM',
+      type: 'DARK LAGER 4.8%',
+      vol03: '9',
+      vol05: '12',
+      vol1: '18'
+    },
+    {
+      cardNumber: 10,
+      country: 2,
+      title: 'TRADYCYNIS FLIRT',
+      name: 'CYDR',
+      type: 'ANANASOWY 5.0%',
+      vol03: '10',
+      vol05: '13',
+      vol1: '20'
+    },
+    {
+      cardNumber: 11,
+      country: 1,
+      title: 'PALATUM',
+      name: 'ILLUZIO',
+      type: 'BELGIAN TRIPEL 8.2%',
+      vol03: '13',
+      vol05: '17',
+      vol1: '26'
+    },
+    {
+      cardNumber: 12,
+      country: 1,
+      title: 'TANK BASTERS',
+      name: 'ALONE IN SPACE',
+      type: 'HAZY IPA 6.1%',
+      vol03: '13',
+      vol05: '17',
+      vol1: '26'
+    }
+  ]
 }
 
 export { beerSlidesData };

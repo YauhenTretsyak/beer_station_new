@@ -1,19 +1,38 @@
+import flagsListData from "../../dataComponents/flagList.data";
 import styled from "styled-components";
 import { FlexContainer, ImageContainer } from "../../styles/StyledElements";
 import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 
-import PL from '../../assets/flags/PL.png';
+import { useEffect, useState } from "react";
 
 const SlideWrapper = styled.a`
   position: relative;
   display: block;
+  margin-top: 1.7rem;
+  margin-bottom: 1.7rem;
+  padding: 1.5rem 2.6rem;
   width: 100%;
-  max-width: 20rem;
+  max-width: 26rem;
+  min-height: 16.7rem;
   border-radius: 2.9rem;
   background-color: #312f2f;
   box-shadow: 0 0 .7rem .1rem ${({theme}) => theme.colors.orange_light};
 
+  ${ screen_breakpoints.sm } {
+    max-width: 23rem;
+  }
+
+  ${ screen_breakpoints.md } {
+    max-width: 26rem;
+  }
+
+  ${ screen_breakpoints.lg } {
+    max-width: 22.5rem;
+  }
+
   ${ screen_breakpoints.xl } {
+    margin-top: 0;
+    margin-bottom: 3rem;
     padding: 1.5rem 4rem;
     max-width: 29rem;
   }
@@ -43,11 +62,12 @@ const SlideWrapper = styled.a`
   }
 
   & p {
-    color: ${({theme}) => theme.colors.orange_light};
+    color: ${({theme}) => theme.colors.orange};
   }
 `
 const TopCardWrapper = styled(FlexContainer)`
   margin-bottom: 1.5rem;
+  justify-content: space-around;
 `
 const CountryWrapper = styled.div`
   margin-right: .5rem;
@@ -71,6 +91,19 @@ const SlideTitle = styled.p`
 `
 const Name = styled.p`
   margin-bottom: .7rem;
+  font-size: ${({nameRegularSize}) => nameRegularSize ?
+      '2.5rem'
+      :
+      '1.5rem'
+    };
+  
+  ${ screen_breakpoints.xl } {
+    font-size: ${({nameRegularSize}) => nameRegularSize ?
+      '2.5rem'
+      :
+      '2rem'
+    };
+  }
 `
 const BeerType = styled.p`
   font-size: 1.8rem;
@@ -80,22 +113,37 @@ const BottomCardWrapper = styled(FlexContainer)`
   border-top: .1rem solid ${({theme}) => theme.colors.red};
 `
 const CostInfoWrapper = styled(FlexContainer)`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+
+  ${ screen_breakpoints.xl } {
+    font-size: 1.8rem;
+  }
 `
 const BeerValue = styled.p``
 const BeerCost = styled.p``
 
-
 const BeerSlide = (props) => {
 
-  const { cardNumber, title, name, type, vol03, vol05, vol1 } = props;
+  const [nameRegularSize, setNameRegularSize] = useState(true);
+
+  const { cardNumber, title, name, type, vol03, vol05, vol1, country } = props;
+
+  const flagImage = flagsListData.filter(el => el.id === country).map(item => {
+    return item.country
+  })
+
+  useEffect(() => {
+    if(name.length >=14 ) {
+      setNameRegularSize(false)
+    }
+  }, [nameRegularSize, name.length])
 
   return(
     <SlideWrapper>
       <TopCardWrapper>
         <CountryWrapper>
           <CountryFlag>
-            <img src={ PL } alt="country's flag" />
+            <img src={ flagImage } alt="country's flag" />
           </CountryFlag>
           <CardNumber>
             #{ cardNumber }
@@ -105,7 +153,9 @@ const BeerSlide = (props) => {
           <SlideTitle>
             { title || '--' }
           </SlideTitle>
-          <Name>
+          <Name
+            nameRegularSize={ nameRegularSize }
+          >
             { name || '--' }
           </Name>
           <BeerType>
