@@ -11,11 +11,14 @@ const AdressInfoWrapper = styled(FlexContainer)`
     width: 63rem;
   }
 `
-const AdressInfo = styled.p`
+const AdressInfo = styled.a`
   margin-bottom: .5rem;
   width: 100%;
   max-width: 24.7rem;
   font-weight: ${({theme}) => theme.fontWeight.font_weightSemiBold};
+  color: #3d1a02;
+  text-shadow: .1rem .1rem .1rem #55290a;
+  text-decoration: none;
 
   ${ screen_breakpoint.md } {
     margin-bottom: 0;
