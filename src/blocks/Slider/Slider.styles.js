@@ -97,16 +97,22 @@ const ArrowBox = styled(ImageContainer)`
   }
 `
 const ArrowNext = styled(ArrowBox)`
+  outline: none;
   &:hover {
-    & > svg {
+    ${ screen_breakpoint.lg } {
+      & > svg {
       transform: translate(-35%, -50%);
+    }
     }
   }
 `
 const ArrowPrev = styled(ArrowBox)`
+  outline: none;
   &:hover {
-    & > svg {
-      transform: translate(-65%, -50%);
+    ${ screen_breakpoint.lg } {
+      & > svg {
+        transform: translate(-65%, -50%);
+      }
     }
   }
 `

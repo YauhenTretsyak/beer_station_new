@@ -3,7 +3,11 @@ import { FlexContainer, ImageContainer } from '../../styles/StyledElements';
 import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints';
 
 const NavigationWrapper = styled(FlexContainer)`
-  margin-bottom: 1.3rem;
+  margin-bottom: .8rem;
+
+  ${ screen_breakpoint.sm } {
+    margin-bottom: 1.3rem;
+  }
 `
 const IconsWrapper = styled(FlexContainer)`
   position: relative;
@@ -15,9 +19,11 @@ const IconsWrapper = styled(FlexContainer)`
 `
 const LogoImage = styled(ImageContainer)`
   position: relative;
+  margin-bottom: .8rem;
   width: 8rem;
 
   ${ screen_breakpoint.sm } {
+    margin-bottom: 0;
     width: 10rem;
   }
 
@@ -73,11 +79,10 @@ const MenuWrapper = styled(FlexContainer)`
 
   ${ screen_breakpoint.md } {
     display: flex;
-    width: 13rem;
+    width: 19rem;
   }
 
   ${ screen_breakpoint.xl } {
-    width: 20rem;
     font-size: 3.3rem;
   }
 `

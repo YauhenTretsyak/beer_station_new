@@ -5,7 +5,14 @@ import right_arrow from '../../assets/icons/arrow_right.svg';
 
 const HeaderContainer = styled(SectionContainer)``
 const AdressInfoWrapper = styled(FlexContainer)`
+  justify-content: center;
+  margin-bottom: .8rem;
   width: 43rem;
+
+  ${ screen_breakpoint.xss } {
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
 
   ${ screen_breakpoint.xl } {
     width: 63rem;
@@ -19,6 +26,11 @@ const AdressInfo = styled.a`
   color: #3d1a02;
   text-shadow: .1rem .1rem .1rem #55290a;
   text-decoration: none;
+  text-align: center;
+
+  ${ screen_breakpoint.xss } {
+    text-align: left;
+  }
 
   ${ screen_breakpoint.md } {
     margin-bottom: 0;
@@ -110,11 +122,14 @@ const LanguageSwicthButton = styled.button`
 
   &:hover {
     cursor: pointer;
-    font-size: 3.5rem;
-    padding-top: .5rem;
-    background-image: linear-gradient(#fff 22%, #f0d04b 77%);
-    font-weight: ${({theme}) => theme.fontWeight.font_weightBold};
-    text-shadow: .2rem .2rem .3rem #7f3607;
+
+    ${ screen_breakpoint.lg } {
+      font-size: 3.5rem;
+      padding-top: .5rem;
+      background-image: linear-gradient(#fff 22%, #f0d04b 77%);
+      font-weight: ${({theme}) => theme.fontWeight.font_weightBold};
+      text-shadow: .2rem .2rem .3rem #7f3607;
+    }
   }
 `
 

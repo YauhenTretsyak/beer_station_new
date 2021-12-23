@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Navigation } from '../index';
 import { SwitchContext } from '../../hoc/SwitchContext';
 
@@ -11,7 +11,6 @@ import {
   LanguageWrapper,
   LanguageSwicthButton,
 } from './Header.styled';
-import { useState } from 'react/cjs/react.development';
 
 
 const Header = () => {
@@ -19,7 +18,7 @@ const Header = () => {
   const { locationSwitch, langSwitch, LanguageSwitcher, LocationSwitcher } = useContext(SwitchContext);
   
   let langActive;
-  const linkKepna = 'https://g.page/beer-station-pl?share'
+  const linkKepna = 'https://www.google.com/maps/place/Beer+Station/@52.250727,21.038259,15z/data=!4m5!3m4!1s0x0:0xf65f5d6c9d579fb6!8m2!3d52.2507174!4d21.0382771'
   const linkLwowska = 'https://goo.gl/maps/dDsVtjJuHJ3BgTit9'
   const [locationAdress, setLocationAdress] = useState('Lwowska, 17')
   const [barAdress, setBarAdress] = useState('Warszawa, ul. Kępna, 15')

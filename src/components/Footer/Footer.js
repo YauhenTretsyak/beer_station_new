@@ -6,6 +6,11 @@ import styled from 'styled-components';
 import { SectionContainer } from '../../styles/StyledElements';
 
 const FooterContainer = styled(SectionContainer)``
+const FixBug = styled.p`
+  position: absolute;
+  left: -1000rem;
+  font-size: .1rem;
+`
 
 const Footer = () => {
 
@@ -27,7 +32,8 @@ const Footer = () => {
 
   return (
     <FooterContainer>
-      { footerInfo.title }
+      { footerInfo.title } 
+      <FixBug>р</FixBug>
     </FooterContainer>
   )
 }

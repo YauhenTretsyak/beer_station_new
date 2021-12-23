@@ -19,9 +19,10 @@ const ProductTitle = styled(SectionTitle)`
 
 const Product = () => {
 
-  let productTitle;
+  // let productTitle;
   const { langSwitch, locationSwitch } = useContext(SwitchContext);
   const [ isMobileMode, setIsMobileMode ] = useState(true);
+  const [productTitle, setProductTitle] = useState('Пиво');
 
   const [slidesData, setSlidesData] = useState(beerSlidesData.kepna);
   const [location, setLocation] = useState(' Kępna, 15');
@@ -48,17 +49,37 @@ const Product = () => {
     startWidth();
   })
   
-  switch (langSwitch) {
-    case 'PL':
-      productTitle = 'Piwo';
-      break
-    case 'RU': 
-      productTitle = 'Пиво';
-      break
-    default: 
-      productTitle = 'Piwo';
-      break
-  }
+  // switch (langSwitch) {
+  //   case 'PL':
+  //     // productTitle = 'Piwo';
+  //     setProductTitle('Piwo')
+  //     break
+  //   case 'RU': 
+  //     // productTitle = 'Пиво';
+  //     setProductTitle('Пиво')
+  //     break
+  //   default: 
+  //     // productTitle = 'Piwo';
+  //     setProductTitle('Piwo')
+  //     break
+  // }
+
+  useEffect(() => {
+    switch (langSwitch) {
+      case 'PL':
+        // productTitle = 'Piwo';
+        setProductTitle('Piwo')
+        break
+      case 'RU': 
+        // productTitle = 'Пиво';
+        setProductTitle('Пиво')
+        break
+      default: 
+        // productTitle = 'Piwo';
+        setProductTitle('Piwo')
+        break
+    }
+  }, [langSwitch])
 
   const slides = slidesData.map(item => {
     return(
