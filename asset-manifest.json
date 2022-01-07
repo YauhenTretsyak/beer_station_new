@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.js": "/static/js/main.5c50ee5f.chunk.js",
-    "main.js.map": "/static/js/main.5c50ee5f.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.83e93f6b.js",
-    "runtime-main.js.map": "/static/js/runtime-main.83e93f6b.js.map",
-    "static/css/2.5a193775.chunk.css": "/static/css/2.5a193775.chunk.css",
-    "static/js/2.9cf8d6ce.chunk.js": "/static/js/2.9cf8d6ce.chunk.js",
-    "static/js/2.9cf8d6ce.chunk.js.map": "/static/js/2.9cf8d6ce.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.5a193775.chunk.css.map": "/static/css/2.5a193775.chunk.css.map",
-    "static/js/2.9cf8d6ce.chunk.js.LICENSE.txt": "/static/js/2.9cf8d6ce.chunk.js.LICENSE.txt",
-    "static/media/BS_logo.cd9217e5.png": "/static/media/BS_logo.cd9217e5.png",
-    "static/media/arrow_right.0ad18c71.svg": "/static/media/arrow_right.0ad18c71.svg",
-    "static/media/main_background.12745ab3.jpg": "/static/media/main_background.12745ab3.jpg"
+    "main.js": "/beer_station_new/static/js/main.5c50ee5f.chunk.js",
+    "main.js.map": "/beer_station_new/static/js/main.5c50ee5f.chunk.js.map",
+    "runtime-main.js": "/beer_station_new/static/js/runtime-main.b140daba.js",
+    "runtime-main.js.map": "/beer_station_new/static/js/runtime-main.b140daba.js.map",
+    "static/css/2.5a193775.chunk.css": "/beer_station_new/static/css/2.5a193775.chunk.css",
+    "static/js/2.61e14940.chunk.js": "/beer_station_new/static/js/2.61e14940.chunk.js",
+    "static/js/2.61e14940.chunk.js.map": "/beer_station_new/static/js/2.61e14940.chunk.js.map",
+    "index.html": "/beer_station_new/index.html",
+    "static/css/2.5a193775.chunk.css.map": "/beer_station_new/static/css/2.5a193775.chunk.css.map",
+    "static/js/2.61e14940.chunk.js.LICENSE.txt": "/beer_station_new/static/js/2.61e14940.chunk.js.LICENSE.txt",
+    "static/media/BS_logo.cd9217e5.png": "/beer_station_new/static/media/BS_logo.cd9217e5.png",
+    "static/media/arrow_right.0ad18c71.svg": "/beer_station_new/static/media/arrow_right.0ad18c71.svg",
+    "static/media/main_background.12745ab3.jpg": "/beer_station_new/static/media/main_background.12745ab3.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.83e93f6b.js",
+    "static/js/runtime-main.b140daba.js",
     "static/css/2.5a193775.chunk.css",
-    "static/js/2.9cf8d6ce.chunk.js",
+    "static/js/2.61e14940.chunk.js",
     "static/js/main.5c50ee5f.chunk.js"
   ]
 }
