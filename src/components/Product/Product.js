@@ -1,16 +1,22 @@
 import { useContext, useEffect, useState } from 'react'
+import { NavLink } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid'
 import { SwitchContext } from '../../hoc/SwitchContext'
 import { BeerSlide, Slider } from '../../blocks/'
 import { SwiperSlide } from 'swiper/react/swiper-slide';
 import { beerSlidesData } from '../../dataComponents/beerSlides.data'
+
 import beerSliderSettings from '../../dataComponents/beerSliderSettings.data'
+
 
 import styled from 'styled-components'
 import { SectionContainer, SectionTitle } from '../../styles/StyledElements'
 
 const ProductContainer = styled(SectionContainer)``
 const ProductTitle = styled(SectionTitle)`
+  font-weight: ${({theme}) => theme.fontWeight.font_weightLight};
+  color: ${({theme}) => theme.colors.gold};
+
   & > span {
     text-shadow: .3rem .4rem .2rem ${({theme}) => theme.colors.black};
     color: #ea8f0a;
@@ -48,21 +54,6 @@ const Product = () => {
   window.addEventListener('resize', () => {
     startWidth();
   })
-  
-  // switch (langSwitch) {
-  //   case 'PL':
-  //     // productTitle = 'Piwo';
-  //     setProductTitle('Piwo')
-  //     break
-  //   case 'RU': 
-  //     // productTitle = 'Пиво';
-  //     setProductTitle('Пиво')
-  //     break
-  //   default: 
-  //     // productTitle = 'Piwo';
-  //     setProductTitle('Piwo')
-  //     break
-  // }
 
   useEffect(() => {
     switch (langSwitch) {
@@ -85,8 +76,9 @@ const Product = () => {
     return(
       <SwiperSlide key={ uuidv4() }>
         <BeerSlide 
+          linkToCard={ `/beer_page/${ locationSwitch ? 'kepna' : 'lwowska'}/${ item.id }` }
           country={ item.country }
-          cardNumber={ item.cardNumber }
+          cardNumber={ item.id }
           title={ item.title }
           name={ item.name }
           type={ item.type }

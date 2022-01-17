@@ -2,6 +2,7 @@ import styled from "styled-components";
 import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints';
 import { FlexContainer, SectionContainer } from "../../styles/StyledElements";
 import right_arrow from '../../assets/icons/arrow_right.svg';
+import mapsIcon from '../../assets/icons/maps-icon.svg';
 
 const HeaderContainer = styled(SectionContainer)``
 const AdressInfoWrapper = styled(FlexContainer)`
@@ -19,16 +20,20 @@ const AdressInfoWrapper = styled(FlexContainer)`
   }
 `
 const AdressInfo = styled.a`
+  position: relative;
   margin-bottom: .5rem;
   width: 100%;
-  max-width: 24.7rem;
+  max-width: 28.7rem;
   font-weight: ${({theme}) => theme.fontWeight.font_weightSemiBold};
-  color: #3d1a02;
-  text-shadow: .1rem .1rem .1rem #55290a;
+  /* color: #3d1a02; */
+  color: ${({theme}) => theme.colors.yellow};
+  text-shadow: .3rem .3rem .3rem #000;
   text-decoration: none;
   text-align: center;
 
   ${ screen_breakpoint.xss } {
+    padding-left: 3rem;
+    max-width: 24rem;
     text-align: left;
   }
 
@@ -38,8 +43,21 @@ const AdressInfo = styled.a`
   }
 
   ${ screen_breakpoint.xl } {
+    max-width: 28.7rem;
     margin-right: 1.6rem;
     font-size: 3rem;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 43%;
+    width: 2.8rem;
+    height: 2.8rem;
+    transform: translateY(-50%);
+    background-image: url(${ mapsIcon }) ;
+    background-size: contain;
   }
 `
 const Location = styled.p`
@@ -48,7 +66,10 @@ const Location = styled.p`
   padding-right: 2.9rem;
   padding-top: .4rem;
   text-transform: uppercase;
-  text-shadow: 0.2rem 0.2rem 0.2rem #ff9700;
+  /* text-shadow: 0.2rem 0.2rem 0.2rem #ff9700; */
+  /* color: ${({theme}) => theme.colors.yellow}; */
+  color: #ea8f0a;
+  text-shadow: .3rem .3rem .3rem #000;
 
   ${ screen_breakpoint.md } {
     font-size: 2.5rem;

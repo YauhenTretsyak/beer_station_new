@@ -24,8 +24,10 @@ const GlobalStyle = createGlobalStyle `
   }
 
   p {
-    color: #3d1a02;
-    text-shadow: .1rem .1rem .1rem #55290a;
+    // color: #3d1a02;
+    color: #cda500;
+    // text-shadow: .1rem .1rem .1rem #55290a;
+    text-shadow: .2rem .4rem .1rem #000;
   }
 
   @keyframes run {

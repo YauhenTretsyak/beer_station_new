@@ -1,7 +1,7 @@
 const beerSlidesData = {
   kepna: [
     {
-      cardNumber: 1,
+      id: 1,
       country: 1,
       title: 'BASTION',
       name: 'JEDNO PROSZE',
@@ -11,7 +11,7 @@ const beerSlidesData = {
       vol1: '24'
     },
     {
-      cardNumber: 2,
+      id: 2,
       country: 2,
       title: 'CYDR',
       name: 'FLIRT ANANAS',
@@ -21,7 +21,7 @@ const beerSlidesData = {
       vol1: '20'
     },
     {
-      cardNumber: 3,
+      id: 3,
       country: 1,
       title: 'SEVEN BREWERS',
       name: 'GOLDEN MALTY',
@@ -31,7 +31,7 @@ const beerSlidesData = {
       vol1: '15'
     },
     {
-      cardNumber: 4,
+      id: 4,
       country: 1,
       title: 'ALEBROWAR',
       name: 'HOP CONE...2',
@@ -41,7 +41,7 @@ const beerSlidesData = {
       vol1: '24'
     },
     {
-      cardNumber: 5,
+      id: 5,
       country: 1,
       title: 'ALEBROWAR',
       name: 'ROWING JACK',
@@ -51,7 +51,7 @@ const beerSlidesData = {
       vol1: '24'
     },
     {
-      cardNumber: 6,
+      id: 6,
       country: 1,
       title: 'LASOWIAK',
       name: 'DOLARNIK',
@@ -61,7 +61,7 @@ const beerSlidesData = {
       vol1: '24'
     },
     {
-      cardNumber: 7,
+      id: 7,
       country: 1,
       title: 'NA JURZE',
       name: 'JU-RAJSKA POMORANCZA',
@@ -71,7 +71,7 @@ const beerSlidesData = {
       vol1: '24'
     },
     {
-      cardNumber: 8,
+      id: 8,
       country: 6,
       title: 'MACCARI PROSECCO',
       name: 'GLERA VENETO FRIZZANTE',
@@ -81,7 +81,7 @@ const beerSlidesData = {
       vol1: '35'
     },
     {
-      cardNumber: 9,
+      id: 9,
       country: 3,
       title: 'OPAT',
       name: 'PREMIUM',
@@ -91,7 +91,7 @@ const beerSlidesData = {
       vol1: '16'
     },
     {
-      cardNumber: 10,
+      id: 10,
       country: 1,
       title: 'TRADYCYNIS',
       name: 'TRADYCYNIS',
@@ -101,7 +101,7 @@ const beerSlidesData = {
       vol1: '16'
     },
     {
-      cardNumber: 11,
+      id: 11,
       country: 2,
       title: 'KFRIEDENFELSER',
       name: 'HEFE WEIZEN',
@@ -111,7 +111,7 @@ const beerSlidesData = {
       vol1: '18'
     },
     {
-      cardNumber: 12,
+      id: 12,
       country: 3,
       title: 'BAKALAR',
       name: 'SVETLY LEZAK',
@@ -123,7 +123,7 @@ const beerSlidesData = {
   ],
   lwowska: [
     {
-      cardNumber: 1,
+      id: 1,
       country: 7,
       title: 'VICTORIA',
       name: 'VICTORIA MALAGA',
@@ -133,7 +133,7 @@ const beerSlidesData = {
       vol1: '20'
     },
     {
-      cardNumber: 2,
+      id: 2,
       country: 2,
       title: 'KAUNAS ALUS',
       name: 'TRADYCYNIS',
@@ -143,7 +143,7 @@ const beerSlidesData = {
       vol1: '18'
     },
     {
-      cardNumber: 3,
+      id: 3,
       country: 3,
       title: 'BERNARD',
       name: '',
@@ -153,7 +153,7 @@ const beerSlidesData = {
       vol1: '20'
     },
     {
-      cardNumber: 4,
+      id: 4,
       country: 3,
       title: 'BOGEMIA REGENT',
       name: 'ESCOBEER',
@@ -163,7 +163,7 @@ const beerSlidesData = {
       vol1: '25'
     },
     {
-      cardNumber: 5,
+      id: 5,
       country: 8,
       title: 'INBEV',
       name: 'HOEGAARDEN',
@@ -173,7 +173,7 @@ const beerSlidesData = {
       vol1: '26'
     },
     {
-      cardNumber: 6,
+      id: 6,
       country: 4,
       title: 'BERGQUELL',
       name: 'KIRSH PORTER',
@@ -183,7 +183,7 @@ const beerSlidesData = {
       vol1: '24'
     },
     {
-      cardNumber: 7,
+      id: 7,
       country: 1,
       title: 'HOP CONE',
       name: '№2',
@@ -193,7 +193,7 @@ const beerSlidesData = {
       vol1: '25'
     },
     {
-      cardNumber: 8,
+      id: 8,
       country: 1,
       title: 'DZIKI WSCHÓD',
       name: 'TOTEM',
@@ -203,7 +203,7 @@ const beerSlidesData = {
       vol1: '26'
     },
     {
-      cardNumber: 9,
+      id: 9,
       country: 3,
       title: 'OPAT',
       name: 'PREMIUM',
@@ -213,7 +213,7 @@ const beerSlidesData = {
       vol1: '18'
     },
     {
-      cardNumber: 10,
+      id: 10,
       country: 2,
       title: 'TRADYCYNIS FLIRT',
       name: 'CYDR',
@@ -223,7 +223,7 @@ const beerSlidesData = {
       vol1: '20'
     },
     {
-      cardNumber: 11,
+      id: 11,
       country: 1,
       title: 'PALATUM',
       name: 'ILLUZIO',
@@ -233,7 +233,7 @@ const beerSlidesData = {
       vol1: '26'
     },
     {
-      cardNumber: 12,
+      id: 12,
       country: 1,
       title: 'TANK BASTERS',
       name: 'ALONE IN SPACE',

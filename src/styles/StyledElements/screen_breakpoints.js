@@ -1,4 +1,4 @@
-const screen_breakpoint = {
+const screen_breakpoints = {
   xxs: '@media only screen and (min-width: 375px)',
   xs: '@media only screen and (min-width: 425px)',
   xss: '@media only screen and (min-width: 513px)',
@@ -9,4 +9,4 @@ const screen_breakpoint = {
   xxl: '@media only screen and (min-width: 1301px)',
 }
 
-export default screen_breakpoint;
+export default screen_breakpoints;

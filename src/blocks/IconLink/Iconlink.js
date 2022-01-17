@@ -4,7 +4,7 @@ import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints';
 const IconLinkWrapper = styled.a`
   display: block;
   width: 3rem;
-  color: ${({theme}) => theme.colors.brown};
+  color: ${({theme}) => theme.colors.yellow};
   transition: all .15s ease-in-out;
 
   ${ screen_breakpoint.md } {

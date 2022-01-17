@@ -21,6 +21,9 @@ const LogoImage = styled(ImageContainer)`
   position: relative;
   margin-bottom: .8rem;
   width: 8rem;
+  border-radius: 50%;
+  background-color: #fdfdfdb0; 
+  box-shadow: 0 0 1.2rem 0 beige;
 
   ${ screen_breakpoint.sm } {
     margin-bottom: 0;
@@ -43,6 +46,7 @@ const LogoImage = styled(ImageContainer)`
       font-family: "Jacques Francois Shadow";
       font-size: 3.8rem;
       transform: translateY(-50%);
+      color: ${({theme}) => theme.colors.yellow_light};
     }
     
   }
@@ -89,12 +93,12 @@ const MenuWrapper = styled(FlexContainer)`
 const MenuLink = styled.a`
   text-decoration: none;
   font-size: 4.5rem;
-  color: ${({theme}) => theme.colors.brown_dark};
+  color: ${({theme}) => theme.colors.gold};
   text-shadow: .1rem .2rem .2rem #431d00;
   transition: all .15s ease-in-out;
 
   &:hover {
-    color: ${({theme}) => theme.colors.gold};
+    color: ${({theme}) => theme.colors.yellow};
     text-shadow: 0.1rem 0.2rem .3rem #431d00;
   }
 `
