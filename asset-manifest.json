@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/beer_station_new/static/js/main.27ad82b0.chunk.js",
-    "main.js.map": "/beer_station_new/static/js/main.27ad82b0.chunk.js.map",
+    "main.js": "/beer_station_new/static/js/main.5cb2f785.chunk.js",
+    "main.js.map": "/beer_station_new/static/js/main.5cb2f785.chunk.js.map",
     "runtime-main.js": "/beer_station_new/static/js/runtime-main.b140daba.js",
     "runtime-main.js.map": "/beer_station_new/static/js/runtime-main.b140daba.js.map",
     "static/css/2.5a193775.chunk.css": "/beer_station_new/static/css/2.5a193775.chunk.css",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.b140daba.js",
     "static/css/2.5a193775.chunk.css",
     "static/js/2.7a996acd.chunk.js",
-    "static/js/main.27ad82b0.chunk.js"
+    "static/js/main.5cb2f785.chunk.js"
   ]
 }
