@@ -6,6 +6,7 @@ import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 const BeerCardWrapper = styled.div`
   position: relative;
   display: block;
+  margin-bottom: 2rem;
   padding: 1.5rem 2.6rem;
   width: 100%;
   max-width: 26rem;
@@ -21,6 +22,7 @@ const BeerCardWrapper = styled.div`
   }
 
   ${ screen_breakpoints.md } {
+    margin-bottom: 0;
     max-width: 26rem;
   }
 
@@ -41,12 +43,16 @@ const BeerCardWrapper = styled.div`
     top: 50%;
     left: 1.7rem;
     width: .3rem;
-    height: 20.3rem;
+    height: 10rem;
     border-radius: .4rem;
     background-color: ${({theme}) => theme.colors.brown_light};
     box-shadow: .5rem .5rem 0 0 #000;
     transform: translateY(-50%);
     transition: all .2s ease-in-out;
+
+    ${ screen_breakpoints.xl } {
+      height: 20.3rem;
+    }
   }
 
   &:after {
@@ -55,12 +61,16 @@ const BeerCardWrapper = styled.div`
     top: 50%;
     right: 1.7rem;
     width: .31rem;
-    height: 20.3rem;
+    height: 10rem;
     box-shadow: .5rem .5rem 0 0 #000;
     border-radius: .4rem;
     background-color: ${({theme}) => theme.colors.brown_light};
     transform: translateY(-50%);
     transition: all .2s ease-in-out;
+
+    ${ screen_breakpoints.xl } {
+      height: 20.3rem;
+    }
   }
 
   & p {
@@ -71,6 +81,7 @@ const BeerCardWrapper = styled.div`
 const TopCardWrapper = styled(FlexContainer)`
   margin-bottom: 1.5rem;
   justify-content: space-around;
+  flex-wrap: nowrap; 
 
   ${ screen_breakpoints.xl } {
     margin-bottom: 2rem;
