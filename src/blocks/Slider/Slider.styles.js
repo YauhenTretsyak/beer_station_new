@@ -75,6 +75,7 @@ const ArrowBox = styled(ImageContainer)`
   width: 32px;
   height: 32px;
   outline: none;
+  color: ${({theme}) => theme.colors.gold};
 
   ${ screen_breakpoint.xl } {
     display: ${({isMobileMode}) => isMobileMode ? 
