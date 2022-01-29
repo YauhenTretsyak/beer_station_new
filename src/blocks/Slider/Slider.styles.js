@@ -98,6 +98,9 @@ const ArrowBox = styled(ImageContainer)`
   }
 `
 const ArrowNext = styled(ArrowBox)`
+  display: ${({isMobileMode}) => isMobileMode ? 
+    'flex' : 'none'
+  };
   outline: none;
   &:hover {
     ${ screen_breakpoint.lg } {
@@ -108,6 +111,9 @@ const ArrowNext = styled(ArrowBox)`
   }
 `
 const ArrowPrev = styled(ArrowBox)`
+  display: ${({isMobileMode}) => isMobileMode ? 
+    'flex' : 'none'
+  };
   outline: none;
   &:hover {
     ${ screen_breakpoint.lg } {

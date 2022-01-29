@@ -105,9 +105,10 @@ const CountryFlag = styled(ImageContainer)`
 `
 const CardNumber = styled.p`
   text-align: center;
+  color: ${({theme}) => theme.colors.white} !important;
 
   ${ screen_breakpoints.xl } {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
   }
 `
 const BeerInfoWrapper = styled.div`

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { FlexContainer, ImageContainer } from "../../styles/StyledElements";
 import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
 const Name = styled.p`
   margin-bottom: .7rem;
@@ -144,6 +144,8 @@ const CountryFlag = styled(ImageContainer)`
 `
 const CardNumber = styled.p`
   text-align: center;
+  font-size: 3.7rem;
+  color: ${({theme}) => theme.colors.white} !important;
 `
 const BeerInfoWrapper = styled.div`
   text-align: center;
@@ -186,8 +188,10 @@ const BeerSlide = (props) => {
   useEffect(() => {
     if(name.length >=14 ) {
       setNameRegularSize(false)
+    } else {
+      setNameRegularSize(true)
     }
-  }, [nameRegularSize, name.length])
+  }, [name])
 
   return(
     <SlideWrapper to={`${ linkToCard }`}>
@@ -244,4 +248,4 @@ const BeerSlide = (props) => {
   )
 }
 
-export default BeerSlide;
+export default memo(BeerSlide);

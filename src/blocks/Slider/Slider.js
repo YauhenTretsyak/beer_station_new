@@ -19,7 +19,6 @@ const arrowNextIcon = <svg height="32" viewBox="0 0 32 32" width="32" xmlns="htt
 const arrowPrevIcon = <svg height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg"><path d="m19 9 7.0710678 7.0710678-7.0710678 7.0710678-1.4142136-1.4142135 4.6562136-4.6569221-16.242.0000678v-2l16.242-.0000678-4.6562136-4.6567864z" fill="currentColor" transform="matrix(-1 0 0 1 32.071068 0)"/></svg>;
 
 
-
 const Slider = (props) => {
 
   const { sliderSettings, slides, isMobileMode } = props;
@@ -43,13 +42,9 @@ const Slider = (props) => {
     }
   }
 
-
   useEffect(() => {
     initSlider()
   }, [isMobileMode])
-
-    
-  // console.log(sliderEl.current)
 
   return(
     <CarouselWrapper 
@@ -70,10 +65,10 @@ const Slider = (props) => {
         <Dot className={ dotsClassName } />
       </DotsWrapper>
       <ArrowsBlock>
-        <ArrowPrev className={ arrowPrevClassName }>
+        <ArrowPrev isMobileMode={ isMobileMode } className={ arrowPrevClassName }>
           { arrowPrevIcon }
         </ArrowPrev>
-        <ArrowNext className={ arrowNextClassName }>
+        <ArrowNext isMobileMode={ isMobileMode } className={ arrowNextClassName }>
           { arrowNextIcon }
         </ArrowNext>
       </ArrowsBlock>
