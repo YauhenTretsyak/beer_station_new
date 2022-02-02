@@ -23,7 +23,7 @@ function App() {
             description='beerstation'
             faviconUrl={ favicon }
           />
-          <Header />
+          {/* <Header /> */}
           <Routes>
             <Route path='/' element={ <MainPage/> } />
             <Route path='/beer_page' element={ <BeerCardPage/> }>

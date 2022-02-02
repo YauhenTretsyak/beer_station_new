@@ -22,27 +22,45 @@ const navigationData = {
   },
 
   menu: {
-    PL: [
-      {
-        linkText: 'Piwo',
-        link: '/'
-      },
-      {
-        linkText: 'Galeria',
-        link: '/'
-      }
-    ],
+    main_page : {
+      PL: [
+        {
+          linkText: 'Piwo',
+          link: '/'
+        },
+        {
+          linkText: 'Galeria',
+          link: '/'
+        }
+      ],
+  
+      RU: [
+        {
+          linkText: 'Пиво',
+          link: '/'
+        },
+        {
+          linkText: 'Галерея',
+          link: '/'
+        }
+      ]
+    },
 
-    RU: [
-      {
-        linkText: 'Пиво',
-        link: '/'
-      },
-      {
-        linkText: 'Галерея',
-        link: '/'
-      }
-    ]
+    beer_card_page : {
+      PL: [
+        {
+          linkText: 'Główna',
+          link: '/'
+        },
+      ],
+  
+      RU: [
+        {
+          linkText: 'Главная',
+          link: '/'
+        },
+      ]
+    }
   }
 }
 

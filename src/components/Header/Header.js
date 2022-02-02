@@ -13,8 +13,9 @@ import {
 } from './Header.styled';
 
 
-const Header = () => {
-
+const Header = (props) => {
+  
+  const { navigationLinksData, mainPage } = props;
   const { locationSwitch, langSwitch, LanguageSwitcher, LocationSwitcher } = useContext(SwitchContext);
   
   let langActive;
@@ -50,7 +51,10 @@ const Header = () => {
   return (
     <HeaderContainer>
       
-      <Navigation />
+      <Navigation 
+        navigationLinksData={ navigationLinksData }
+        mainPage={ mainPage }
+      />
       
       <FlexContainer>
         <AdressInfoWrapper>

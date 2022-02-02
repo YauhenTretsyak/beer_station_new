@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { NavLink } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import { IconLink } from '../../blocks';
 import { SwitchContext } from '../../hoc/SwitchContext';
@@ -27,7 +28,9 @@ const icons = socialsData.map(item => {
   )
 })
 
-const Navigation = () => {
+const Navigation = (props) => {
+  const { navigationLinksData, mainPage } = props;
+
   const { locationSwitch, langSwitch } = useContext(SwitchContext);
   const locationHeaderData = locationSwitch ? navigationData.kepna : navigationData.lwowska;
   let locationInfo;
@@ -36,22 +39,30 @@ const Navigation = () => {
   switch (langSwitch) {
     case 'PL':
       locationInfo = locationHeaderData.PL
-      menuInfo = navigationData.menu.PL
+      menuInfo = navigationLinksData.PL
       break
     case 'RU':
       locationInfo = locationHeaderData.RU
-      menuInfo = navigationData.menu.RU
+      menuInfo = navigationLinksData.RU
       break
     default: 
       locationInfo = locationHeaderData.PL
-      menuInfo = navigationData.menu.PL
+      menuInfo = navigationLinksData.PL
   }
 
   const MenuLinks = menuInfo.map(item => {
     return(
-      <MenuLink
+      mainPage ? 
+      <MenuLink 
         key={ uuidv4() }
         href={ item.link }
+      >
+        { item.linkText }
+      </MenuLink>
+      :
+      <MenuLink as={NavLink}
+        key={ uuidv4() }
+        to={ item.link }
       >
         { item.linkText }
       </MenuLink>
