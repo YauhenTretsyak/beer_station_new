@@ -1,10 +1,9 @@
-import { memo } from "react";
 import styled from "styled-components";
-import { ImageContainer } from '../../styles/StyledElements/'
+import { ImageContainer } from '../../styles/StyledElements'
 import slideBg from '../../assets/slide_bg.jpg';
 import screen_breakpoints from "../../styles/StyledElements/screen_breakpoints";
 
-const GallerSlideWrapper = styled(ImageContainer)`
+const Wrapper = styled(ImageContainer)`
   margin: .6rem;
   padding: 1rem;
   width: 100%;
@@ -36,14 +35,6 @@ const GallerSlideWrapper = styled(ImageContainer)`
   }
 `
 
-const GallerySlide = (props) => {
-  const { slideImage } = props;
+const Image = styled.img``
 
-  return(
-    <GallerSlideWrapper>
-      <img src={ slideImage } alt="BS's slide"/>
-    </GallerSlideWrapper>
-  )
-}
-
-export default memo(GallerySlide);
+export { Wrapper, Image };

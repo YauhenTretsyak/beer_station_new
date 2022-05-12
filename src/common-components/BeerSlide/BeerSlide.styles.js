@@ -1,10 +1,7 @@
-import { NavLink } from "react-router-dom";
-import flagsListData from "../../dataComponents/flagList.data";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 import { FlexContainer, ImageContainer } from "../../styles/StyledElements";
-import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
-
-import { memo, useEffect, useState } from "react";
+import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints';
 
 const Name = styled.p`
   margin-bottom: .7rem;
@@ -33,7 +30,7 @@ const Name = styled.p`
   }
 `
 
-const SlideWrapper = styled(NavLink)`
+const Slide = styled(NavLink)`
   position: relative;
   display: block;
   margin-top: 1.7rem;
@@ -123,14 +120,14 @@ const SlideWrapper = styled(NavLink)`
     color: ${({theme}) => theme.colors.orange};
   }
 `
-const TopCardWrapper = styled(FlexContainer)`
+const TopWrapper = styled(FlexContainer)`
   margin-bottom: 1.5rem;
   justify-content: space-around;
 `
 const CountryWrapper = styled.div`
   margin-right: .5rem;
 `
-const CountryFlag = styled(ImageContainer)`
+const Flag = styled(ImageContainer)`
   width: 5rem;
 
   ${ screen_breakpoints.xl } {
@@ -150,7 +147,7 @@ const CardNumber = styled.p`
 const BeerInfoWrapper = styled.div`
   text-align: center;
 `
-const SlideTitle = styled.p`
+const Title = styled.p`
   font-size: 1.9rem;
   margin-bottom: .7rem;
 `
@@ -158,11 +155,11 @@ const SlideTitle = styled.p`
 const BeerType = styled.p`
   font-size: 1.8rem;
 `
-const BottomCardWrapper = styled(FlexContainer)`
+const BottomWrapper = styled(FlexContainer)`
   padding-top: 1.5rem;
   border-top: .1rem solid ${({theme}) => theme.colors.red};
 `
-const CostInfoWrapper = styled(FlexContainer)`
+const CostInfo = styled(FlexContainer)`
   font-size: 1.6rem;
 
   ${ screen_breakpoints.xl } {
@@ -172,80 +169,18 @@ const CostInfoWrapper = styled(FlexContainer)`
 const BeerValue = styled.p``
 const BeerCost = styled.p``
 
-
-
-
-const BeerSlide = (props) => {
-
-  const [nameRegularSize, setNameRegularSize] = useState(true);
-
-  const { linkToCard, cardNumber, title, name, type, vol03, vol05, vol1, country } = props;
-
-  const flagImage = flagsListData.filter(el => el.id === country).map(item => {
-    return item.country
-  })
-
-  useEffect(() => {
-    if(name.length >=14 ) {
-      setNameRegularSize(false)
-    } else {
-      setNameRegularSize(true)
-    }
-  }, [name])
-
-  return(
-    <SlideWrapper to={`${ linkToCard }`}>
-      <TopCardWrapper>
-        <CountryWrapper>
-          <CountryFlag>
-            <img src={ flagImage } alt="country's flag" />
-          </CountryFlag>
-          <CardNumber>
-            #{ cardNumber }
-          </CardNumber>
-        </CountryWrapper>
-        <BeerInfoWrapper>
-          <SlideTitle>
-            { title || '--' }
-          </SlideTitle>
-          <Name
-            nameRegularSize={ nameRegularSize }
-          >
-            { name || '--' }
-          </Name>
-          <BeerType>
-            { type || '--' }
-          </BeerType>
-        </BeerInfoWrapper>
-      </TopCardWrapper>
-      <BottomCardWrapper>
-        <CostInfoWrapper>
-          <BeerValue>
-            0.3L - 
-          </BeerValue>
-          <BeerCost>
-            { vol03 || '--' } zł
-          </BeerCost>
-        </CostInfoWrapper>
-        <CostInfoWrapper>
-          <BeerValue>
-            0.5L - 
-          </BeerValue>
-          <BeerCost>
-            { vol05 || '--' } zł
-          </BeerCost>
-        </CostInfoWrapper>
-        <CostInfoWrapper>
-          <BeerValue>
-            1L - 
-          </BeerValue>
-          <BeerCost>
-             { vol1 || '--' } zł
-          </BeerCost>
-        </CostInfoWrapper>
-      </BottomCardWrapper>
-    </SlideWrapper>
-  )
+export {
+  Name,
+  Slide,
+  TopWrapper,
+  CountryWrapper,
+  Flag,
+  CardNumber,
+  BeerInfoWrapper,
+  Title,
+  BeerType,
+  BottomWrapper,
+  CostInfo,
+  BeerValue,
+  BeerCost
 }
-
-export default memo(BeerSlide);

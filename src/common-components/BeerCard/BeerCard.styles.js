@@ -1,9 +1,8 @@
-import flagsListData from "../../dataComponents/flagList.data";
 import styled from "styled-components";
 import { FlexContainer, ImageContainer } from "../../styles/StyledElements";
-import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
+import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints';
 
-const BeerCardWrapper = styled.div`
+const Card = styled.div`
   position: relative;
   display: block;
   margin-bottom: 2rem;
@@ -78,7 +77,7 @@ const BeerCardWrapper = styled.div`
       transition: all .2s ease-in-out;
     }
 `
-const TopCardWrapper = styled(FlexContainer)`
+const TopWrapper = styled(FlexContainer)`
   margin-bottom: 1.5rem;
   justify-content: space-around;
   flex-wrap: nowrap; 
@@ -87,10 +86,10 @@ const TopCardWrapper = styled(FlexContainer)`
     margin-bottom: 2rem;
   }
 `
-const CountryWrapper = styled.div`
+const Country = styled.div`
   margin-right: .5rem;
 `
-const CountryFlag = styled(ImageContainer)`
+const Flag = styled(ImageContainer)`
   width: 5rem;
 
   ${ screen_breakpoints.xl } {
@@ -111,13 +110,13 @@ const CardNumber = styled.p`
     font-size: 4.5rem;
   }
 `
-const BeerInfoWrapper = styled.div`
+const Inner = styled.div`
   text-align: center;
   width: 100%;
   max-width: 29rem;
   color: #d99f47;
 `
-const BeerCardTitle = styled.p`
+const Title = styled.p`
   font-size: 1.9rem;
   margin-bottom: .7rem;
   color: #d99f47;
@@ -154,7 +153,7 @@ const BeerType = styled.p`
     font-size: 3rem;
   }
 `
-const BottomCardWrapper = styled(FlexContainer)`
+const BottomWrapper = styled(FlexContainer)`
   padding-top: 1.5rem;
   border-top: .1rem solid ${({theme}) => theme.colors.red};
 
@@ -162,7 +161,7 @@ const BottomCardWrapper = styled(FlexContainer)`
     padding-top: 2rem;
   }
 `
-const CostInfoWrapper = styled(FlexContainer)`
+const CostInfo = styled(FlexContainer)`
   font-size: 1.6rem;
 
   ${ screen_breakpoints.xl } {
@@ -176,65 +175,18 @@ const BeerCost = styled.p`
   color: #ffeb00;
 `
 
-
-const BeerCard = (props) => {
-
-  const { cardNumber, title, name, type, vol03, vol05, vol1, country } = props;
-  const flagImage = flagsListData.filter(el => el.id === country).map(item => {
-    return item.country
-  })
-
-  return(
-    <BeerCardWrapper>
-            <TopCardWrapper>
-        <CountryWrapper>
-          <CountryFlag>
-            <img src={ flagImage } alt="country's flag" />
-          </CountryFlag>
-          <CardNumber>
-            #{ cardNumber }
-          </CardNumber>
-        </CountryWrapper>
-        <BeerInfoWrapper>
-          <BeerCardTitle>
-            { title || '--' }
-          </BeerCardTitle>
-          <Name>
-            { name || '--' }
-          </Name>
-          <BeerType>
-            { type || '--' }
-          </BeerType>
-        </BeerInfoWrapper>
-      </TopCardWrapper>
-      <BottomCardWrapper>
-        <CostInfoWrapper>
-          <BeerValue>
-            0.3L - 
-          </BeerValue>
-          <BeerCost>
-            { vol03 || '--' } zł
-          </BeerCost>
-        </CostInfoWrapper>
-        <CostInfoWrapper>
-          <BeerValue>
-            0.5L - 
-          </BeerValue>
-          <BeerCost>
-            { vol05 || '--' } zł
-          </BeerCost>
-        </CostInfoWrapper>
-        <CostInfoWrapper>
-          <BeerValue>
-            1L - 
-          </BeerValue>
-          <BeerCost>
-             { vol1 || '--' } zł
-          </BeerCost>
-        </CostInfoWrapper>
-      </BottomCardWrapper>
-    </BeerCardWrapper>
-  )
+export {
+  Card,
+  TopWrapper,
+  Country,
+  Flag,
+  CardNumber,
+  Inner,
+  Title,
+  Name,
+  BeerType,
+  BottomWrapper,
+  CostInfo,
+  BeerValue,
+  BeerCost
 }
-
-export default BeerCard;

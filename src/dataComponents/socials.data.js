@@ -1,4 +1,4 @@
-import { SocialIcon } from "../blocks";
+import { SocialIcon } from "../common-components";
 import { instagram, facebook } from "./svgIcons";
 
 

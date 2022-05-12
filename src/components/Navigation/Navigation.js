@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { NavLink } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
-import { IconLink } from '../../blocks';
+import { IconLink } from '../../common-components';
 import { SwitchContext } from '../../hoc/SwitchContext';
 import navigationData from '../../dataComponents/navigation.data';
 import socialsData from '../../dataComponents/socials.data';

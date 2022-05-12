@@ -5,7 +5,7 @@ import GlobalStyle from './styles/GlobalStyle';
 import { Header, Footer } from './components/'
 import { MainPage, BeerCardPage } from './pages';
 import { HelmetProvider } from 'react-helmet-async';
-import { HelmetBlock } from './blocks/index';
+import { HelmetBlock } from './common-components/index';
 import { Routes, Route } from "react-router-dom";
 import favicon from './assets/favicon.png';
 

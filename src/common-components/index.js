@@ -1,6 +1,6 @@
 import HelmetBlock from "./HelmetBlock/HelmetBlock";
 import SocialIcon from "./SocialIcon/SocialIcon";
-import IconLink from "./IconLink/Iconlink";
+import IconLink from "./IconLink/IconLink";
 import BeerSlide from "./BeerSlide/BeerSlide";
 import Slider from "./Slider/Slider"
 import BeerCard from "./BeerCard/BeerCard";
