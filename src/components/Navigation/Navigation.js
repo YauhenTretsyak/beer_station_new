@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { NavLink } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import { IconLink } from '../../common-components';
-import { SwitchContext } from '../../hoc/SwitchContext';
+import { SwitchContext } from '../../context/SwitchContext';
 import navigationData from '../../dataComponents/navigation.data';
 import socialsData from '../../dataComponents/socials.data';
 
@@ -16,7 +16,7 @@ import {
   WorkTime, 
   MenuWrapper,
   MenuLink
-} from './Navigation.style';
+} from './Navigation.styles';
 
 const icons = socialsData.map(item => {
   return (

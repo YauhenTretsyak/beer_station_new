@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { v4 as uuidv4 } from 'uuid'
-import { SwitchContext } from '../../hoc/SwitchContext'
+import { SwitchContext } from '../../context/SwitchContext'
 import { Slider, GallerySlide } from "../../common-components";
 import { SwiperSlide } from 'swiper/react/swiper-slide';
 import gallerySliderSettings from "../../dataComponents/gallerySliderSettings.data";

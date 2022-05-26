@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { SwitchContext } from '../../hoc/SwitchContext';
+import { SwitchContext } from '../../context/SwitchContext';
 import { footerData } from '../../dataComponents/footer.data.js';
 import footerLogo from '../../assets/BS_logo_footer.png';
 

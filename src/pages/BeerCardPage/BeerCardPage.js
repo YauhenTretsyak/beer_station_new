@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useParams } from "react-router-dom";
-import { SwitchContext } from '../../hoc/SwitchContext';
+import { SwitchContext } from '../../context/SwitchContext';
 import { Header } from '../../components/index';
 import { BeerCard } from '../../common-components'
 import { beerSlidesData } from "../../dataComponents/beerSlides.data";

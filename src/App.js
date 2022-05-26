@@ -1,8 +1,8 @@
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
-import SwitchContextProvider from './hoc/SwitchContext';
+import SwitchContextProvider from './context/SwitchContext';
 import GlobalStyle from './styles/GlobalStyle';
-import { Header, Footer } from './components/'
+import { Footer } from './components/'
 import { MainPage, BeerCardPage } from './pages';
 import { HelmetProvider } from 'react-helmet-async';
 import { HelmetBlock } from './common-components/index';

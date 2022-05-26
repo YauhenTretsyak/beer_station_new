@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
+import useLocation from '../../hooks/useLocation';
 import { Navigation } from '../index';
-import { SwitchContext } from '../../hoc/SwitchContext';
+import { SwitchContext } from '../../context/SwitchContext';
 
 import { FlexContainer } from "../../styles/StyledElements";
 import {
@@ -10,13 +11,20 @@ import {
   Location,
   LanguageWrapper,
   LanguageSwicthButton,
-} from './Header.styled';
+} from './Header.styles';
 
+const locationAddresses = {
+  kepna: "Kępna 15",
+  lwowska: "Lwowska 17",
+  ursynow: "K.E. Narodowej 47"
+}
 
 const Header = (props) => {
   
   const { navigationLinksData, mainPage } = props;
   const { locationSwitch, langSwitch, LanguageSwitcher, LocationSwitcher } = useContext(SwitchContext);
+  const address = useLocation(locationAddresses, 'kepna');
+  console.log(address);
   
   let langActive;
   const linkKepna = 'https://www.google.com/maps/place/Beer+Station/@52.250727,21.038259,15z/data=!4m5!3m4!1s0x0:0xf65f5d6c9d579fb6!8m2!3d52.2507174!4d21.0382771'
