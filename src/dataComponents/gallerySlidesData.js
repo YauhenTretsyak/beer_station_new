@@ -27,6 +27,17 @@ const gallerySlidesData = {
     // { slide: lw_slide_4 },
     // { slide: lw_slide_5 },
     // { slide: lw_slide_6 },
+  ],
+
+  ursynow: [
+    { slide: lw_slide_1 },
+    { slide: lw_slide_2 },
+    { slide: lw_slide_3 },
+    { slide: kn_slide_4 },
+    { slide: kn_slide_5 },
+    // { slide: lw_slide_4 },
+    // { slide: lw_slide_5 },
+    // { slide: lw_slide_6 },
   ]
 }
 

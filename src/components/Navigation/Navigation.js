@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { NavLink } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
+import useLocation from '../../hooks/useLocation';
 import { IconLink } from '../../common-components';
 import { SwitchContext } from '../../context/SwitchContext';
 import navigationData from '../../dataComponents/navigation.data';
@@ -32,7 +33,7 @@ const Navigation = (props) => {
   const { navigationLinksData, mainPage } = props;
 
   const { locationSwitch, langSwitch } = useContext(SwitchContext);
-  const locationHeaderData = locationSwitch ? navigationData.kepna : navigationData.lwowska;
+  const locationHeaderData = useLocation(navigationData, locationSwitch.location);
   let locationInfo;
   let menuInfo;
 

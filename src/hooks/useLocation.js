@@ -1,21 +1,21 @@
 const useLocation = (location, street) => {
-  let address;
+  let addressData;
   switch (street.toLowerCase()) {
     case 'kepna':
-      address = location.kepna
+      addressData = location.kepna
       break
     case 'lwowska':
-      address = location.lwowska
+      addressData = location.lwowska
       break
     case 'ursynow':
-      address = location.ursynow
+      addressData = location.ursynow
       break
     default: 
-    address = location.kepna
+    addressData = location.kepna
       break
   }
 
-  return address
+  return addressData
 }
 
 export default useLocation;

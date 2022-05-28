@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints';
+import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints';
 import { FlexContainer, SectionContainer } from "../../styles/StyledElements";
 import right_arrow from '../../assets/icons/arrow_right.svg';
 import mapsIcon from '../../assets/icons/maps-icon.svg';
@@ -7,43 +7,53 @@ import mapsIcon from '../../assets/icons/maps-icon.svg';
 const HeaderContainer = styled(SectionContainer)``
 const AdressInfoWrapper = styled(FlexContainer)`
   justify-content: center;
+  flex-direction: column;
   margin-bottom: .8rem;
-  width: 43rem;
+  width: 100%;
+  max-width: 43rem;
 
-  ${ screen_breakpoint.xss } {
+  ${ screen_breakpoints.xss } {
     justify-content: space-between;
     margin-bottom: 0;
   }
 
-  ${ screen_breakpoint.xl } {
-    width: 63rem;
+  ${ screen_breakpoints.xl } {
+    flex-direction: row;
+    max-width: 56rem;
+    min-height: 5rem;
+  }
+
+  ${ screen_breakpoints.xxl } {
+    flex-direction: row;
+    max-width: 63rem;
+    min-height: 5rem;
   }
 `
 const AdressInfo = styled.a`
   position: relative;
   margin-bottom: .5rem;
+  padding-left: 3rem;
   width: 100%;
-  max-width: 28.7rem;
+  max-width: fit-content;
   font-weight: ${({theme}) => theme.fontWeight.font_weightSemiBold};
-  /* color: #3d1a02; */
-  color: ${({theme}) => theme.colors.yellow};
   text-shadow: .3rem .3rem .3rem #000;
   text-decoration: none;
   text-align: center;
+  color: ${({theme}) => theme.colors.yellow};
 
-  ${ screen_breakpoint.xss } {
+  ${ screen_breakpoints.xss } {
     padding-left: 3rem;
     max-width: 24rem;
     text-align: left;
   }
 
-  ${ screen_breakpoint.md } {
+  ${ screen_breakpoints.md } {
     margin-bottom: 0;
     font-size: 2.5rem;
   }
 
-  ${ screen_breakpoint.xl } {
-    max-width: 28.7rem;
+  ${ screen_breakpoints.xl } {
+    max-width: 32.7rem;
     margin-right: 1.6rem;
     font-size: 3rem;
   }
@@ -71,11 +81,11 @@ const Location = styled.p`
   color: #ea8f0a;
   text-shadow: .3rem .3rem .3rem #000;
 
-  ${ screen_breakpoint.md } {
+  ${ screen_breakpoints.md } {
     font-size: 2.5rem;
   }
 
-  ${ screen_breakpoint.xl } {
+  ${ screen_breakpoints.xl } {
     padding-top: .2rem;
     font-size: 2.6rem;
   }
@@ -111,7 +121,26 @@ const Location = styled.p`
 
 
 `
-const LanguageWrapper = styled(FlexContainer)`
+const Wrapper = styled(FlexContainer)`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 40rem;
+
+  ${ screen_breakpoints.xl } {
+   max-width: 32rem;
+  }
+
+  ${ screen_breakpoints.xxl } {
+   max-width: 37.8rem;
+  }
+`
+const Telephone = styled.a`
+  text-decoration: none;
+  color: #cda500;
+  text-shadow: .2rem .4rem .1rem #000;
+`
+const LangWrapper = styled(FlexContainer)`
   display: flex;
   justify-content: space-between;
   margin: auto;
@@ -144,7 +173,7 @@ const LanguageSwicthButton = styled.button`
   &:hover {
     cursor: pointer;
 
-    ${ screen_breakpoint.lg } {
+    ${ screen_breakpoints.lg } {
       font-size: 3.5rem;
       padding-top: .5rem;
       background-image: linear-gradient(#fff 22%, #f0d04b 77%);
@@ -159,6 +188,8 @@ export {
   AdressInfoWrapper,
   AdressInfo,
   Location,
-  LanguageWrapper,
+  Wrapper,
+  Telephone,
+  LangWrapper,
   LanguageSwicthButton,
 }

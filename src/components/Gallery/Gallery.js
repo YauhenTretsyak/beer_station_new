@@ -8,6 +8,7 @@ import gallerySlidesData from "../../dataComponents/gallerySlidesData";
 
 import styled from 'styled-components';
 import { SectionContainer, SectionTitle } from "../../styles/StyledElements";
+import useLocation from "../../hooks/useLocation";
 
 const GalleryContainer = styled(SectionContainer)``
 
@@ -15,19 +16,21 @@ const GalleryTitle = styled(SectionTitle)``
 
 const Gallery = () => {
   const { langSwitch, locationSwitch } = useContext(SwitchContext);
-  const [slidesData, setSlidesData] = useState(gallerySlidesData.kepna);
-  const [galleryTitle, setGalleryTitle] = useState('Галерея');
-  const [location, setLocation] = useState(' Kępna, 15');
+  // const [slidesData, setSlidesData] = useState(gallerySlidesData.kepna);
 
-  useEffect(() => {
-    if(locationSwitch) {
-      setSlidesData(gallerySlidesData.kepna)
-      setLocation(' Kępna, 15');
-    } else {
-      setSlidesData(gallerySlidesData.lwowska)
-      setLocation(' Lwowska, 17');
-    }
-  }, [locationSwitch])
+  const slidesData = useLocation(gallerySlidesData, locationSwitch.location)
+  const [galleryTitle, setGalleryTitle] = useState('Галерея');
+  // const [location, setLocation] = useState(' Kępna, 15');
+
+  // useEffect(() => {
+  //   if(locationSwitch) {
+  //     setSlidesData(gallerySlidesData.kepna)
+  //     setLocation(' Kępna, 15');
+  //   } else {
+  //     setSlidesData(gallerySlidesData.lwowska)
+  //     setLocation(' Lwowska, 17');
+  //   }
+  // }, [locationSwitch])
 
   useEffect(() => {
     switch (langSwitch) {
@@ -60,7 +63,7 @@ const Gallery = () => {
     <GalleryContainer>
       <GalleryTitle>
         { galleryTitle }
-        <span>{ location }</span>
+        <span> { locationSwitch.address }</span>
       </GalleryTitle>
       <Slider
         sliderSettings={ gallerySliderSettings }

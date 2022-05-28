@@ -1,49 +1,29 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import useLocation from '../../hooks/useLocation';
 import { Navigation } from '../index';
+import { LocalSelector } from '../../common-components';
 import { SwitchContext } from '../../context/SwitchContext';
+import headerData from '../../dataComponents/header.data';
 
 import { FlexContainer } from "../../styles/StyledElements";
 import {
   HeaderContainer,
   AdressInfoWrapper,
   AdressInfo,
-  Location,
-  LanguageWrapper,
+  Wrapper,
+  Telephone,
+  LangWrapper,
   LanguageSwicthButton,
 } from './Header.styles';
 
-const locationAddresses = {
-  kepna: "Kępna 15",
-  lwowska: "Lwowska 17",
-  ursynow: "K.E. Narodowej 47"
-}
 
 const Header = (props) => {
   
   const { navigationLinksData, mainPage } = props;
-  const { locationSwitch, langSwitch, LanguageSwitcher, LocationSwitcher } = useContext(SwitchContext);
-  const address = useLocation(locationAddresses, 'kepna');
-  console.log(address);
+  const { locationSwitch, langSwitch, LanguageSwitcher } = useContext(SwitchContext);
+  const addressData = useLocation(headerData, locationSwitch.location);
   
   let langActive;
-  const linkKepna = 'https://www.google.com/maps/place/Beer+Station/@52.250727,21.038259,15z/data=!4m5!3m4!1s0x0:0xf65f5d6c9d579fb6!8m2!3d52.2507174!4d21.0382771'
-  const linkLwowska = 'https://goo.gl/maps/dDsVtjJuHJ3BgTit9'
-  const [locationAdress, setLocationAdress] = useState('Lwowska, 17')
-  const [barAdress, setBarAdress] = useState('Warszawa, ul. Kępna, 15')
-  const [googleLocation, setGoogleLocation] = useState(linkKepna)
-
-  useEffect(() => {
-    if(locationSwitch) {
-      setLocationAdress('Lwowska, 17')
-      setBarAdress('Warszawa, ul. Kępna, 15')
-      setGoogleLocation(linkKepna)
-    } else {
-      setLocationAdress('Kępna, 15')
-      setBarAdress('Warszawa, ul. Lwowska, 17')
-      setGoogleLocation(linkLwowska)
-    }
-  }, [locationSwitch])
 
   switch (langSwitch) {
     case 'PL': 
@@ -67,29 +47,35 @@ const Header = (props) => {
       <FlexContainer>
         <AdressInfoWrapper>
           <AdressInfo 
-            href={ googleLocation }
+            href={ addressData.googleLocation }
             target='_blank'
           >
-            { barAdress }
+            { addressData.barAdress }
           </AdressInfo>
-          <Location onClick={ () => LocationSwitcher() }>
-            { locationAdress }
-          </Location>
-        </AdressInfoWrapper>
-        <LanguageWrapper>
-          <LanguageSwicthButton 
-            onClick={ () => LanguageSwitcher('PL') }
-            langActive={langActive}
-          >PL
-          </LanguageSwicthButton>
 
-          <LanguageSwicthButton 
-            onClick={ () => LanguageSwitcher('RU') }
-            langActive={!langActive}
-          >RU
-          </LanguageSwicthButton>
-        </LanguageWrapper>
+          <LocalSelector />
+
+        </AdressInfoWrapper>
+        <Wrapper>
+          <Telephone href={`tel:+48 ${addressData.tel}`}>
+            tel: {addressData.tel}
+          </Telephone>
+          <LangWrapper>
+            <LanguageSwicthButton 
+              onClick={ () => LanguageSwitcher('PL') }
+              langActive={langActive}
+            >PL
+            </LanguageSwicthButton>
+
+            <LanguageSwicthButton 
+              onClick={ () => LanguageSwitcher('RU') }
+              langActive={!langActive}
+            >RU
+            </LanguageSwicthButton>
+          </LangWrapper>
+        </Wrapper>
       </FlexContainer>
+      
     </HeaderContainer>
   )
 }

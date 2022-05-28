@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { useParams } from "react-router-dom";
+import useLocation from '../../hooks/useLocation';
 import { SwitchContext } from '../../context/SwitchContext';
 import { Header } from '../../components/index';
 import { BeerCard } from '../../common-components'
@@ -18,7 +19,7 @@ const BeerCardPage = () => {
   let params = useParams();
   const cardNumber = +params.id;
 
-  const beerInfo = locationSwitch ? beerSlidesData.kepna : beerSlidesData.lwowska;
+  const beerInfo = useLocation(beerSlidesData, locationSwitch.location);
   console.log( cardNumber)
 
   const beer = beerInfo.find(beerCard=>beerCard.id === cardNumber);

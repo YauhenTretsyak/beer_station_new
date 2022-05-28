@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
+import useLocation from '../../hooks/useLocation';
 import { v4 as uuidv4 } from 'uuid'
 import { SwitchContext } from '../../context/SwitchContext'
 import { BeerSlide, Slider } from '../../common-components'
@@ -20,18 +21,8 @@ const Product = () => {
   const [ isMobileMode, setIsMobileMode ] = useState(true);
   const [productTitle, setProductTitle] = useState('Пиво');
 
-  const [slidesData, setSlidesData] = useState(beerSlidesData.kepna);
-  const [location, setLocation] = useState(' Kępna, 15');
+  const slidesData = useLocation(beerSlidesData, locationSwitch.location)
 
-  useEffect(() => {
-    if(locationSwitch) {
-      setSlidesData(beerSlidesData.kepna)
-      setLocation(' Kępna, 15');
-    } else {
-      setSlidesData(beerSlidesData.lwowska)
-      setLocation(' Lwowska, 17');
-    }
-  }, [locationSwitch])
 
   const startWidth = () => {
     if (document.documentElement.clientWidth <= 1104) {
@@ -66,7 +57,7 @@ const Product = () => {
     return(
       <SwiperSlide key={ uuidv4() }>
         <BeerSlide 
-          linkToCard={ `/beer_page/${ locationSwitch ? 'kepna' : 'lwowska'}/${ item.id }` }
+          linkToCard={ `/beer_page/${ locationSwitch.location }/${ item.id }` }
           country={ item.country }
           cardNumber={ item.id }
           title={ item.title }
@@ -84,7 +75,7 @@ const Product = () => {
     <ProductContainer onLoad={ startWidth }>
       <ProductTitle>
         { productTitle }
-        <span>{ location }</span>
+        <span> { locationSwitch.address }</span>
       </ProductTitle>
       
       <Slider 

@@ -21,6 +21,17 @@ const navigationData = {
     }
   },
 
+  ursynow: {
+    PL: {
+      workTitle: 'Otwarte:',
+      workTime: 'wt-nd: 14.00 - 01.00',
+    },
+    RU: {
+      workTitle: 'Открыто:',
+      workTime: 'вт-вс: 14.00 - 01.00',
+    }
+  },
+
   menu: {
     main_page : {
       PL: [

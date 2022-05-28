@@ -242,6 +242,128 @@ const beerSlidesData = {
       vol05: '17',
       vol1: '26'
     }
+  ],
+  ursynow: [
+    {
+      id: 1,
+      country: 7,
+      title: 'VICTORIA',
+      name: 'VICTORIA MALAGA',
+      type: 'LAGER 4.8%',
+      vol03: '10',
+      vol05: '13',
+      vol1: '20'
+    },
+    {
+      id: 2,
+      country: 2,
+      title: 'Ursynów',
+      name: 'K.E.N. 47',
+      type: 'JASNY LAGER 5.6%',
+      vol03: '9',
+      vol05: '12',
+      vol1: '18'
+    },
+    {
+      id: 3,
+      country: 3,
+      title: 'BERNARD',
+      name: '',
+      type: 'JASNY LAGER 4.9%',
+      vol03: '10',
+      vol05: '13',
+      vol1: '20'
+    },
+    {
+      id: 4,
+      country: 3,
+      title: 'BOGEMIA REGENT',
+      name: 'ESCOBEER',
+      type: 'IPA 5.6%',
+      vol03: '12',
+      vol05: '16',
+      vol1: '25'
+    },
+    {
+      id: 5,
+      country: 8,
+      title: 'INBEV',
+      name: 'HOEGAARDEN',
+      type: 'IPA 4.9%',
+      vol03: '13',
+      vol05: '17',
+      vol1: '26'
+    },
+    {
+      id: 6,
+      country: 4,
+      title: 'BERGQUELL',
+      name: 'KIRSH PORTER',
+      type: 'WIŚNIA 4.2%',
+      vol03: '12',
+      vol05: '15',
+      vol1: '24'
+    },
+    {
+      id: 7,
+      country: 1,
+      title: 'HOP CONE',
+      name: '№2',
+      type: 'HAZY APA 4.8%',
+      vol03: '12',
+      vol05: '16',
+      vol1: '25'
+    },
+    {
+      id: 8,
+      country: 1,
+      title: 'DZIKI WSCHÓD',
+      name: 'TOTEM',
+      type: 'DIPA 7.0%',
+      vol03: '13',
+      vol05: '17',
+      vol1: '26'
+    },
+    {
+      id: 9,
+      country: 3,
+      title: 'OPAT',
+      name: 'PREMIUM',
+      type: 'DARK LAGER 4.8%',
+      vol03: '9',
+      vol05: '12',
+      vol1: '18'
+    },
+    {
+      id: 10,
+      country: 2,
+      title: 'TRADYCYNIS FLIRT',
+      name: 'CYDR',
+      type: 'ANANASOWY 5.0%',
+      vol03: '10',
+      vol05: '13',
+      vol1: '20'
+    },
+    {
+      id: 11,
+      country: 1,
+      title: 'PALATUM',
+      name: 'Ursynów',
+      type: 'BELGIAN TRIPEL 8.2%',
+      vol03: '13',
+      vol05: '17',
+      vol1: '26'
+    },
+    {
+      id: 12,
+      country: 1,
+      title: 'Ursynów',
+      name: 'ALONE IN SPACE',
+      type: 'HAZY IPA 6.1%',
+      vol03: '13',
+      vol05: '17',
+      vol1: '26'
+    }
   ]
 }
 
