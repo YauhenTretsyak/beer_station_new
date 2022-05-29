@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import { ImageContainer } from '../../styles/StyledElements'
 import slideBg from '../../assets/slide_bg.jpg';
-import screen_breakpoints from "../../styles/StyledElements/screen_breakpoints";
+import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints';
 
 const Wrapper = styled(ImageContainer)`
   margin: .6rem;

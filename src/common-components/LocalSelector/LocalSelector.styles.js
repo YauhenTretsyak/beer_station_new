@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints';
-import { FlexContainer } from "../../styles/StyledElements";
-import selectorTriangle from "../../assets/icons/triangle.svg";
+import { FlexContainer } from '../../styles/StyledElements';
+import selectorTriangle from '../../assets/icons/triangle.svg';
 
 const Selector = styled(FlexContainer)`
   position: relative;

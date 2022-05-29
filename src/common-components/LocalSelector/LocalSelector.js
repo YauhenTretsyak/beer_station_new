@@ -1,14 +1,14 @@
 import { useContext, useState } from 'react';
 import { SwitchContext } from '../../context/SwitchContext';
-import { v4 as uuidv4 } from "uuid";
-import locations from "../../dataComponents/localSelector.data";
+import { v4 as uuidv4 } from 'uuid';
+import locations from './localSelector.data';
 
 import {
   Selector,
   Wrapper,
   Paragraph,
   Place
-} from "./LocalSelector.styles";
+} from './LocalSelector.styles';
 
 const LocalSelector = () => {
 
@@ -16,7 +16,7 @@ const LocalSelector = () => {
   const [ isDisplay, setIsDisplay ] = useState(false);
 
   const HandlerLocation = (e) => {
-    const location = e.target.getAttribute("data-local");
+    const location = e.target.getAttribute('data-local');
     const address = e.target.textContent;
     LocationSwitcher(location, address);
     setIsDisplay(false)

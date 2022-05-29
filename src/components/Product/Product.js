@@ -1,12 +1,12 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react';
 import useLocation from '../../hooks/useLocation';
-import { v4 as uuidv4 } from 'uuid'
-import { SwitchContext } from '../../context/SwitchContext'
-import { BeerSlide, Slider } from '../../common-components'
-import { SwiperSlide } from 'swiper/react/swiper-slide'
-import { beerSlidesData } from '../../dataComponents/beerSlides.data'
-
-import beerSliderSettings from '../../dataComponents/beerSliderSettings.data'
+import useLanguage from '../../hooks/useLanguage';
+import { v4 as uuidv4 } from 'uuid';
+import { SwitchContext } from '../../context/SwitchContext';
+import { BeerSlide, Slider } from '../../common-components';
+import { SwiperSlide } from 'swiper/react/swiper-slide';
+import { productData, beerSliderSettings } from './product.data';
+import { beerSlidesData } from '../../dataComponents/beerSlides.data';
 
 
 import styled from 'styled-components'
@@ -19,8 +19,7 @@ const Product = () => {
 
   const { langSwitch, locationSwitch } = useContext(SwitchContext);
   const [ isMobileMode, setIsMobileMode ] = useState(true);
-  const [productTitle, setProductTitle] = useState('Пиво');
-
+  const title = useLanguage(productData, langSwitch);
   const slidesData = useLocation(beerSlidesData, locationSwitch.location)
 
 
@@ -35,23 +34,6 @@ const Product = () => {
   window.addEventListener('resize', () => {
     startWidth();
   })
-
-  useEffect(() => {
-    switch (langSwitch) {
-      case 'PL':
-        // productTitle = 'Piwo';
-        setProductTitle('Piwo')
-        break
-      case 'RU': 
-        // productTitle = 'Пиво';
-        setProductTitle('Пиво')
-        break
-      default: 
-        // productTitle = 'Piwo';
-        setProductTitle('Piwo')
-        break
-    }
-  }, [langSwitch])
 
   const slides = slidesData.map(item => {
     return(
@@ -74,7 +56,7 @@ const Product = () => {
   return (
     <ProductContainer onLoad={ startWidth }>
       <ProductTitle>
-        { productTitle }
+        { title }
         <span> { locationSwitch.address }</span>
       </ProductTitle>
       

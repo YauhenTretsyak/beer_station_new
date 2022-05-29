@@ -1,5 +1,5 @@
 import { Header, Product, Gallery } from '../../components/index';
-import navigationData from '../../dataComponents/navigation.data';
+import navigationData from '../../components/Navigation/navigation.data';
 
 const MainPage = () => {
   return(

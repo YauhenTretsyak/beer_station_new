@@ -1,4 +1,4 @@
-import flagsListData from "../../dataComponents/flagList.data";
+import flagsListData from '../../dataComponents/flagList.data';
 
 import {
   Card,

@@ -1,17 +1,17 @@
 import { useContext } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 import useLocation from '../../hooks/useLocation';
 import { SwitchContext } from '../../context/SwitchContext';
 import { Header } from '../../components/index';
-import { BeerCard } from '../../common-components'
-import { beerSlidesData } from "../../dataComponents/beerSlides.data";
-import navigationData from '../../dataComponents/navigation.data';
+import { BeerCard } from '../../common-components';
+import { beerSlidesData } from '../../dataComponents/beerSlides.data';
+import navigationData from '../../components/Navigation/navigation.data';
 
 import {
   BeerCardPageWrapper,
   BeerPageInfoWrapper,
   BeersInteresting,
-} from './BeerCardPage.styles'
+} from './BeerCardPage.styles';
 
 
 const BeerCardPage = () => {

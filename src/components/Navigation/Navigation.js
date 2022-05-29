@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import useLocation from '../../hooks/useLocation';
 import { IconLink } from '../../common-components';
 import { SwitchContext } from '../../context/SwitchContext';
-import navigationData from '../../dataComponents/navigation.data';
+import navigationData from './navigation.data';
 import socialsData from '../../dataComponents/socials.data';
 
 import logo from '../../assets/BS_logo.png';
@@ -18,6 +18,7 @@ import {
   MenuWrapper,
   MenuLink
 } from './Navigation.styles';
+import useLanguage from '../../hooks/useLanguage';
 
 const icons = socialsData.map(item => {
   return (
@@ -34,22 +35,8 @@ const Navigation = (props) => {
 
   const { locationSwitch, langSwitch } = useContext(SwitchContext);
   const locationHeaderData = useLocation(navigationData, locationSwitch.location);
-  let locationInfo;
-  let menuInfo;
-
-  switch (langSwitch) {
-    case 'PL':
-      locationInfo = locationHeaderData.PL
-      menuInfo = navigationLinksData.PL
-      break
-    case 'RU':
-      locationInfo = locationHeaderData.RU
-      menuInfo = navigationLinksData.RU
-      break
-    default: 
-      locationInfo = locationHeaderData.PL
-      menuInfo = navigationLinksData.PL
-  }
+  const locationInfo = useLanguage(locationHeaderData, langSwitch);
+  const menuInfo = useLanguage(navigationLinksData, langSwitch);
 
   const MenuLinks = menuInfo.map(item => {
     return(

@@ -1,44 +1,29 @@
-import { useContext } from 'react';
+import { useContext, memo } from 'react';
 import useLocation from '../../hooks/useLocation';
 import { Navigation } from '../index';
-import { LocalSelector } from '../../common-components';
+import { LocalSelector, LangSwitcher } from '../../common-components';
 import { SwitchContext } from '../../context/SwitchContext';
-import headerData from '../../dataComponents/header.data';
+import headerData from './header.data';
 
-import { FlexContainer } from "../../styles/StyledElements";
+import { FlexContainer } from '../../styles/StyledElements';
 import {
   HeaderContainer,
   AdressInfoWrapper,
   AdressInfo,
   Wrapper,
   Telephone,
-  LangWrapper,
-  LanguageSwicthButton,
 } from './Header.styles';
 
 
 const Header = (props) => {
   
   const { navigationLinksData, mainPage } = props;
-  const { locationSwitch, langSwitch, LanguageSwitcher } = useContext(SwitchContext);
+  const { locationSwitch } = useContext(SwitchContext);
   const addressData = useLocation(headerData, locationSwitch.location);
-  
-  let langActive;
 
-  switch (langSwitch) {
-    case 'PL': 
-      langActive = true;
-      break
-    case 'RU': 
-      langActive = false;
-      break
-    default: 
-      langActive = true;
-  }
 
   return (
-    <HeaderContainer>
-      
+    <HeaderContainer> 
       <Navigation 
         navigationLinksData={ navigationLinksData }
         mainPage={ mainPage }
@@ -60,19 +45,7 @@ const Header = (props) => {
           <Telephone href={`tel:+48 ${addressData.tel}`}>
             {addressData.tel}
           </Telephone>
-          <LangWrapper>
-            <LanguageSwicthButton 
-              onClick={ () => LanguageSwitcher('PL') }
-              langActive={langActive}
-            >PL
-            </LanguageSwicthButton>
-
-            <LanguageSwicthButton 
-              onClick={ () => LanguageSwitcher('RU') }
-              langActive={!langActive}
-            >RU
-            </LanguageSwicthButton>
-          </LangWrapper>
+          <LangSwitcher />
         </Wrapper>
       </FlexContainer>
       
@@ -80,4 +53,4 @@ const Header = (props) => {
   )
 }
 
-export default Header;
+export default memo(Header);

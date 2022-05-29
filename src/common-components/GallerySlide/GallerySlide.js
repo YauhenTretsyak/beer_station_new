@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo } from 'react';
 import { Wrapper, Image } from './GallerySlide.styles';
 
 const GallerySlide = (props) => {

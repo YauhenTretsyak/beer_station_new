@@ -1,5 +1,5 @@
-import { memo, useEffect, useState } from "react";
-import flagsListData from "../../dataComponents/flagList.data";
+import { memo, useEffect, useState } from 'react';
+import flagsListData from '../../dataComponents/flagList.data';
 
 import  {
   Name,

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState } from 'react';
 
 export const SwitchContext = createContext();
 
@@ -12,7 +12,9 @@ const SwitchContextProvider = (props) => {
   }
 
   const LanguageSwitcher = (changedLanguage) => {
-    setLangSwith(changedLanguage)
+    if (changedLanguage && typeof(changedLanguage) === 'string') {
+      setLangSwith(changedLanguage.toUpperCase()) 
+    } 
   }
 
   return (

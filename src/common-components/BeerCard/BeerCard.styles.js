@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { FlexContainer, ImageContainer } from "../../styles/StyledElements";
+import styled from 'styled-components';
+import { FlexContainer, ImageContainer } from '../../styles/StyledElements';
 import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints';
 
 const Card = styled.div`

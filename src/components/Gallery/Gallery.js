@@ -1,54 +1,20 @@
-import { useState, useEffect, useContext } from "react";
-import { v4 as uuidv4 } from 'uuid'
+import { useContext } from 'react';
+import useLocation from '../../hooks/useLocation';
+import useLanguage from '../../hooks/useLanguage';
+import { v4 as uuidv4 } from 'uuid';
 import { SwitchContext } from '../../context/SwitchContext'
-import { Slider, GallerySlide } from "../../common-components";
+import { Slider, GallerySlide } from '../../common-components';
 import { SwiperSlide } from 'swiper/react/swiper-slide';
-import gallerySliderSettings from "../../dataComponents/gallerySliderSettings.data";
-import gallerySlidesData from "../../dataComponents/gallerySlidesData";
+import { galleryData, gallerySliderSettings, gallerySlidesData} from './gallery.data';
 
-import styled from 'styled-components';
-import { SectionContainer, SectionTitle } from "../../styles/StyledElements";
-import useLocation from "../../hooks/useLocation";
+import { Container, Title } from './Gallery.styles';
 
-const GalleryContainer = styled(SectionContainer)``
-
-const GalleryTitle = styled(SectionTitle)``
 
 const Gallery = () => {
   const { langSwitch, locationSwitch } = useContext(SwitchContext);
-  // const [slidesData, setSlidesData] = useState(gallerySlidesData.kepna);
-
-  const slidesData = useLocation(gallerySlidesData, locationSwitch.location)
-  const [galleryTitle, setGalleryTitle] = useState('Галерея');
-  // const [location, setLocation] = useState(' Kępna, 15');
-
-  // useEffect(() => {
-  //   if(locationSwitch) {
-  //     setSlidesData(gallerySlidesData.kepna)
-  //     setLocation(' Kępna, 15');
-  //   } else {
-  //     setSlidesData(gallerySlidesData.lwowska)
-  //     setLocation(' Lwowska, 17');
-  //   }
-  // }, [locationSwitch])
-
-  useEffect(() => {
-    switch (langSwitch) {
-      case 'PL':
-        // productTitle = 'Piwo';
-        setGalleryTitle('Galeria')
-        break
-      case 'RU': 
-        // productTitle = 'Пиво';
-        setGalleryTitle('Галерея')
-        break
-      default: 
-        // productTitle = 'Piwo';
-        setGalleryTitle('Galeria')
-        break
-    }
-  }, [langSwitch])
-
+  const slidesData = useLocation(gallerySlidesData, locationSwitch.location);
+  const title = useLanguage(galleryData, langSwitch);
+  
   const slides = slidesData.map(item => {
     return(
       <SwiperSlide key={ uuidv4() }>
@@ -60,17 +26,17 @@ const Gallery = () => {
   })
 
   return(
-    <GalleryContainer>
-      <GalleryTitle>
-        { galleryTitle }
+    <Container>
+      <Title>
+        { title }
         <span> { locationSwitch.address }</span>
-      </GalleryTitle>
+      </Title>
       <Slider
         sliderSettings={ gallerySliderSettings }
         slides={ slides }
         isMobileMode={ true }
       />
-    </GalleryContainer>
+    </Container>
   )
 }
 

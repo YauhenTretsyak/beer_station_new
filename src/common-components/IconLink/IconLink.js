@@ -1,4 +1,4 @@
-import { LinkWrapper } from "./IconLink.styles";
+import { LinkWrapper } from './IconLink.styles';
 
 const IconLink = (props) => {
 
