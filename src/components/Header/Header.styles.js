@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints';
 import { FlexContainer, SectionContainer } from "../../styles/StyledElements";
-import right_arrow from '../../assets/icons/arrow_right.svg';
 import mapsIcon from '../../assets/icons/maps-icon.svg';
+import tel from "../../assets/icons/phone-icon.svg";
 
 const HeaderContainer = styled(SectionContainer)``
 const AdressInfoWrapper = styled(FlexContainer)`
@@ -70,57 +70,6 @@ const AdressInfo = styled.a`
     background-size: contain;
   }
 `
-const Location = styled.p`
-  position: relative;
-  padding-left: 2.9rem;
-  padding-right: 2.9rem;
-  padding-top: .4rem;
-  text-transform: uppercase;
-  /* text-shadow: 0.2rem 0.2rem 0.2rem #ff9700; */
-  /* color: ${({theme}) => theme.colors.yellow}; */
-  color: #ea8f0a;
-  text-shadow: .3rem .3rem .3rem #000;
-
-  ${ screen_breakpoints.md } {
-    font-size: 2.5rem;
-  }
-
-  ${ screen_breakpoints.xl } {
-    padding-top: .2rem;
-    font-size: 2.6rem;
-  }
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: .6rem;
-    left: -1rem;
-    background: url(${ right_arrow });
-    width: 2.8rem;
-    height: 2rem;
-    background-size: contain;
-    animation: run 2s infinite;
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: .6rem;
-    right: -.4rem;
-    background: url(${ right_arrow });
-    width: 2.8rem;
-    height: 2rem;
-    transform: rotate(180deg);
-    background-size: contain;
-    animation: run-breake 2s infinite;
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
-
-
-`
 const Wrapper = styled(FlexContainer)`
   display: flex;
   justify-content: space-between;
@@ -132,13 +81,26 @@ const Wrapper = styled(FlexContainer)`
   }
 
   ${ screen_breakpoints.xxl } {
-   max-width: 37.8rem;
+   max-width: 38.5rem;
   }
 `
 const Telephone = styled.a`
+  position: relative;
+  padding-left: 2.8rem;
   text-decoration: none;
   color: #cda500;
   text-shadow: .2rem .4rem .1rem #000;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 55%;
+    left: 0;
+    width: 2.8rem;
+    height: 2.8rem;
+    background: url(${tel});
+    transform: translateY(-50%);
+  }
 `
 const LangWrapper = styled(FlexContainer)`
   display: flex;
@@ -187,7 +149,6 @@ export {
   HeaderContainer,
   AdressInfoWrapper,
   AdressInfo,
-  Location,
   Wrapper,
   Telephone,
   LangWrapper,

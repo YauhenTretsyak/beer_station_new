@@ -58,7 +58,7 @@ const Header = (props) => {
         </AdressInfoWrapper>
         <Wrapper>
           <Telephone href={`tel:+48 ${addressData.tel}`}>
-            tel: {addressData.tel}
+            {addressData.tel}
           </Telephone>
           <LangWrapper>
             <LanguageSwicthButton 
