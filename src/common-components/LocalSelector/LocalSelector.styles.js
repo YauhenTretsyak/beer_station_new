@@ -11,7 +11,7 @@ const Selector = styled(FlexContainer)`
   transition: all .2s ease-in-out;
   
   ${screen_breakpoints.lg} {
-    margin-top: ${props => props.isDisplay ? '-7rem' : '0'};
+    margin-top: ${(props) => (props.isDisplay ? '-7rem' : '0')};
   }
 `;
 const Wrapper = styled.div(

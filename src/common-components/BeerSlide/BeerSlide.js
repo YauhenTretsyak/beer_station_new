@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react';
+import { memo } from 'react';
 import flagsListData from '../../dataComponents/flagList.data';
 
 import  {
@@ -20,21 +20,11 @@ import  {
 
 const BeerSlide = (props) => {
 
-  const [nameRegularSize, setNameRegularSize] = useState(true);
-
   const { linkToCard, cardNumber, title, name, type, vol03, vol05, vol1, country } = props;
 
-  const flagImage = flagsListData.filter(el => el.id === country).map(item => {
-    return item.country
-  })
+  const flagImage = flagsListData.filter(el => el.id === country).map(item => item.country)
 
-  useEffect(() => {
-    if(name.length >=14 ) {
-      setNameRegularSize(false)
-    } else {
-      setNameRegularSize(true)
-    }
-  }, [name])
+  const nameRegularSize = Boolean(name.length < 14)
 
   return(
     <Slide to={`${ linkToCard }`}>

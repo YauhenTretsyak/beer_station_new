@@ -17,10 +17,9 @@ import {
 const BeerCardPage = () => {
   const { locationSwitch } = useContext(SwitchContext);
   let params = useParams();
-  const cardNumber = +params.id;
+  const cardNumber = Number(params.id);
 
   const beerInfo = useLocation(beerSlidesData, locationSwitch.location);
-  console.log( cardNumber)
 
   const beer = beerInfo.find(beerCard=>beerCard.id === cardNumber);
 
