@@ -1,3 +1,4 @@
-import Select from "./Select/Select"
+import Select from './Select/Select'
+import Input from './Input/Input'
 
-export {Select}
+export {Select, Input}

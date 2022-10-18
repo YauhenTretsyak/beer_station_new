@@ -14,4 +14,4 @@ export const colors = {
     brown_light: '#d6aa43',
     gold: '#cfc600',
     silver: '#C0C0C2',
-  }
+}

@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import SectionContainer from "../../styles/SectionContainer"
+import styled from 'styled-components'
+import SectionContainer from '../../styles/SectionContainer'
 import {colors} from '../../styles/colors'
 
 export const AdminHeader = styled(SectionContainer)`` 

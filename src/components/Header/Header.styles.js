@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints';
-import { FlexContainer, SectionContainer } from "../../styles/StyledElements";
-import mapsIcon from '../../assets/icons/maps-icon.svg';
-import tel from "../../assets/icons/phone-icon.svg";
+import styled from 'styled-components'
+import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
+import {FlexContainer, SectionContainer} from '../../styles/StyledElements'
+import mapsIcon from '../../assets/icons/maps-icon.svg'
+import tel from '../../assets/icons/phone-icon.svg'
 
 const HeaderContainer = styled(SectionContainer)``
 const AdressInfoWrapper = styled(FlexContainer)`
@@ -104,9 +104,9 @@ const Telephone = styled.a`
 `
 
 export {
-  HeaderContainer,
-  AdressInfoWrapper,
-  AdressInfo,
-  Wrapper,
-  Telephone,
+    HeaderContainer,
+    AdressInfoWrapper,
+    AdressInfo,
+    Wrapper,
+    Telephone,
 }

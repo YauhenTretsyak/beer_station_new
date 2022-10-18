@@ -1,14 +1,14 @@
-import { LinkWrapper } from './IconLink.styles';
+import {LinkWrapper} from './IconLink.styles'
 
 const IconLink = (props) => {
 
-  const { link, icon } = props;
+    const {link, icon} = props
 
-  return (
-    <LinkWrapper href={ link } >
-      { icon }
-    </LinkWrapper>
-  )
+    return (
+        <LinkWrapper href={ link } >
+            { icon }
+        </LinkWrapper>
+    )
 }
 
-export default IconLink;
+export default IconLink

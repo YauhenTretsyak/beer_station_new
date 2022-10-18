@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import { normalize } from "styled-normalize";
+import {createGlobalStyle} from 'styled-components'
+import {normalize} from 'styled-normalize'
 import backgroundImage from '../assets/main_background.jpg'
 
 const GlobalStyle = createGlobalStyle `
@@ -55,4 +55,4 @@ const GlobalStyle = createGlobalStyle `
   }
 `
 
-export default GlobalStyle;
+export default GlobalStyle

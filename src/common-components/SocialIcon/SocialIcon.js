@@ -1,9 +1,7 @@
-const SocialIcon = ({ children }) => {
-  return(
+const SocialIcon = ({children}) => (
     <>
-      {children}
+        {children}
     </>
-  )
-}
+)
 
-export default SocialIcon;
+export default SocialIcon

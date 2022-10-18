@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { SectionContainer, ImageContainer } from '../../styles/StyledElements';
-import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints';
+import styled from 'styled-components'
+import {SectionContainer, ImageContainer} from '../../styles/StyledElements'
+import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 
 const FooterContainer = styled(SectionContainer)`
   display: flex;
@@ -56,9 +56,9 @@ const Logo = styled(ImageContainer)`
 `
 
 export { 
-  FooterContainer, 
-  FixBug, 
-  CopyRights, 
-  AuthorLink, 
-  Logo
+    FooterContainer, 
+    FixBug, 
+    CopyRights, 
+    AuthorLink, 
+    Logo
 }

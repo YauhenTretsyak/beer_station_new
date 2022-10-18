@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { FlexContainer, ImageContainer } from '../../styles/StyledElements';
-import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints';
+import styled from 'styled-components'
+import {FlexContainer, ImageContainer} from '../../styles/StyledElements'
+import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints'
 
 const NavigationWrapper = styled(FlexContainer)`
   margin-bottom: .8rem;
@@ -104,13 +104,13 @@ const MenuLink = styled.a`
 `
 
 export { 
-  NavigationWrapper, 
-  IconsWrapper, 
-  LogoImage,
-  WorkTimeInfoWrapper,
-  WorkTimeTitle,
-  WorkTime, 
-  MenuWrapper,
-  MenuLink
-};
+    NavigationWrapper, 
+    IconsWrapper, 
+    LogoImage,
+    WorkTimeInfoWrapper,
+    WorkTimeTitle,
+    WorkTime, 
+    MenuWrapper,
+    MenuLink
+}
 

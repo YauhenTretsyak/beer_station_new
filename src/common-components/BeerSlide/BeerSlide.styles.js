@@ -1,17 +1,16 @@
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import { FlexContainer, ImageContainer } from '../../styles/StyledElements';
-import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints';
+import styled from 'styled-components'
+import {NavLink} from 'react-router-dom'
+import {FlexContainer, ImageContainer} from '../../styles/StyledElements'
+import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 
 const Name = styled.p`
   margin-bottom: .7rem;
   width: 15rem;
   min-height: 2.875rem;
-  ${({nameRegularSize}) => nameRegularSize ?
-    'font-size: 2.5rem;'
-    :
-    'font-size: 1.5rem; line-height: 2.7rem;'
-  }
+  ${({nameRegularSize}) => nameRegularSize
+        ? 'font-size: 2.5rem;'
+        : 'font-size: 1.5rem; line-height: 2.7rem;'
+}
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -22,11 +21,10 @@ const Name = styled.p`
 
   ${ screen_breakpoints.xl } {
     width: 16rem;
-    font-size: ${({nameRegularSize}) => nameRegularSize ?
-      '2.5rem'
-      :
-      '2rem'
-    };
+    font-size: ${({nameRegularSize}) => nameRegularSize
+        ? '2.5rem'
+        : '2rem'
+};
   }
 `
 
@@ -170,17 +168,17 @@ const BeerValue = styled.p``
 const BeerCost = styled.p``
 
 export {
-  Name,
-  Slide,
-  TopWrapper,
-  CountryWrapper,
-  Flag,
-  CardNumber,
-  BeerInfoWrapper,
-  Title,
-  BeerType,
-  BottomWrapper,
-  CostInfo,
-  BeerValue,
-  BeerCost
+    Name,
+    Slide,
+    TopWrapper,
+    CountryWrapper,
+    Flag,
+    CardNumber,
+    BeerInfoWrapper,
+    Title,
+    BeerType,
+    BottomWrapper,
+    CostInfo,
+    BeerValue,
+    BeerCost
 }

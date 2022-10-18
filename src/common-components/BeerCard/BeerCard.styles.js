@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { FlexContainer, ImageContainer } from '../../styles/StyledElements';
-import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints';
+import styled from 'styled-components'
+import {FlexContainer, ImageContainer} from '../../styles/StyledElements'
+import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 
 const Card = styled.div`
   position: relative;
@@ -176,17 +176,17 @@ const BeerCost = styled.p`
 `
 
 export {
-  Card,
-  TopWrapper,
-  Country,
-  Flag,
-  CardNumber,
-  Inner,
-  Title,
-  Name,
-  BeerType,
-  BottomWrapper,
-  CostInfo,
-  BeerValue,
-  BeerCost
+    Card,
+    TopWrapper,
+    Country,
+    Flag,
+    CardNumber,
+    Inner,
+    Title,
+    Name,
+    BeerType,
+    BottomWrapper,
+    CostInfo,
+    BeerValue,
+    BeerCost
 }

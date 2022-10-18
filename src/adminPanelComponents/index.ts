@@ -1,2 +1,2 @@
-import AdminPanelMainPage from "./AdminPanelMainPage"
-export { AdminPanelMainPage }
+import AdminPanelMainPage from './AdminPanelMainPage'
+export {AdminPanelMainPage}

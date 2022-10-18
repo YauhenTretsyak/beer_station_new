@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { SectionContainer } from "../../styles/StyledElements";
-import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints';
+import {SectionContainer} from '../../styles/StyledElements'
+import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 
 const BeerCardPageWrapper = styled(SectionContainer)``
 const BeerPageInfoWrapper = styled.div`
@@ -46,7 +46,7 @@ const BeersInteresting = styled.p`
 `
 
 export {
-  BeerCardPageWrapper,
-  BeerPageInfoWrapper,
-  BeersInteresting,
+    BeerCardPageWrapper,
+    BeerPageInfoWrapper,
+    BeersInteresting,
 }

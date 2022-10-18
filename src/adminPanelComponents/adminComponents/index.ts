@@ -1,4 +1,4 @@
-import AdminHeader from "./AdminHeader/AdminHeader"
-import AdminChangeContent from "./AdminChangeContent/AdminChangeContent"
+import AdminHeader from './AdminHeader/AdminHeader'
+import AdminChangeContent from './AdminChangeContent/AdminChangeContent'
 
-export { AdminHeader, AdminChangeContent }
+export {AdminHeader, AdminChangeContent}

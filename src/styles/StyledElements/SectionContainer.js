@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import screen_breakpoint from './screen_breakpoints';
+import styled from 'styled-components'
+import screen_breakpoint from './screen_breakpoints'
 
 const SectionContainer = styled.div`
   margin: 3rem 1.5rem;
@@ -7,7 +7,6 @@ const SectionContainer = styled.div`
   min-height: .1rem;
   box-sizing: border-box;
   padding: 2rem 2.7rem;
-  /* background: linear-gradient(#f4eed5 24%, #d1e8ea6b 100%); */
   background: linear-gradient(#2b2409 24%, #0009 100%);
   box-shadow: inset 0 .3rem 1rem .1rem #00000059;
   border-radius: 1.1rem;
@@ -31,6 +30,6 @@ const SectionContainer = styled.div`
   ${screen_breakpoint.xxl}{
     max-width: 128rem;
   }
-`;
+`
 
-export default SectionContainer;
+export default SectionContainer

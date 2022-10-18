@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { FlexContainer, ImageContainer } from '../../styles/StyledElements/index';
-import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints';
+import styled from 'styled-components'
+import {FlexContainer, ImageContainer} from '../../styles/StyledElements/index'
+import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints'
 
 const CarouselWrapper = styled.div`
   & .swiper {
@@ -11,20 +11,19 @@ const CarouselWrapper = styled.div`
     }
 
     ${ screen_breakpoint.xl } {
-        overflow: ${({isMobileMode}) => isMobileMode ? 
-          'hidden' : 'unset' 
-        };
+        overflow: ${({isMobileMode}) => isMobileMode 
+        ? 'hidden' : 'unset' 
+};
       }
 
     & > .swiper-wrapper {
       align-items: center;
 
       ${ screen_breakpoint.xl } {
-        ${({isMobileMode}) => isMobileMode ? 
-          'flex-wrap:nowrap; transform: translate3d(-1200px, 0px, 0px);' 
-          : 
-          'flex-wrap:wrap; transform: translate3d(0, 0, 0) !important; justify-content:space-between;'
-        };
+        ${({isMobileMode}) => isMobileMode 
+        ? 'flex-wrap:nowrap; transform: translate3d(-1200px, 0px, 0px);' 
+        : 'flex-wrap:wrap; transform: translate3d(0, 0, 0) !important; justify-content:space-between;'
+};
       }
 
       & > .swiper-slide {
@@ -32,17 +31,17 @@ const CarouselWrapper = styled.div`
         justify-content: center;
         
         ${ screen_breakpoint.xl } {
-            width: ${({isMobileMode}) => isMobileMode ? 
-            '40rem' : '29rem !important' 
-          };
+            width: ${({isMobileMode}) => isMobileMode 
+        ? '40rem' : '29rem !important' 
+};
         }
       }
 
       & > .swiper-slide-duplicate {
         ${ screen_breakpoint.xl } {
-          display: ${({isMobileMode}) => isMobileMode ? 
-            'flex' : 'none'
-          };
+          display: ${({isMobileMode}) => isMobileMode 
+        ? 'flex' : 'none'
+};
         }
       }
     }
@@ -78,9 +77,9 @@ const ArrowBox = styled(ImageContainer)`
   color: ${({theme}) => theme.colors.gold};
 
   ${ screen_breakpoint.xl } {
-    display: ${({isMobileMode}) => isMobileMode ? 
-      'flex' : 'none'
-    };
+    display: ${({isMobileMode}) => isMobileMode 
+        ? 'flex' : 'none'
+};
   }
 
   & > svg {
@@ -98,9 +97,9 @@ const ArrowBox = styled(ImageContainer)`
   }
 `
 const ArrowNext = styled(ArrowBox)`
-  display: ${({isMobileMode}) => isMobileMode ? 
-    'flex' : 'none'
-  };
+  display: ${({isMobileMode}) => isMobileMode 
+        ? 'flex' : 'none'
+};
   outline: none;
   &:hover {
     ${ screen_breakpoint.lg } {
@@ -111,9 +110,9 @@ const ArrowNext = styled(ArrowBox)`
   }
 `
 const ArrowPrev = styled(ArrowBox)`
-  display: ${({isMobileMode}) => isMobileMode ? 
-    'flex' : 'none'
-  };
+  display: ${({isMobileMode}) => isMobileMode 
+        ? 'flex' : 'none'
+};
   outline: none;
   &:hover {
     ${ screen_breakpoint.lg } {
@@ -159,10 +158,10 @@ const DotsWrapper = styled(FlexContainer)`
 const Dot = styled.div``
 
 export {
-  CarouselWrapper,
-  ArrowsBlock,
-  ArrowNext,
-  ArrowPrev,
-  DotsWrapper,
-  Dot
+    CarouselWrapper,
+    ArrowsBlock,
+    ArrowNext,
+    ArrowPrev,
+    DotsWrapper,
+    Dot
 }

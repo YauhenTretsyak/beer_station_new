@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints';
+import styled from 'styled-components'
+import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints'
 
 const LinkWrapper = styled.a`
   display: block;
@@ -16,4 +16,4 @@ const LinkWrapper = styled.a`
   }
 `
 
-export { LinkWrapper };
+export {LinkWrapper}
