@@ -9,36 +9,44 @@ import BE from '../assets/flags/BE.png'
 
 const flagsListData = [
     {
-        id: 1,
-        country: PL
+        id: '1',
+        label: 'PL',
+        imagePath: PL,
     },
     {
-        id: 2,
-        country: LT
+        id: '2',
+        label: 'LT',
+        imagePath: LT,
     },
     {
-        id: 3,
-        country: CZ
+        id: '3',
+        label: 'CZ',
+        imagePath: CZ,
     },
     {
-        id: 4,
-        country: DE
+        id: '4',
+        label: 'DE',
+        imagePath: DE,
     },
     {
-        id: 5,
-        country: US
+        id: '5',
+        label: 'US',
+        imagePath: US,
     },
     {
-        id: 6,
-        country: IT
+        id: '6',
+        label: 'IT',
+        imagePath: IT,
     },
     {
-        id: 7,
-        country: ES
+        id: '7',
+        label: 'ES',
+        imagePath: ES,
     },
     {
-        id: 8,
-        country: BE
+        id: '8',
+        label: 'BE',
+        imagePath: BE,
     }
 ] 
   

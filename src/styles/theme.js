@@ -14,6 +14,7 @@ const colors = {
     brown_light: '#d6aa43',
     gold: '#cfc600',
     silver: '#C0C0C2',
+    silver_light: '#e3e3e4',
     // color_blue: '#0028FF',
     // color_white: '#fff',
     // color_white1: '#FBFBFB',

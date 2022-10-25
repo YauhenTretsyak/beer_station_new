@@ -7,6 +7,7 @@ import BeerSlide from './BeerSlide/BeerSlide'
 import Slider from './Slider/Slider'
 import BeerCard from './BeerCard/BeerCard'
 import GallerySlide from './GallerySlide/GallerySlide'
+import LoadingSpinner from './LoadingSpinner/LoadingSpinner'
 
 export { 
     SocialIcon, 
@@ -17,5 +18,6 @@ export {
     BeerSlide, 
     Slider, 
     BeerCard, 
-    GallerySlide 
+    GallerySlide,
+    LoadingSpinner,
 }

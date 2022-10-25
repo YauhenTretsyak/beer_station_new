@@ -20,7 +20,7 @@ import {
 const BeerCard = (props) => {
 
     const {cardNumber, title, name, type, vol03, vol05, vol1, country} = props
-    const flagImage = flagsListData.filter(el => el.id === country).map(item => item.country)
+    const flagImage = flagsListData.filter(el => el.id === country).map(item => item.imagePath)
 
     return (
         <Card>

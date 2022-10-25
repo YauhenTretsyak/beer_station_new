@@ -1,14 +1,15 @@
 /* eslint-disable react/react-in-jsx-scope */
-import {useContext, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 import useLocation from '../../hooks/useLocation'
 import useLanguage from '../../hooks/useLanguage'
 import {v4 as uuidv4} from 'uuid'
 import {SwitchContext} from '../../context/SwitchContext'
-import {BeerSlide, Slider} from '../../common-components'
+import {BeerSlide, Slider, LoadingSpinner} from '../../common-components'
 import {SwiperSlide} from 'swiper/react/swiper-slide'
 import {productData, beerSliderSettings} from './product.data'
 import {beerSlidesData} from '../../dataComponents/beerSlides.data'
-
+import {getLocationData} from '../../store/slices/getLocationDataSlice'
 
 import styled from 'styled-components'
 import {SectionContainer, SectionTitle} from '../../styles/StyledElements'
@@ -19,9 +20,17 @@ const ProductTitle = styled(SectionTitle)``
 const Product = () => {
 
     const {langSwitch, locationSwitch} = useContext(SwitchContext)
-    const [ isMobileMode, setIsMobileMode ] = useState(true)
+    const [isMobileMode, setIsMobileMode] = useState(true)
     const title = useLanguage(productData, langSwitch)
-    const slidesData = useLocation(beerSlidesData, locationSwitch.location)
+    // const slidesData = useLocation(beerSlidesData, locationSwitch.location)
+    const isDataLoading = useSelector(state => state.locationData.loading)
+    const beerCardsData = useSelector(state => state.locationData.cards)
+    const dispatch = useDispatch()
+    
+
+    useEffect(() => {
+        dispatch(getLocationData({location: locationSwitch.location, kind: 'beer'}))
+    }, [locationSwitch.location])
 
 
     const startWidth = () => {
@@ -36,7 +45,8 @@ const Product = () => {
         startWidth()
     })
 
-    const slides = slidesData.map(item => (
+    // const slides = slidesData.map(item => (
+    const slides = beerCardsData.map(item => (
         <SwiperSlide key={ uuidv4() }>
             <BeerSlide 
                 linkToCard={ `/beer_page/${ locationSwitch.location }/${ item.id }` }
@@ -58,12 +68,19 @@ const Product = () => {
                 {title}
                 <span> {locationSwitch.address}</span>
             </ProductTitle>
-      
-            <Slider 
-                isMobileMode={isMobileMode}
-                sliderSettings={beerSliderSettings}
-                slides={slides}
-            />
+            {isDataLoading 
+                ? (<LoadingSpinner 
+                    loading={isDataLoading}
+                    color='#cfc600'
+                    size={10}
+                    titleSize='3'
+                />)
+                : (<Slider 
+                    isMobileMode={isMobileMode}
+                    sliderSettings={beerSliderSettings}
+                    slides={slides}
+                />)
+            }
         </ProductContainer>
     )
 }

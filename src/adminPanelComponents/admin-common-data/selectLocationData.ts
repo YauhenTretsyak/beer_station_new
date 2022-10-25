@@ -2,15 +2,15 @@ import {SelectOptions} from '../types'
 
 export const selectOptionsData: SelectOptions[] = [
     {
-        value: 'kepna',
+        id: 'kepna',
         label: 'Kępna',
     },
     {
-        value: 'lwowska',
+        id: 'lwowska',
         label: 'Lwowska',
     },
     {
-        value: 'ursynow',
+        id: 'ursynow',
         label: 'Ursynów',
     }
 ]
