@@ -13,9 +13,16 @@ const Input: React.FC<InputProps> = ({type, placeholder, incomeValue, onChange})
     const [inputValue, setInputValue] = useState<string>('')
 
     const handleOnChange = (value: string) => {
-        setInputValue(value)
-        onChange(value)
- 
+        if (type === 'number') {
+            const replacedNumber = value.replace(/[^0-9+]/ig, '')
+            const costValue = replacedNumber[0] === '0' ? replacedNumber.substring(1) : replacedNumber
+
+            setInputValue(costValue)
+            onChange(costValue)
+        } else {
+            setInputValue(value.toUpperCase())
+            onChange(value.toUpperCase())
+        }
     }
 
     useEffect(() => {
@@ -27,7 +34,6 @@ const Input: React.FC<InputProps> = ({type, placeholder, incomeValue, onChange})
         <Styled.Input
             value={inputValue}
             onChange={value => handleOnChange(value.target.value)}
-            type={type}
             placeholder={placeholder}
         />
     )

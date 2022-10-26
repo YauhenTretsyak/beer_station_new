@@ -15,6 +15,7 @@ const AdminChangeContent = () => {
     const [isPassOk, setIsPassOk] = useState(false)
 
     const beerCardsData = useSelector(state => state.locationData.cards)
+    const isLoading = useSelector(state => state.locationData.loading)
     const dispatch = useDispatch()
 
     const hardPass = '123$4321'
@@ -50,6 +51,7 @@ console.log(beerCardsData)
                 vol1={item.vol1}
                 vol03={item.vol03}
                 vol05={item.vol05}
+                isLoading={isLoading}
             />
         )
     })
@@ -60,7 +62,7 @@ console.log(beerCardsData)
                 <Select
                     onChange={changeLocation}
                     selectOptionsData={selectOptionsData}
-                    selectedValue="kepna"
+                    selectedValue={selectedLocation}
                 />
                 <Input
                     onChange={addPass}

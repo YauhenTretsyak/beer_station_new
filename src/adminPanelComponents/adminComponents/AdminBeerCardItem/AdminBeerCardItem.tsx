@@ -23,10 +23,10 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
     vol1,
     vol03,
     vol05,
-}) => {
+}, props) => {
     const isIncomeDataParams = id && country && name && title && type && vol1 && vol03 && vol05
     const incomeData = {id, country, name, title, type, vol1, vol03, vol05}
-    const [newCountry, setNewCountry] = useState<string>('1') 
+    const [newCountry, setNewCountry] = useState<string>('') 
     const [newName, setNewName] = useState<string>('')
     const [newTitle, setNewTitle] = useState<string>('')
     const [newType, setNewType] = useState<string>('')
@@ -35,9 +35,8 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
     const [newVol05, setNewVol05] = useState<string>('')
 
     const imagePath = flagsListData.find(item => item.id === newCountry)?.imagePath
-
     useEffect(() => {
-        // if (!isIncomeDataParams) return
+        if (!country) return
         setNewCountry(country)
         setNewName(name.length === 0 ? '--' : name)
         setNewTitle(title.length === 0 ? '--' : title)
@@ -45,7 +44,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
         setNewVol1(vol1.length === 0 ? '--' : vol1)
         setNewVol03(vol03.length === 0 ? '--' : vol03)
         setNewVol05(vol05.length === 0 ? '--' : vol05)
-    }, [])
+    }, [props])
 
     return (
         <Styled.AdminBeerCardItem>
