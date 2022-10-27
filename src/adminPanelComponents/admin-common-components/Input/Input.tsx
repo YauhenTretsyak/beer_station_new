@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from 'react'
 import * as Styled from './InputStyles'
 
+
+
 interface InputProps {
     type: 'password' | 'number' | 'text';
-    onChange: (value: string) => void;
+    funcToChange: React.Dispatch<React.SetStateAction<string>>;
+    onChange: (func: (value: string) => void, value: string) => void;
     placeholder?: string;
     incomeValue?: string;
 }
 
-const Input: React.FC<InputProps> = ({type, placeholder, incomeValue, onChange}) => {
+const Input: React.FC<InputProps> = ({type, placeholder, incomeValue, funcToChange, onChange}, props) => {
 
     const [inputValue, setInputValue] = useState<string>('')
 
@@ -18,17 +21,17 @@ const Input: React.FC<InputProps> = ({type, placeholder, incomeValue, onChange})
             const costValue = replacedNumber[0] === '0' ? replacedNumber.substring(1) : replacedNumber
 
             setInputValue(costValue)
-            onChange(costValue)
+            onChange(funcToChange, costValue)
         } else {
             setInputValue(value.toUpperCase())
-            onChange(value.toUpperCase())
+            onChange(funcToChange, value.toUpperCase())
         }
     }
 
     useEffect(() => {
         if (!incomeValue) return
         setInputValue(incomeValue)
-    }, [])
+    }, [incomeValue])
 
     return (
         <Styled.Input

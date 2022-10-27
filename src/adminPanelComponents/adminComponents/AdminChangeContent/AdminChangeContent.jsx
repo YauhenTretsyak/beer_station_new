@@ -11,7 +11,8 @@ import {Button} from '../../admin-common-components'
 const AdminChangeContent = () => {
 
     const [selectedLocation, setSelectedLocation] = useState('kepna')
-    const [pass, setPass] = useState(null)
+    const [pass, setPass] = useState('')
+    const [isLoginBtnDisabled, setIsLoginBtnDisabled] = useState(true)
     const [isPassOk, setIsPassOk] = useState(false)
 
     const beerCardsData = useSelector(state => state.locationData.cards)
@@ -30,31 +31,38 @@ const AdminChangeContent = () => {
         setPass(pass)
     }
 
+    // useEffect(() => {
+    //     if (pass) setIsLoginBtnDisabled(false)
+    // }, [pass])
+
+    const toEnterPassword = (func, value) => {
+        func(value)
+        setIsLoginBtnDisabled(false)
+    }
+
     const toComparePassLocation = () => {
         if (hardPass === pass) setIsPassOk(true)
         else setIsPassOk(false)
     }
-console.log(beerCardsData)
+
     const getLocationCardData = (location) => {
         dispatch(getLocationData({location: location, kind: 'beer'}))
     }
 
-    const beerCardsToChange = beerCardsData.map(item => {
-        return (
-            <AdminBeerCardItem 
-                key={uuidv4()}
-                id={item.id}
-                country={item.country}
-                name={item.name}
-                title={item.title}
-                type={item.type}
-                vol1={item.vol1}
-                vol03={item.vol03}
-                vol05={item.vol05}
-                isLoading={isLoading}
-            />
-        )
-    })
+    const beerCardsToChange = beerCardsData.map(item => (
+        <AdminBeerCardItem 
+            key={uuidv4()}
+            id={item.id}
+            country={item.country}
+            name={item.name}
+            title={item.title}
+            type={item.type}
+            vol1={item.vol1}
+            vol03={item.vol03}
+            vol05={item.vol05}
+            isLoading={isLoading}
+        />
+    ))
 
     return (
         <Styled.AdminChangeContent>
@@ -65,7 +73,8 @@ console.log(beerCardsData)
                     selectedValue={selectedLocation}
                 />
                 <Input
-                    onChange={addPass}
+                    funcToChange={addPass}
+                    onChange={toEnterPassword}
                     type="password"
                 />
                 <p>{selectedLocation}</p>
@@ -73,6 +82,7 @@ console.log(beerCardsData)
                 <Button 
                     label="Login"
                     onClick={() => getLocationCardData(selectedLocation)}
+                    isDisabled={isLoginBtnDisabled}
                 />
                 {isPassOk && (
                     <p>Pass OK</p>

@@ -3,7 +3,11 @@ import FlexContainer from '../../styles/FlexContainer'
 import {Select, Input, Button} from '../../admin-common-components'
 import screen_breakpoints from '../../styles/screen_breakpoints'
 
-export const AdminBeerCardItem = styled.div`
+interface AdminBeerCardItemProps {
+    isDataChanged: boolean;
+}
+
+export const AdminBeerCardItem = styled.div<AdminBeerCardItemProps>`
     position: relative;
     display: block;
     margin-top: 1.7rem;
@@ -91,6 +95,28 @@ export const AdminBeerCardItem = styled.div`
     & p {
         color: ${({theme}) => theme.colors.orange};
     }
+
+    ${({isDataChanged}) => isDataChanged ?
+        `background-color: #4e3308;
+            box-shadow: 0 0 1rem .3rem #ffe277;
+
+            & p {
+                text-shadow: .5rem .7rem .1rem #000;
+            }
+
+            & img {
+                margin-bottom: .5rem;
+                max-width: 103%;
+                box-shadow: .4rem .4rem .2rem .1rem #000;
+            }
+
+            &::before, &::after {
+                height: 8.3rem;
+                box-shadow: .5rem .5rem 0 0 #000;
+            }`
+        : 
+        ''
+        }
 `
 export const CardNumber = styled.span`
     position: absolute;
@@ -109,6 +135,10 @@ export const InputFlexWrapper = styled.div`
     & > input {
         width: 60%;
     }
+`
+export const ButtonsWrapper = styled(FlexContainer)`
+    justify-content: start;
+    margin-top: 1.4rem;
 `
 export const FlagImg = styled.img`
     position: absolute;

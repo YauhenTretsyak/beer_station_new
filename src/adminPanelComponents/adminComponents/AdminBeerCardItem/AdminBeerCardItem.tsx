@@ -24,7 +24,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
     vol03,
     vol05,
 }, props) => {
-    const isIncomeDataParams = id && country && name && title && type && vol1 && vol03 && vol05
+    const [isDataChanged, setIsDataChanged] = useState<boolean>(false)
     const incomeData = {id, country, name, title, type, vol1, vol03, vol05}
     const [newCountry, setNewCountry] = useState<string>('') 
     const [newName, setNewName] = useState<string>('')
@@ -46,8 +46,24 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
         setNewVol05(vol05.length === 0 ? '--' : vol05)
     }, [props])
 
+    const changeDataFunc = (func: (value: string) => void, value: string) => {
+        func(value)
+        if (!isDataChanged) setIsDataChanged(true)
+    }
+
+    const resetChanges = () => {
+        setNewCountry(country)
+        setNewName(name)
+        setNewTitle(title)
+        setNewType(type)
+        setNewVol1(vol1)
+        setNewVol03(vol03)
+        setNewVol05(vol05)
+        setIsDataChanged(false)
+    }
+
     return (
-        <Styled.AdminBeerCardItem>
+        <Styled.AdminBeerCardItem isDataChanged={isDataChanged}>
             <Styled.CardNumber>
                 #{id}
             </Styled.CardNumber>
@@ -70,7 +86,8 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
                     type="text"
                     placeholder={newTitle ?? '--'}
                     incomeValue={newTitle ?? '--'}
-                    onChange={setNewTitle}
+                    funcToChange={setNewTitle}
+                    onChange={changeDataFunc}
                 />
             </Styled.InputFlexWrapper>
             <Styled.InputFlexWrapper>
@@ -81,7 +98,8 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
                     type="text"
                     placeholder={newName ?? '--'}
                     incomeValue={newName ?? '--'}
-                    onChange={setNewName}
+                    funcToChange={setNewName}
+                    onChange={changeDataFunc}
                 />
             </Styled.InputFlexWrapper>
             <Styled.InputFlexWrapper>
@@ -92,7 +110,8 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
                     type="text"
                     placeholder={newType ?? '--'}
                     incomeValue={newType ?? '--'}
-                    onChange={setNewType}
+                    funcToChange={setNewType}
+                    onChange={changeDataFunc}
                 />
             </Styled.InputFlexWrapper>
             <Styled.ElementsLine>
@@ -104,7 +123,8 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
                         type="number"
                         placeholder={newVol03 ?? '--'}
                         incomeValue={newVol03}
-                        onChange={setNewVol03}
+                        funcToChange={setNewVol03}
+                        onChange={changeDataFunc}
                     />
                 </Styled.InputWrapper>
                 <Styled.InputWrapper>
@@ -115,7 +135,8 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
                         type="number"
                         placeholder={newVol05 ?? '--'}
                         incomeValue={newVol05}
-                        onChange={setNewVol05}
+                        funcToChange={setNewVol05}
+                        onChange={changeDataFunc}
                     />
                 </Styled.InputWrapper>
                 <Styled.InputWrapper>
@@ -126,10 +147,25 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
                         type="number"
                         placeholder={newVol1 ?? '--'}
                         incomeValue={newVol1}
-                        onChange={setNewVol1}
+                        funcToChange={setNewVol1}
+                        onChange={changeDataFunc}
                     />
                 </Styled.InputWrapper>
             </Styled.ElementsLine>
+            <Styled.ButtonsWrapper>
+                <Button 
+                    onClick={() => {console.log(isDataChanged)}}
+                    label="Save"
+                    type="apply"
+                    isDisabled={!isDataChanged}
+                />
+                <Button 
+                    onClick={() => resetChanges()}
+                    label="Cancel"
+                    type="cancel"
+                    isDisabled={!isDataChanged}
+                />
+            </Styled.ButtonsWrapper>
         </Styled.AdminBeerCardItem>
     )
 }

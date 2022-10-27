@@ -9,6 +9,8 @@ const colors = {
     yellow_light: '#b3b0a5',
     red: '#ff0000',
     grey: '#43413e',
+    green: '#00ff18',
+    green_dark: '#0f7602',
     brown: '#55290a',
     brown_dark: '#3d1a02',
     brown_light: '#d6aa43',
