@@ -21,8 +21,6 @@ const AdminChangeContent = () => {
 
     const hardPass = '123$4321'
 
-    
-
     const changeLocation = (option) => {
         setSelectedLocation(option)
     }
@@ -38,6 +36,10 @@ const AdminChangeContent = () => {
     const toEnterPassword = (func, value) => {
         func(value)
         setIsLoginBtnDisabled(false)
+    }
+
+    const toSelectLocation= (func, value) => {
+        func(value)
     }
 
     const toComparePassLocation = () => {
@@ -60,7 +62,7 @@ const AdminChangeContent = () => {
             vol1={item.vol1}
             vol03={item.vol03}
             vol05={item.vol05}
-            isLoading={isLoading}
+            location={selectedLocation}
         />
     ))
 
@@ -68,7 +70,8 @@ const AdminChangeContent = () => {
         <Styled.AdminChangeContent>
             <div>
                 <Select
-                    onChange={changeLocation}
+                    funcToChange={changeLocation}
+                    onChange={toSelectLocation}
                     selectOptionsData={selectOptionsData}
                     selectedValue={selectedLocation}
                 />

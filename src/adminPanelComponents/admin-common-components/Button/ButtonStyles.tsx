@@ -23,5 +23,9 @@ export const Button = styled.div<ButtonProps>(
         background-color: ${buttonType === 'cancel' ? theme.colors.red : ''};
         box-shadow: ${buttonType === 'apply' ? `0 0 .2rem .3rem ${theme.colors.green}` : ''};
         box-shadow: ${buttonType === 'cancel' ? `0 0 .2rem .3rem ${theme.colors.red}` : ''};
+
+        &:hover {
+            cursor: pointer;
+        }
     `
 )

@@ -1,4 +1,7 @@
 import React, {useEffect, useState} from 'react'
+
+import { getDatabase, ref, set } from "firebase/database";
+
 import flagsListData from '../../../dataComponents/flagList.data'
 import * as Styled from './AdminBeerCardItemStyles'
 import {Select, Input, Button} from '../../admin-common-components'
@@ -12,6 +15,7 @@ interface AdminBeerCardItemProps {
     vol1: string;
     vol03: string;
     vol05: string;
+    location: string
 }
 
 const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
@@ -23,6 +27,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
     vol1,
     vol03,
     vol05,
+    location,
 }, props) => {
     const [isDataChanged, setIsDataChanged] = useState<boolean>(false)
     const incomeData = {id, country, name, title, type, vol1, vol03, vol05}
@@ -51,6 +56,24 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
         if (!isDataChanged) setIsDataChanged(true)
     }
 
+    function writeCardData() {
+        const db = getDatabase()
+        set(ref(db, `${location}/beer/${id - 1}` ), {
+            id,
+            country: newCountry,
+            name: newName,
+            title: newTitle,
+            type: newType,
+            vol1: newVol1,
+            vol03: newVol03,
+            vol05: newVol05,
+        }).
+            then(() => setIsDataChanged(false)).
+            catch((error) => {
+                console.error(error)
+            })
+    }
+
     const resetChanges = () => {
         setNewCountry(country)
         setNewName(name)
@@ -73,7 +96,8 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
                 </Styled.InputLabel>
                 <Select
                     selectOptionsData={flagsListData}
-                    onChange={setNewCountry}
+                    funcToChange={setNewCountry}
+                    onChange={changeDataFunc}
                     selectedValue={newCountry}
                 />
                 <Styled.FlagImg src={imagePath} alt="flag" />
@@ -154,7 +178,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
             </Styled.ElementsLine>
             <Styled.ButtonsWrapper>
                 <Button 
-                    onClick={() => {console.log(isDataChanged)}}
+                    onClick={() => {writeCardData()}}
                     label="Save"
                     type="apply"
                     isDisabled={!isDataChanged}
