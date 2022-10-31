@@ -1,17 +1,14 @@
 import styled from 'styled-components'
 import FlexContainer from '../../styles/FlexContainer'
-import SectionContainer from '../../styles/SectionContainer'
-import screen_breakpoints from '../../styles/screen_breakpoints'
 import {Input, Select, Button} from '../../admin-common-components'
+import screen_breakpoints from '../../styles/screen_breakpoints'
 
-interface ErrorMessageWrapperProps {
+interface AlertWrapperProps {
     isOpen: boolean;
 }
 
-export const AdminChangeContent = styled(SectionContainer)`
-    
-`
 export const LoginBar = styled(FlexContainer)`
+    position: relative;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -51,36 +48,24 @@ export const LoginBar = styled(FlexContainer)`
         height: 3.2rem;
     }
 `
-export const AdminCardsWrapper = styled(FlexContainer)`
-    flex-wrap: wrap;
-    justify-content: center;
 
-    ${screen_breakpoints.sm} {
-        justify-content: space-between;
-    }
-`
-export const SelectLocation = styled(Select)``
-export const InputPassword = styled(Input)``
-export const ButtonLogin = styled(Button)``
-export const LocationTitle = styled.p`
-    margin-bottom: 1rem;
-    text-transform: capitalize;
-    text-align: center;
-
-    ${screen_breakpoints.md} {
-        margin-bottom: 2rem;
-        font-size: 4.5rem;
-    }
-`
-
-export const ErrorMessageWrapper = styled(FlexContainer)<ErrorMessageWrapperProps>`
+export const AlertWrapper = styled(FlexContainer)<AlertWrapperProps>`
     display: ${({isOpen}) => isOpen ? 'flex' : 'none'};
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     justify-content: center;
+    width: 100% !important;
+    height: 100% !important;
     border-radius: .5rem;
     background-color: #320000e8;
     box-shadow: 0 0 .4rem .2rem ${({theme}) => theme.colors.red};
-    transform: translate(-50%, -50%);
 `
+
+export const AlertMessage = styled.p`
+    color: ${({theme}) => theme.colors.gold};
+`
+
+export const SelectLocation = styled(Select)``
+export const InputPassword = styled(Input)``
+export const ButtonLogin = styled(Button)``

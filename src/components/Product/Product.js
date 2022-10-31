@@ -50,14 +50,15 @@ const Product = () => {
         <SwiperSlide key={ uuidv4() }>
             <BeerSlide 
                 linkToCard={ `/beer_page/${ locationSwitch.location }/${ item.id }` }
-                country={ item.country }
-                cardNumber={ item.id }
-                title={ item.title }
-                name={ item.name }
-                type={ item.type }
-                vol03={ item.vol03 }
-                vol05={ item.vol05 }
-                vol1={ item.vol1 }
+                country={item.country}
+                cardNumber={item.id}
+                title={item.title}
+                name={item.name}
+                type={item.type}
+                vol03={item.vol03}
+                vol05={item.vol05}
+                vol1={item.vol1}
+                updateDate={item.updateDate}
             />
         </SwiperSlide>
     ))

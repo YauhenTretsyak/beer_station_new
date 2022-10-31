@@ -5,14 +5,12 @@ import * as Styled from './SelectStyles'
 
 interface SelectProps {
     selectOptionsData: SelectOptions[];
-    // onChange: (option: string) => void;
-    funcToChange: React.Dispatch<React.SetStateAction<string>>;
+    funcToChange: (option: string) => void;
     onChange: (func: (value: string) => void, value: string) => void;
     selectedValue: string;
 }
 
 const Select: React.FC<SelectProps> = ({selectOptionsData, selectedValue, funcToChange, onChange}) => {
-    const [selectValue, setSelectValue] = useState(selectedValue)
 
     const options = selectOptionsData.map(option => (
         <Styled.Option 
@@ -25,8 +23,6 @@ const Select: React.FC<SelectProps> = ({selectOptionsData, selectedValue, funcTo
     ))
 
     const handleSelect = (value: string) => {
-        setSelectValue(value)
-        console.log(value)
         onChange(funcToChange, value)
     }
 

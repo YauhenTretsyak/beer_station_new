@@ -1,43 +1,36 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import * as Styled from './InputStyles'
 
 
 
 interface InputProps {
     type: 'password' | 'number' | 'text';
-    funcToChange: React.Dispatch<React.SetStateAction<string>>;
+    funcToChange: (pass: string) => void;
     onChange: (func: (value: string) => void, value: string) => void;
     placeholder?: string;
     incomeValue?: string;
 }
 
-const Input: React.FC<InputProps> = ({type, placeholder, incomeValue, funcToChange, onChange}, props) => {
-
-    const [inputValue, setInputValue] = useState<string>('')
+const Input: React.FC<InputProps> = ({type, placeholder, incomeValue, funcToChange, onChange}) => {
 
     const handleOnChange = (value: string) => {
         if (type === 'number') {
             const replacedNumber = value.replace(/[^0-9+]/ig, '')
             const costValue = replacedNumber[0] === '0' ? replacedNumber.substring(1) : replacedNumber
-
-            setInputValue(costValue)
             onChange(funcToChange, costValue)
-        } else {
-            setInputValue(value.toUpperCase())
+        } else if (type === 'text'){
             onChange(funcToChange, value.toUpperCase())
+        } else {
+            onChange(funcToChange, value)
         }
     }
 
-    useEffect(() => {
-        if (!incomeValue) return
-        setInputValue(incomeValue)
-    }, [incomeValue])
-
     return (
         <Styled.Input
-            value={inputValue}
+            value={incomeValue}
             onChange={value => handleOnChange(value.target.value)}
             placeholder={placeholder}
+            type={type === 'password' ? 'password' : ''}
         />
     )
 }

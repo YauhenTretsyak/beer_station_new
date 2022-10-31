@@ -166,6 +166,18 @@ const CostInfo = styled(FlexContainer)`
 `
 const BeerValue = styled.p``
 const BeerCost = styled.p``
+const DateInfo = styled.p`
+  position: absolute;
+  top: -.9rem;
+  right: 1.5rem;
+  color: #f3f3f3 !important;
+  font-size: 1.4rem;
+  font-weight: 200;
+
+  & > span {
+    font-size: 1.7rem;
+  }
+`
 
 export {
     Name,
@@ -180,5 +192,6 @@ export {
     BottomWrapper,
     CostInfo,
     BeerValue,
-    BeerCost
+    BeerCost,
+    DateInfo,
 }

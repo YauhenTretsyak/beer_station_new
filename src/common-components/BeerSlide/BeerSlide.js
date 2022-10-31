@@ -14,17 +14,20 @@ import {
     BottomWrapper,
     CostInfo,
     BeerValue,
-    BeerCost
+    BeerCost,
+    DateInfo,
 } from './BeerSlide.styles'
 
 
 const BeerSlide = (props) => {
 
-    const {linkToCard, cardNumber, title, name, type, vol03, vol05, vol1, country} = props
+    const {linkToCard, cardNumber, title, name, type, vol03, vol05, vol1, country, updateDate} = props
 
     const flagImage = flagsListData.filter(el => el.id === country).map(item => item.imagePath)
 
     const nameRegularSize = Boolean(name.length < 14)
+
+    console.log(updateDate)
 
     return (
         <Slide to={`${ linkToCard }`}>
@@ -77,6 +80,9 @@ const BeerSlide = (props) => {
                     </BeerCost>
                 </CostInfo>
             </BottomWrapper>
+            <DateInfo>
+               od: <span>{updateDate}</span>
+            </DateInfo>
         </Slide>
     )
 }

@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import moment from 'moment'
+import {setActiveFlagOfChanges} from '../../../store/slices/setFlagIsChangesSaved'
 
-import { getDatabase, ref, set } from "firebase/database";
+import {getDatabase, ref, set} from 'firebase/database'
 
 import flagsListData from '../../../dataComponents/flagList.data'
 import * as Styled from './AdminBeerCardItemStyles'
@@ -8,29 +11,27 @@ import {Select, Input, Button} from '../../admin-common-components'
 
 interface AdminBeerCardItemProps {
     id: number;
-    country: string;
-    name: string;
-    title: string;
-    type: string;
-    vol1: string;
-    vol03: string;
-    vol05: string;
-    location: string
+    location: string;
+}
+
+interface ActiveCardsData {
+    id: number;
+    isChanges: boolean;
 }
 
 const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
     id,
-    country,
-    name,
-    title,
-    type,
-    vol1,
-    vol03,
-    vol05,
     location,
-}, props) => {
+}) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const beerCardsData = useSelector(state => state.locationData.cards).find(item => item.id === id)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const activeCardsData: ActiveCardsData[] = useSelector(state => state.flagIsChangesSaved.activeCardsData)
+    const dispatch = useDispatch()
     const [isDataChanged, setIsDataChanged] = useState<boolean>(false)
-    const incomeData = {id, country, name, title, type, vol1, vol03, vol05}
+    const {country, name, title, type, vol1, vol03, vol05} = beerCardsData
     const [newCountry, setNewCountry] = useState<string>('') 
     const [newName, setNewName] = useState<string>('')
     const [newTitle, setNewTitle] = useState<string>('')
@@ -39,9 +40,9 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
     const [newVol03, setNewVol03] = useState<string>('')
     const [newVol05, setNewVol05] = useState<string>('')
 
+
     const imagePath = flagsListData.find(item => item.id === newCountry)?.imagePath
     useEffect(() => {
-        if (!country) return
         setNewCountry(country)
         setNewName(name.length === 0 ? '--' : name)
         setNewTitle(title.length === 0 ? '--' : title)
@@ -49,14 +50,40 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
         setNewVol1(vol1.length === 0 ? '--' : vol1)
         setNewVol03(vol03.length === 0 ? '--' : vol03)
         setNewVol05(vol05.length === 0 ? '--' : vol05)
-    }, [props])
+    }, [])
+
+    const saveTrueFlagsCards = () => {
+        dispatch(setActiveFlagOfChanges(activeCardsData.concat([{id, isChanges: true}])))
+    }
+
+    const saveFalseFlagsCards = () => {
+        const activeCardsDataFiltered = activeCardsData.map(item => {
+            if (item.id === id) {
+                return {
+                    id: item.id,
+                    isChanges: false,
+                }
+            } else {
+                return {
+                    id: item.id,
+                    isChanges: item.isChanges,
+                }
+            }
+        })
+
+        dispatch(setActiveFlagOfChanges(activeCardsDataFiltered))
+    }
 
     const changeDataFunc = (func: (value: string) => void, value: string) => {
         func(value)
-        if (!isDataChanged) setIsDataChanged(true)
+        if (!isDataChanged) {
+            setIsDataChanged(true)
+            saveTrueFlagsCards()
+        }
     }
 
     function writeCardData() {
+        const actuallyDate = moment().format('D-M-YYYY')
         const db = getDatabase()
         set(ref(db, `${location}/beer/${id - 1}` ), {
             id,
@@ -67,11 +94,21 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
             vol1: newVol1,
             vol03: newVol03,
             vol05: newVol05,
+            updateDate: actuallyDate ?? '--.--.----',
         }).
-            then(() => setIsDataChanged(false)).
+            then(() => {
+                setIsDataChanged(false)
+                saveFalseFlagsCards()
+            }).
             catch((error) => {
                 console.error(error)
             })
+    }
+
+    const saveNewData = () => {
+        if (isDataChanged) {
+            writeCardData()
+        }
     }
 
     const resetChanges = () => {
@@ -83,6 +120,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
         setNewVol03(vol03)
         setNewVol05(vol05)
         setIsDataChanged(false)
+        saveFalseFlagsCards()
     }
 
     return (
@@ -178,7 +216,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
             </Styled.ElementsLine>
             <Styled.ButtonsWrapper>
                 <Button 
-                    onClick={() => {writeCardData()}}
+                    onClick={() => {saveNewData()}}
                     label="Save"
                     type="apply"
                     isDisabled={!isDataChanged}

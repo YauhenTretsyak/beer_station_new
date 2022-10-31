@@ -14,8 +14,7 @@ export const AdminBeerCardItem = styled.div<AdminBeerCardItemProps>`
     margin-bottom: 1.7rem;
     padding: 1.5rem 2.6rem;
     width: 100%;
-    max-width: 26rem;
-    max-height: 25rem;
+    max-width: 35rem;
     border-radius: 1.4rem;
     text-decoration: none;
     background-color: #312f2f;
@@ -36,23 +35,7 @@ export const AdminBeerCardItem = styled.div<AdminBeerCardItemProps>`
         }
 
         &:hover {
-            background-color: #4e3308;
-            box-shadow: 0 0 1rem .3rem #ffe277;
-
-            & p {
-                text-shadow: .5rem .7rem .1rem #000;
-            }
-
-            & img {
-                margin-bottom: .5rem;
-                max-width: 103%;
-                box-shadow: .4rem .4rem .2rem .1rem #000;
-            }
-
-            &::before, &::after {
-                height: 8.3rem;
-                box-shadow: .5rem .5rem 0 0 #000;
-            }
+            background-color: #483513;
         }
     }
 
@@ -156,6 +139,14 @@ export const InputWrapper = styled.div`
 export const InputLabel = styled.p`
     min-width: 7.6rem;
     font-size: 2rem;
+
+    ${screen_breakpoints.sm} {
+        font-size: 1.7rem;
+    }
+
+    ${screen_breakpoints.md} {
+        font-size: 2rem;
+    }
 `
 export const InputTypeText = styled(Input)`
 `
