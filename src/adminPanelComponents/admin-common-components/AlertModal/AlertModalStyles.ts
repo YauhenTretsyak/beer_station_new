@@ -14,8 +14,8 @@ export const AlertModal = styled(FlexContainer)<AlertModalStylesProps>`
     flex-direction: column;
     width: 100%;
     max-width: 40rem;
-    height: 100%;
-    max-height: 10rem;
+    /* height: 100%;
+    max-height: 10rem; */
     padding: 2rem 2.5rem;
 `
 export const CloseElem = styled.span`
@@ -30,4 +30,6 @@ export const CloseElem = styled.span`
     }
 `
 
-export const Message = styled.p``
+export const Message = styled.p`
+   text-align: center;
+`
