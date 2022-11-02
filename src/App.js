@@ -7,7 +7,7 @@ import {Routes, Route} from 'react-router-dom'
 import {theme} from './styles/theme'
 import {HelmetBlock} from './common-components/index'
 import {Footer} from './components/'
-import {AdminPanelMainPage} from './adminPanelComponents'
+import {AdminPanelMainPage} from './pages'
 import favicon from './assets/favicon.png'
 
 function App() {

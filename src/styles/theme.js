@@ -17,13 +17,7 @@ const colors = {
     gold: '#cfc600',
     silver: '#C0C0C2',
     silver_light: '#e3e3e4',
-    // color_blue: '#0028FF',
-    // color_white: '#fff',
-    // color_white1: '#FBFBFB',
-    // color_grayDark: '#506473',
-    // color_gray: '#6C869A',
-    // color_yellow: '#FFDA50', 
-    // color_green: '#3efd13',
+
 }
 
 const fontWeight = {
