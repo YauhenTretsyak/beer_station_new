@@ -50,7 +50,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
         setNewVol1(vol1.length === 0 ? '--' : vol1)
         setNewVol03(vol03.length === 0 ? '--' : vol03)
         setNewVol05(vol05.length === 0 ? '--' : vol05)
-    }, [])
+    }, [id])
 
     const saveTrueFlagsCards = () => {
         dispatch(setActiveFlagOfChanges(activeCardsData.concat([{id, isChanges: true}])))
@@ -94,7 +94,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
             vol1: newVol1,
             vol03: newVol03,
             vol05: newVol05,
-            updateDate: actuallyDate ?? '--.--.----',
+            updateDate: actuallyDate || '--.--.----',
         }).
             then(() => {
                 setIsDataChanged(false)

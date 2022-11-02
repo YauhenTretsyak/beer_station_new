@@ -27,56 +27,56 @@ const BeerSlide = (props) => {
 
     const nameRegularSize = Boolean(name.length < 14)
 
-    console.log(updateDate)
+    console.log(name || '--')
 
     return (
-        <Slide to={`${ linkToCard }`}>
+        <Slide to={`${linkToCard}`}>
             <TopWrapper>
                 <CountryWrapper>
                     <Flag>
-                        <img src={ flagImage } alt="country's flag" />
+                        <img src={flagImage} alt="country's flag" />
                     </Flag>
                     <CardNumber>
-            #{ cardNumber }
+                        #{cardNumber}
                     </CardNumber>
                 </CountryWrapper>
                 <BeerInfoWrapper>
                     <Title>
-                        { title ?? '--' }
+                        {title || '--'}
                     </Title>
                     <Name
                         nameRegularSize={ nameRegularSize }
                     >
-                        { name ?? '--' }
+                        {name || '--'}
                     </Name>
                     <BeerType>
-                        { type ?? '--' }
+                        {type || '--'}
                     </BeerType>
                 </BeerInfoWrapper>
             </TopWrapper>
             <BottomWrapper>
                 <CostInfo>
                     <BeerValue>
-            0.3L - 
+                        0.3L - 
                     </BeerValue>
                     <BeerCost>
-                        { vol03 ?? '--' } zł
+                        {vol03 || ' --'} zł
                     </BeerCost>
                 </CostInfo>
                 <CostInfo>
                     <BeerValue>
-            0.5L - 
+                        0.5L - 
                     </BeerValue>
                     <BeerCost>
-                        { vol05 ?? '--' } zł
+                        {vol05 || ' --'} zł
                     </BeerCost>
                 </CostInfo>
                 <CostInfo>
                     <BeerValue>
-            1L - 
+                        1L - 
                     </BeerValue>
                     <BeerCost>
-                        { vol1 ?? '--' } zł
+                        {vol1 || ' --'} zł
                     </BeerCost>
                 </CostInfo>
             </BottomWrapper>

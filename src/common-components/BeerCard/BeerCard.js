@@ -35,13 +35,13 @@ const BeerCard = (props) => {
                 </Country>
                 <Inner>
                     <Title>
-                        { title ?? '--' }
+                        { title || '--' }
                     </Title>
                     <Name>
-                        { name ?? '--' }
+                        { name || '--' }
                     </Name>
                     <BeerType>
-                        { type ?? '--' }
+                        { type || '--' }
                     </BeerType>
                 </Inner>
             </TopWrapper>
@@ -51,7 +51,7 @@ const BeerCard = (props) => {
             0.3L - 
                     </BeerValue>
                     <BeerCost>
-                        { vol03 ?? '--' } zł
+                        { vol03 || '--' } zł
                     </BeerCost>
                 </CostInfo>
                 <CostInfo>
@@ -59,7 +59,7 @@ const BeerCard = (props) => {
             0.5L - 
                     </BeerValue>
                     <BeerCost>
-                        { vol05 ?? '--' } zł
+                        { vol05 || '--' } zł
                     </BeerCost>
                 </CostInfo>
                 <CostInfo>
@@ -67,7 +67,7 @@ const BeerCard = (props) => {
             1L - 
                     </BeerValue>
                     <BeerCost>
-                        { vol1 ?? '--' } zł
+                        { vol1 || '--' } zł
                     </BeerCost>
                 </CostInfo>
             </BottomWrapper>

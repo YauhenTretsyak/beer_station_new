@@ -78,7 +78,7 @@ const LoginBar: React.FC = () => {
                     isOpen={!isChangesSaved}
                 >
                     <Styled.AlertMessage>
-                        Please Save or Cancel cards changies!!!
+                        Please Save or Cancel cards changes!!!
                     </Styled.AlertMessage>
                 </Styled.AlertWrapper>
             )}

@@ -5,9 +5,9 @@ import {Button} from '../'
 interface AlertModalProps {
     message: string;
     isOpen: boolean;
+    modalFunc: () => void;
     isErrorMessage?: boolean;
     width?: string;
-    modalFunc: () => void;
 }
 
 const AlertModal: React.FC<AlertModalProps> = ({
