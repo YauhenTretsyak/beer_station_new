@@ -27,8 +27,6 @@ const BeerSlide = (props) => {
 
     const nameRegularSize = Boolean(name.length < 14)
 
-    console.log(name || '--')
-
     return (
         <Slide to={`${linkToCard}`}>
             <TopWrapper>
