@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/beer_station_new/static/js/main.7aab56d6.chunk.js",
-    "main.js.map": "/beer_station_new/static/js/main.7aab56d6.chunk.js.map",
+    "main.js": "/beer_station_new/static/js/main.f0996798.chunk.js",
+    "main.js.map": "/beer_station_new/static/js/main.f0996798.chunk.js.map",
     "runtime-main.js": "/beer_station_new/static/js/runtime-main.0706d805.js",
     "runtime-main.js.map": "/beer_station_new/static/js/runtime-main.0706d805.js.map",
     "static/css/2.5a193775.chunk.css": "/beer_station_new/static/css/2.5a193775.chunk.css",
-    "static/js/2.e69bc39d.chunk.js": "/beer_station_new/static/js/2.e69bc39d.chunk.js",
-    "static/js/2.e69bc39d.chunk.js.map": "/beer_station_new/static/js/2.e69bc39d.chunk.js.map",
+    "static/js/2.bc2286f5.chunk.js": "/beer_station_new/static/js/2.bc2286f5.chunk.js",
+    "static/js/2.bc2286f5.chunk.js.map": "/beer_station_new/static/js/2.bc2286f5.chunk.js.map",
     "index.html": "/beer_station_new/index.html",
     "static/css/2.5a193775.chunk.css.map": "/beer_station_new/static/css/2.5a193775.chunk.css.map",
-    "static/js/2.e69bc39d.chunk.js.LICENSE.txt": "/beer_station_new/static/js/2.e69bc39d.chunk.js.LICENSE.txt",
+    "static/js/2.bc2286f5.chunk.js.LICENSE.txt": "/beer_station_new/static/js/2.bc2286f5.chunk.js.LICENSE.txt",
     "static/media/BS_logo.cd9217e5.png": "/beer_station_new/static/media/BS_logo.cd9217e5.png",
     "static/media/kepna_1.efd2afc0.jpg": "/beer_station_new/static/media/kepna_1.efd2afc0.jpg",
     "static/media/kepna_2.bc7da4da.jpg": "/beer_station_new/static/media/kepna_2.bc7da4da.jpg",
@@ -28,7 +28,7 @@
   "entrypoints": [
     "static/js/runtime-main.0706d805.js",
     "static/css/2.5a193775.chunk.css",
-    "static/js/2.e69bc39d.chunk.js",
-    "static/js/main.7aab56d6.chunk.js"
+    "static/js/2.bc2286f5.chunk.js",
+    "static/js/main.f0996798.chunk.js"
   ]
 }
