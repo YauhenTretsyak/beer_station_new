@@ -2,6 +2,7 @@
   "name": "beer-station-new",
   "version": "0.1.0",
   "private": false,
+  "homepage": "https://yauhentretsyak.github.io/beer_station_new/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
     "@types/prop-types": "^15.7.5",
