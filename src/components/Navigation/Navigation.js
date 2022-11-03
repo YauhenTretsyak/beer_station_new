@@ -1,10 +1,8 @@
-
-import {useContext} from 'react'
+import {useSelector} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import {v4 as uuidv4} from 'uuid'
 import useLocation from '../../hooks/useLocation'
 import {IconLink} from '../../common-components'
-import {SwitchContext} from '../../context/SwitchContext'
 import navigationData from './navigation.data'
 import socialsData from '../../dataComponents/socials.data'
 
@@ -31,9 +29,9 @@ const icons = socialsData.map(item => (
 
 const Navigation = (props) => {
     const {navigationLinksData, mainPage} = props
-
-    const {locationSwitch, langSwitch} = useContext(SwitchContext)
-    const locationHeaderData = useLocation(navigationData, locationSwitch.location)
+    const langSwitch = useSelector(state => state.selectLanguage.langSwitch)
+    const location = useSelector(state => state.actualLocation.location)
+    const locationHeaderData = useLocation(navigationData, location)
     const locationInfo = useLanguage(locationHeaderData, langSwitch)
     const menuInfo = useLanguage(navigationLinksData, langSwitch)
 

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import {FlexContainer, ImageContainer} from '../../styles/StyledElements/index'
 import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints'
 
-const CarouselWrapper = styled.div`
+export const CarouselWrapper = styled.div`
   & .swiper {
     height: 20rem;
 
@@ -11,18 +11,16 @@ const CarouselWrapper = styled.div`
     }
 
     ${ screen_breakpoint.xl } {
-        overflow: ${({isMobileMode}) => isMobileMode 
-        ? 'hidden' : 'unset' 
-};
+        overflow: ${({isMobileMode}) => (isMobileMode ? 'hidden' : 'unset')};
       }
 
     & > .swiper-wrapper {
       align-items: center;
 
       ${ screen_breakpoint.xl } {
-        ${({isMobileMode}) => isMobileMode 
+        ${({isMobileMode}) => (isMobileMode 
         ? 'flex-wrap:nowrap; transform: translate3d(-1200px, 0px, 0px);' 
-        : 'flex-wrap:wrap; transform: translate3d(0, 0, 0) !important; justify-content:space-between;'
+        : 'flex-wrap:wrap; transform: translate3d(0, 0, 0) !important; justify-content:space-between;')
 };
       }
 
@@ -31,17 +29,13 @@ const CarouselWrapper = styled.div`
         justify-content: center;
         
         ${ screen_breakpoint.xl } {
-            width: ${({isMobileMode}) => isMobileMode 
-        ? '40rem' : '29rem !important' 
-};
+            width: ${({isMobileMode}) => (isMobileMode ? '40rem' : '29rem !important')};
         }
       }
 
       & > .swiper-slide-duplicate {
         ${ screen_breakpoint.xl } {
-          display: ${({isMobileMode}) => isMobileMode 
-        ? 'flex' : 'none'
-};
+          display: ${({isMobileMode}) => (isMobileMode ? 'flex' : 'none')};
         }
       }
     }
@@ -64,12 +58,12 @@ const CarouselWrapper = styled.div`
   } 
 `
 
-const ArrowsBlock = styled(FlexContainer)`
+export const ArrowsBlock = styled(FlexContainer)`
   margin: 0 auto;
   margin-top: 3px;
   width: 100px;
 `
-const ArrowBox = styled(ImageContainer)`
+export const ArrowBox = styled(ImageContainer)`
   position: relative;
   width: 32px;
   height: 32px;
@@ -77,9 +71,7 @@ const ArrowBox = styled(ImageContainer)`
   color: ${({theme}) => theme.colors.gold};
 
   ${ screen_breakpoint.xl } {
-    display: ${({isMobileMode}) => isMobileMode 
-        ? 'flex' : 'none'
-};
+    display: ${({isMobileMode}) => (isMobileMode ? 'flex' : 'none')};
   }
 
   & > svg {
@@ -96,10 +88,8 @@ const ArrowBox = styled(ImageContainer)`
     }
   }
 `
-const ArrowNext = styled(ArrowBox)`
-  display: ${({isMobileMode}) => isMobileMode 
-        ? 'flex' : 'none'
-};
+export const ArrowNext = styled(ArrowBox)`
+  display: ${({isMobileMode}) => (isMobileMode ? 'flex' : 'none')};
   outline: none;
   &:hover {
     ${ screen_breakpoint.lg } {
@@ -109,10 +99,8 @@ const ArrowNext = styled(ArrowBox)`
     }
   }
 `
-const ArrowPrev = styled(ArrowBox)`
-  display: ${({isMobileMode}) => isMobileMode 
-        ? 'flex' : 'none'
-};
+export const ArrowPrev = styled(ArrowBox)`
+  display: ${({isMobileMode}) => (isMobileMode ? 'flex' : 'none')};
   outline: none;
   &:hover {
     ${ screen_breakpoint.lg } {
@@ -123,14 +111,10 @@ const ArrowPrev = styled(ArrowBox)`
   }
 `
 
-const DotsWrapper = styled(FlexContainer)`
+export const DotsWrapper = styled(FlexContainer)`
   display: none;
   flex-direction: row;
   justify-content: center;
-
-  /* @media only screen and (min-width: 576px) {
-    display: none;
-  } */
 
   & > .dots {
     display: flex;
@@ -155,13 +139,4 @@ const DotsWrapper = styled(FlexContainer)`
     } 
   }
 `
-const Dot = styled.div``
-
-export {
-    CarouselWrapper,
-    ArrowsBlock,
-    ArrowNext,
-    ArrowPrev,
-    DotsWrapper,
-    Dot
-}
+export const Dot = styled.div``

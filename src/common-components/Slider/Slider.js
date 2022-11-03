@@ -5,14 +5,7 @@ import SwiperCore, {Navigation, Pagination, A11y} from 'swiper'
 import 'swiper/swiper-bundle.css'
 import 'swiper/modules/navigation/navigation.min.css'
 import 'swiper/modules/pagination/pagination.min.css'
-import {
-    CarouselWrapper,
-    ArrowsBlock,
-    ArrowNext,
-    ArrowPrev,
-    DotsWrapper,
-    Dot
-} from './Slider.styles.js'
+import * as Styled from './SliderStyles.js'
 
 
 const arrowNextIcon = <svg height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg"><path d="m19 8.92893219 7.0710678 7.07106781-7.0710678 7.0710678-1.4142136-1.4142136 4.6562136-4.656922-16.242.0000678v-2l16.242-.0000678-4.6562136-4.6567864z" fill="currentColor" /></svg>
@@ -47,7 +40,7 @@ const Slider = (props) => {
     }, [isMobileMode])
 
     return (
-        <CarouselWrapper 
+        <Styled.CarouselWrapper 
             isMobileMode={ isMobileMode }
             ref={ sliderEl } 
         >
@@ -61,18 +54,18 @@ const Slider = (props) => {
             >
                 { slides }
             </Swiper>
-            <DotsWrapper>
-                <Dot className={ dotsClassName } />
-            </DotsWrapper>
-            <ArrowsBlock>
-                <ArrowPrev isMobileMode={ isMobileMode } className={ arrowPrevClassName }>
+            <Styled.DotsWrapper>
+                <Styled.Dot className={ dotsClassName } />
+            </Styled.DotsWrapper>
+            <Styled.ArrowsBlock>
+                <Styled.ArrowPrev isMobileMode={ isMobileMode } className={ arrowPrevClassName }>
                     { arrowPrevIcon }
-                </ArrowPrev>
-                <ArrowNext isMobileMode={ isMobileMode } className={ arrowNextClassName }>
+                </Styled.ArrowPrev>
+                <Styled.ArrowNext isMobileMode={ isMobileMode } className={ arrowNextClassName }>
                     { arrowNextIcon }
-                </ArrowNext>
-            </ArrowsBlock>
-        </CarouselWrapper>
+                </Styled.ArrowNext>
+            </Styled.ArrowsBlock>
+        </Styled.CarouselWrapper>
     )
 }
 

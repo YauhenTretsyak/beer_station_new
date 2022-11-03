@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import {SectionContainer} from '../../styles/StyledElements'
 import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 
-const BeerCardPageWrapper = styled(SectionContainer)``
-const BeerPageInfoWrapper = styled.div`
+export const BeerCardPageWrapper = styled(SectionContainer)``
+export const BeerPageInfoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +16,7 @@ const BeerPageInfoWrapper = styled.div`
   }
 `
 
-const BeersInteresting = styled.p`
+export const BeersInteresting = styled.p`
   padding: 2rem;
   width: 100%;
   max-width: 26rem;
@@ -44,9 +44,3 @@ const BeersInteresting = styled.p`
     max-width: 66.7rem;
   }
 `
-
-export {
-    BeerCardPageWrapper,
-    BeerPageInfoWrapper,
-    BeersInteresting,
-}

@@ -1,35 +1,33 @@
-import {useContext, memo} from 'react'
+import {memo} from 'react'
+import {useSelector} from 'react-redux'
 import useLocation from '../../hooks/useLocation'
 import {Navigation} from '../index'
 import {LocalSelector, LangSwitcher} from '../../common-components'
-import {SwitchContext} from '../../context/SwitchContext'
 import headerData from './header.data'
 
-import {FlexContainer} from '../../styles/StyledElements'
 import {
     HeaderContainer,
     AdressInfoWrapper,
     AdressInfo,
     Wrapper,
     Telephone,
+    InfoContainer
 } from './Header.styles'
 
 
 const Header = (props) => {
-  
+    const location = useSelector(state => state.actualLocation.location)
     const {navigationLinksData, mainPage} = props
-    const {locationSwitch} = useContext(SwitchContext)
-    const addressData = useLocation(headerData, locationSwitch.location)
-
+    const addressData = useLocation(headerData, location)
 
     return (
         <HeaderContainer> 
             <Navigation 
-                navigationLinksData={ navigationLinksData }
-                mainPage={ mainPage }
+                navigationLinksData={navigationLinksData}
+                mainPage={mainPage}
             />
       
-            <FlexContainer>
+            <InfoContainer>
                 <AdressInfoWrapper>
                     <AdressInfo 
                         href={ addressData.googleLocation }
@@ -38,7 +36,9 @@ const Header = (props) => {
                         { addressData.barAdress }
                     </AdressInfo>
 
-                    <LocalSelector />
+                    <LocalSelector 
+                        isDisabled={!mainPage}
+                    />
 
                 </AdressInfoWrapper>
                 <Wrapper>
@@ -47,7 +47,7 @@ const Header = (props) => {
                     </Telephone>
                     <LangSwitcher />
                 </Wrapper>
-            </FlexContainer>
+            </InfoContainer>
       
         </HeaderContainer>
     )

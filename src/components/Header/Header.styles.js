@@ -103,10 +103,13 @@ const Telephone = styled.a`
   }
 `
 
+const InfoContainer = styled(FlexContainer)``
+
 export {
     HeaderContainer,
     AdressInfoWrapper,
     AdressInfo,
     Wrapper,
     Telephone,
+    InfoContainer,
 }

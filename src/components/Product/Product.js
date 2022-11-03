@@ -1,37 +1,25 @@
-/* eslint-disable react/react-in-jsx-scope */
-import {useContext, useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import useLocation from '../../hooks/useLocation'
 import useLanguage from '../../hooks/useLanguage'
 import {v4 as uuidv4} from 'uuid'
-import {SwitchContext} from '../../context/SwitchContext'
 import {BeerSlide, Slider, LoadingSpinner} from '../../common-components'
 import {SwiperSlide} from 'swiper/react/swiper-slide'
 import {productData, beerSliderSettings} from './product.data'
-import {beerSlidesData} from '../../dataComponents/beerSlides.data'
 import {getLocationData} from '../../store/slices/getLocationDataSlice'
+import * as Styled from './ProductStyles'
 
-import styled from 'styled-components'
-import {SectionContainer, SectionTitle} from '../../styles/StyledElements'
-
-const ProductContainer = styled(SectionContainer)``
-const ProductTitle = styled(SectionTitle)``
 
 const Product = () => {
-
-    const {langSwitch, locationSwitch} = useContext(SwitchContext)
     const [isMobileMode, setIsMobileMode] = useState(true)
+    const {location, address} = useSelector(state => state.actualLocation)
+    const {loading: isDataLoading, cards: beerCardsData}= useSelector(state => state.locationData)
+    const langSwitch = useSelector(state => state.selectLanguage.langSwitch)
     const title = useLanguage(productData, langSwitch)
-    // const slidesData = useLocation(beerSlidesData, locationSwitch.location)
-    const isDataLoading = useSelector(state => state.locationData.loading)
-    const beerCardsData = useSelector(state => state.locationData.cards)
     const dispatch = useDispatch()
     
-
     useEffect(() => {
-        dispatch(getLocationData({location: locationSwitch.location, kind: 'beer'}))
-    }, [locationSwitch.location])
-
+        dispatch(getLocationData({location: location, kind: 'beer'}))
+    }, [location])
 
     const startWidth = () => {
         if (document.documentElement.clientWidth <= 1104) {
@@ -45,11 +33,10 @@ const Product = () => {
         startWidth()
     })
 
-    // const slides = slidesData.map(item => (
     const slides = beerCardsData.map(item => (
         <SwiperSlide key={ uuidv4() }>
             <BeerSlide 
-                linkToCard={ `/beer_page/${ locationSwitch.location }/${ item.id }` }
+                linkToCard={ `/beer_page/${location}/${ item.id }` }
                 country={item.country}
                 cardNumber={item.id}
                 title={item.title}
@@ -64,11 +51,11 @@ const Product = () => {
     ))
 
     return (
-        <ProductContainer onLoad={ startWidth }>
-            <ProductTitle>
+        <Styled.ProductContainer onLoad={ startWidth }>
+            <Styled.ProductTitle>
                 {title}
-                <span> {locationSwitch.address}</span>
-            </ProductTitle>
+                <span> {address}</span>
+            </Styled.ProductTitle>
             {isDataLoading 
                 ? (<LoadingSpinner 
                     loading={isDataLoading}
@@ -82,7 +69,7 @@ const Product = () => {
                     slides={slides}
                 />)
             }
-        </ProductContainer>
+        </Styled.ProductContainer>
     )
 }
 

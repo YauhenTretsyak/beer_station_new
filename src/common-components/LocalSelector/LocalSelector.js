@@ -1,50 +1,57 @@
-/* eslint-disable react/react-in-jsx-scope */
-import {useContext, useState} from 'react'
-import {SwitchContext} from '../../context/SwitchContext'
+import {useState} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import {setFullAddress} from '../../store/slices/setLocationSlice'
 import {v4 as uuidv4} from 'uuid'
 import locations from './localSelector.data'
+import * as Styled from './LocalSelectorStyles'
 
-import {
-    Selector,
-    Wrapper,
-    Paragraph,
-    Place
-} from './LocalSelector.styles'
+const LocalSelector = ({isDisabled}) => {
 
-const LocalSelector = () => {
+    const dispatch = useDispatch()
+    const address = useSelector(state => state.actualLocation.address)
+    const [isDisplay, setIsDisplay] = useState(false)
 
-    const {locationSwitch, LocationSwitcher} = useContext(SwitchContext)
-    const [ isDisplay, setIsDisplay ] = useState(false)
-
-    const HandlerLocation = (e) => {
+    const handlerLocation = (e) => {
+        if (isDisabled) return
         const location = e.target.getAttribute('data-local')
         const address = e.target.textContent
-        LocationSwitcher(location, address)
+        dispatch(setFullAddress({
+            location: location, 
+            address: address,
+        }))
         setIsDisplay(false)
     }
 
+    const hadlerOpenMenu = () => {
+        if (isDisabled) return
+        setIsDisplay(!isDisplay)
+    }
+
     const local = locations.map(item => (
-        <Place 
+        <Styled.Place 
             key={uuidv4()}
             data-local={item.data}
-            onClick={ HandlerLocation }
+            onClick={handlerLocation}
         >
-            { item.loc }
-        </Place>
+            {item.loc}
+        </Styled.Place>
     ))
 
     return (
-        <Selector isDisplay={isDisplay}>
-            <Paragraph 
+        <Styled.Selector 
+            isDisabled={isDisabled}
+            isDisplay={isDisplay}
+        >
+            <Styled.Paragraph 
                 isDisplay={isDisplay}
-                onClick={ () => setIsDisplay(!isDisplay) }
+                onClick={hadlerOpenMenu}
             >
-                { locationSwitch.address }
-            </Paragraph>
-            <Wrapper isDisplay={isDisplay}>
+                {address}
+            </Styled.Paragraph>
+            <Styled.Wrapper isDisplay={isDisplay}>
                 {local}
-            </Wrapper>
-        </Selector>
+            </Styled.Wrapper>
+        </Styled.Selector>
     )
 }
 

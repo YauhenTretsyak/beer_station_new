@@ -3,6 +3,7 @@ import locationDataSlice from './slices/getLocationDataSlice'
 import isLoginOkSlice from './slices/setIsLoginOkSlice'
 import setLocationSlice from './slices/setLocationSlice'
 import flagIsChangesSavedSlice from './slices/setFlagIsChangesSaved'
+import selectLanguageSlice from './slices/selectLanguageSlice'
 
 export const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
         isLoginOk: isLoginOkSlice,
         actualLocation: setLocationSlice,
         flagIsChangesSaved: flagIsChangesSavedSlice,
+        selectLanguage: selectLanguageSlice,
     },
 })
 
