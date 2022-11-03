@@ -112,15 +112,17 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
     }
 
     const resetChanges = () => {
-        setNewCountry(country)
-        setNewName(name)
-        setNewTitle(title)
-        setNewType(type)
-        setNewVol1(vol1)
-        setNewVol03(vol03)
-        setNewVol05(vol05)
-        setIsDataChanged(false)
-        saveFalseFlagsCards()
+        if (isDataChanged) {
+            setNewCountry(country)
+            setNewName(name)
+            setNewTitle(title)
+            setNewType(type)
+            setNewVol1(vol1)
+            setNewVol03(vol03)
+            setNewVol05(vol05)
+            setIsDataChanged(false)
+            saveFalseFlagsCards()
+        }
     }
 
     return (

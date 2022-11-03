@@ -5,7 +5,7 @@ interface ButtonProps {
     isDisabled?: boolean;
 }
 
-export const Button = styled.div<ButtonProps>(
+export const Button = styled.button<ButtonProps>(
     ({theme, buttonType, isDisabled}) => `
         display: flex;
         align-items: center;
