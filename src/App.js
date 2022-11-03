@@ -7,27 +7,25 @@ import {theme} from './styles/theme'
 import {HelmetBlock} from './common-components/index'
 import {MainPage, BeerCardPage} from './pages'
 import {Footer} from './components/'
-import {AdminPanelMainPage} from './adminPanelComponents'
 import favicon from './assets/favicon.png'
 
 function App() {
     return (
         <HelmetProvider>
-            <ThemeProvider theme={ theme } > 
+            <ThemeProvider theme={theme} > 
                 <GlobalStyle /> 
                 <HelmetBlock
                     title="BeerStation"
                     name="BeerStation"
                     content="beer"
                     description="beerstation"
-                    faviconUrl={ favicon }
+                    faviconUrl={favicon}
                 />
                 <Routes>
-                    <Route path="/" element={ <MainPage /> } />
-                    <Route path="/beer_page" element={ <BeerCardPage /> }>
-                        <Route path=":location/:id" element={ <BeerCardPage /> } />
+                    <Route path="/" element={<MainPage />} />
+                    <Route path="/beer_page" element={<BeerCardPage />}>
+                        <Route path=":location/:id" element={<BeerCardPage />} />
                     </Route>
-                    <Route path="/admin" element={ <AdminPanelMainPage /> } />
                 </Routes>
                 <Footer />
             </ThemeProvider>
