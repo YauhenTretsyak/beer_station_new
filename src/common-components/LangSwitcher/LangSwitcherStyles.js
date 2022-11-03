@@ -2,14 +2,14 @@ import styled from 'styled-components'
 import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 import {FlexContainer} from '../../styles/StyledElements'
 
-const Wrapper = styled(FlexContainer)`
+export const Wrapper = styled(FlexContainer)`
   display: flex;
   justify-content: space-between;
   margin: auto;
   margin-right: 0;
   width: 8.9rem;
 `
-const LanguageSwicthButton = styled.button`
+export const LanguageSwicthButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,5 +44,3 @@ const LanguageSwicthButton = styled.button`
     }
   }
 `
-
-export {Wrapper, LanguageSwicthButton}

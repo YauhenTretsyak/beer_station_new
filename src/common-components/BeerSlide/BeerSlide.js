@@ -1,22 +1,7 @@
 import {memo} from 'react'
 import flagsListData from '../../dataComponents/flagList.data'
 
-import {
-    Name,
-    Slide,
-    TopWrapper,
-    CountryWrapper,
-    Flag,
-    CardNumber,
-    BeerInfoWrapper,
-    Title,
-    BeerType,
-    BottomWrapper,
-    CostInfo,
-    BeerValue,
-    BeerCost,
-    DateInfo,
-} from './BeerSlide.styles'
+import * as Styled from './BeerSlideStyles'
 
 
 const BeerSlide = (props) => {
@@ -28,60 +13,60 @@ const BeerSlide = (props) => {
     const nameRegularSize = Boolean(name.length < 14)
 
     return (
-        <Slide to={`${linkToCard}`}>
-            <TopWrapper>
-                <CountryWrapper>
-                    <Flag>
+        <Styled.Slide to={`${linkToCard}`}>
+            <Styled.TopWrapper>
+                <Styled.CountryWrapper>
+                    <Styled.Flag>
                         <img src={flagImage} alt="country's flag" />
-                    </Flag>
-                    <CardNumber>
+                    </Styled.Flag>
+                    <Styled.CardNumber>
                         #{cardNumber}
-                    </CardNumber>
-                </CountryWrapper>
-                <BeerInfoWrapper>
-                    <Title>
+                    </Styled.CardNumber>
+                </Styled.CountryWrapper>
+                <Styled.BeerInfoWrapper>
+                    <Styled.Title>
                         {title || '--'}
-                    </Title>
-                    <Name
+                    </Styled.Title>
+                    <Styled.Name
                         nameRegularSize={ nameRegularSize }
                     >
                         {name || '--'}
-                    </Name>
-                    <BeerType>
+                    </Styled.Name>
+                    <Styled.BeerType>
                         {type || '--'}
-                    </BeerType>
-                </BeerInfoWrapper>
-            </TopWrapper>
-            <BottomWrapper>
-                <CostInfo>
-                    <BeerValue>
+                    </Styled.BeerType>
+                </Styled.BeerInfoWrapper>
+            </Styled.TopWrapper>
+            <Styled.BottomWrapper>
+                <Styled.CostInfo>
+                    <Styled.BeerValue>
                         0.3L - 
-                    </BeerValue>
-                    <BeerCost>
+                    </Styled.BeerValue>
+                    <Styled.BeerCost>
                         {vol03 || ' --'} zł
-                    </BeerCost>
-                </CostInfo>
-                <CostInfo>
-                    <BeerValue>
+                    </Styled.BeerCost>
+                </Styled.CostInfo>
+                <Styled.CostInfo>
+                    <Styled.BeerValue>
                         0.5L - 
-                    </BeerValue>
-                    <BeerCost>
+                    </Styled.BeerValue>
+                    <Styled.BeerCost>
                         {vol05 || ' --'} zł
-                    </BeerCost>
-                </CostInfo>
-                <CostInfo>
-                    <BeerValue>
+                    </Styled.BeerCost>
+                </Styled.CostInfo>
+                <Styled.CostInfo>
+                    <Styled.BeerValue>
                         1L - 
-                    </BeerValue>
-                    <BeerCost>
+                    </Styled.BeerValue>
+                    <Styled.BeerCost>
                         {vol1 || ' --'} zł
-                    </BeerCost>
-                </CostInfo>
-            </BottomWrapper>
-            <DateInfo>
+                    </Styled.BeerCost>
+                </Styled.CostInfo>
+            </Styled.BottomWrapper>
+            <Styled.DateInfo>
                od: <span>{updateDate}</span>
-            </DateInfo>
-        </Slide>
+            </Styled.DateInfo>
+        </Styled.Slide>
     )
 }
 

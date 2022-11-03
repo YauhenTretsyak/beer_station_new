@@ -4,8 +4,8 @@ import {FlexContainer, SectionContainer} from '../../styles/StyledElements'
 import mapsIcon from '../../assets/icons/maps-icon.svg'
 import tel from '../../assets/icons/phone-icon.svg'
 
-const HeaderContainer = styled(SectionContainer)``
-const AdressInfoWrapper = styled(FlexContainer)`
+export const HeaderContainer = styled(SectionContainer)``
+export const AdressInfoWrapper = styled(FlexContainer)`
   justify-content: center;
   flex-direction: column;
   margin-bottom: .8rem;
@@ -29,7 +29,7 @@ const AdressInfoWrapper = styled(FlexContainer)`
     min-height: 5rem;
   }
 `
-const AdressInfo = styled.a`
+export const AdressInfo = styled.a`
   position: relative;
   margin-bottom: .5rem;
   padding-left: 3rem;
@@ -70,7 +70,7 @@ const AdressInfo = styled.a`
     background-size: contain;
   }
 `
-const Wrapper = styled(FlexContainer)`
+export const Wrapper = styled(FlexContainer)`
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -84,7 +84,7 @@ const Wrapper = styled(FlexContainer)`
    max-width: 38.5rem;
   }
 `
-const Telephone = styled.a`
+export const Telephone = styled.a`
   position: relative;
   padding-left: 2.8rem;
   text-decoration: none;
@@ -102,14 +102,4 @@ const Telephone = styled.a`
     transform: translateY(-50%);
   }
 `
-
-const InfoContainer = styled(FlexContainer)``
-
-export {
-    HeaderContainer,
-    AdressInfoWrapper,
-    AdressInfo,
-    Wrapper,
-    Telephone,
-    InfoContainer,
-}
+export const InfoContainer = styled(FlexContainer)``

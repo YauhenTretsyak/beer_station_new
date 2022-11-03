@@ -2,14 +2,14 @@ import styled from 'styled-components'
 import {FlexContainer, ImageContainer} from '../../styles/StyledElements'
 import screen_breakpoint from '../../styles/StyledElements/screen_breakpoints'
 
-const NavigationWrapper = styled(FlexContainer)`
+export const NavigationWrapper = styled(FlexContainer)`
   margin-bottom: .8rem;
 
   ${ screen_breakpoint.sm } {
     margin-bottom: 1.3rem;
   }
 `
-const IconsWrapper = styled(FlexContainer)`
+export const IconsWrapper = styled(FlexContainer)`
   position: relative;
   width: 7rem;
 
@@ -17,7 +17,7 @@ const IconsWrapper = styled(FlexContainer)`
     width: 9rem;
   }
 `
-const LogoImage = styled(ImageContainer)`
+export const LogoImage = styled(ImageContainer)`
   position: relative;
   margin-bottom: .8rem;
   width: 8rem;
@@ -52,7 +52,7 @@ const LogoImage = styled(ImageContainer)`
   }
 `
 
-const WorkTimeInfoWrapper = styled.div`
+export const WorkTimeInfoWrapper = styled.div`
   width: 13rem;
 
   ${ screen_breakpoint.xs } {
@@ -65,12 +65,12 @@ const WorkTimeInfoWrapper = styled.div`
     font-size: 3rem;
   }
 `
-const WorkTimeTitle = styled.p`
+export const WorkTimeTitle = styled.p`
   ${ screen_breakpoint.xl } {
     margin-right: .5rem;
   }
 `
-const WorkTime = styled.p`
+export const WorkTime = styled.p`
   font-size: 1.9rem;
 
   ${ screen_breakpoint.sm } {
@@ -78,7 +78,7 @@ const WorkTime = styled.p`
   }
 `
 
-const MenuWrapper = styled(FlexContainer)`
+export const MenuWrapper = styled(FlexContainer)`
   display: none;
 
   ${ screen_breakpoint.md } {
@@ -90,7 +90,7 @@ const MenuWrapper = styled(FlexContainer)`
     font-size: 3.3rem;
   }
 `
-const MenuLink = styled.a`
+export const MenuLink = styled.a`
   text-decoration: none;
   font-size: 4.5rem;
   color: ${({theme}) => theme.colors.gold};
@@ -102,15 +102,3 @@ const MenuLink = styled.a`
     text-shadow: 0.1rem 0.2rem .3rem #431d00;
   }
 `
-
-export { 
-    NavigationWrapper, 
-    IconsWrapper, 
-    LogoImage,
-    WorkTimeInfoWrapper,
-    WorkTimeTitle,
-    WorkTime, 
-    MenuWrapper,
-    MenuLink
-}
-

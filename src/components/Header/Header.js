@@ -4,52 +4,43 @@ import useLocation from '../../hooks/useLocation'
 import {Navigation} from '../index'
 import {LocalSelector, LangSwitcher} from '../../common-components'
 import headerData from './header.data'
-
-import {
-    HeaderContainer,
-    AdressInfoWrapper,
-    AdressInfo,
-    Wrapper,
-    Telephone,
-    InfoContainer
-} from './Header.styles'
-
+import * as Styled from './HeaderStyles'
 
 const Header = (props) => {
-    const location = useSelector(state => state.actualLocation.location)
     const {navigationLinksData, mainPage} = props
+    const location = useSelector(state => state.actualLocation.location)
     const addressData = useLocation(headerData, location)
 
     return (
-        <HeaderContainer> 
+        <Styled.HeaderContainer> 
             <Navigation 
                 navigationLinksData={navigationLinksData}
                 mainPage={mainPage}
             />
       
-            <InfoContainer>
-                <AdressInfoWrapper>
-                    <AdressInfo 
+            <Styled.InfoContainer>
+                <Styled.AdressInfoWrapper>
+                    <Styled.AdressInfo 
                         href={ addressData.googleLocation }
                         target="_blank"
                     >
                         { addressData.barAdress }
-                    </AdressInfo>
+                    </Styled.AdressInfo>
 
                     <LocalSelector 
                         isDisabled={!mainPage}
                     />
 
-                </AdressInfoWrapper>
-                <Wrapper>
-                    <Telephone href={`tel:+48 ${addressData.tel}`}>
+                </Styled.AdressInfoWrapper>
+                <Styled.Wrapper>
+                    <Styled.Telephone href={`tel:+48 ${addressData.tel}`}>
                         {addressData.tel}
-                    </Telephone>
+                    </Styled.Telephone>
                     <LangSwitcher />
-                </Wrapper>
-            </InfoContainer>
+                </Styled.Wrapper>
+            </Styled.InfoContainer>
       
-        </HeaderContainer>
+        </Styled.HeaderContainer>
     )
 }
 

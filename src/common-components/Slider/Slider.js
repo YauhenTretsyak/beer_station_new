@@ -15,7 +15,6 @@ const arrowPrevIcon = <svg height="32" viewBox="0 0 32 32" width="32" xmlns="htt
 const Slider = (props) => {
 
     const {sliderSettings, slides, isMobileMode} = props
-
     const settings = sliderSettings
     const sliderEl = useRef(null)
 

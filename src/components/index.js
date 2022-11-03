@@ -9,5 +9,5 @@ export {
     Navigation,
     Product,
     Gallery,
-    Footer
+    Footer,
 }

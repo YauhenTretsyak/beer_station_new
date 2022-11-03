@@ -5,9 +5,7 @@ import {v4 as uuidv4} from 'uuid'
 import {Slider, GallerySlide} from '../../common-components'
 import {SwiperSlide} from 'swiper/react/swiper-slide'
 import {galleryData, gallerySliderSettings, gallerySlidesData} from './gallery.data'
-
-import {Container, Title} from './Gallery.styles'
-
+import * as Styled from './GalleryStyles'
 
 const Gallery = () => {
     const langSwitch = useSelector(state => state.selectLanguage.langSwitch)
@@ -24,17 +22,17 @@ const Gallery = () => {
     ))
 
     return (
-        <Container>
-            <Title>
+        <Styled.Container>
+            <Styled.Title>
                 {title}
                 <span> {address}</span>
-            </Title>
+            </Styled.Title>
             <Slider
                 sliderSettings={gallerySliderSettings}
                 slides={slides}
                 isMobileMode={true}
             />
-        </Container>
+        </Styled.Container>
     )
 }
 

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import {FlexContainer, ImageContainer} from '../../styles/StyledElements'
 import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 
-const Card = styled.div`
+export const Card = styled.div`
   position: relative;
   display: block;
   margin-bottom: 2rem;
@@ -77,7 +77,7 @@ const Card = styled.div`
       transition: all .2s ease-in-out;
     }
 `
-const TopWrapper = styled(FlexContainer)`
+export const TopWrapper = styled(FlexContainer)`
   margin-bottom: 1.5rem;
   justify-content: space-around;
   flex-wrap: nowrap; 
@@ -86,10 +86,10 @@ const TopWrapper = styled(FlexContainer)`
     margin-bottom: 2rem;
   }
 `
-const Country = styled.div`
+export const Country = styled.div`
   margin-right: .5rem;
 `
-const Flag = styled(ImageContainer)`
+export const Flag = styled(ImageContainer)`
   width: 5rem;
 
   ${ screen_breakpoints.xl } {
@@ -102,7 +102,7 @@ const Flag = styled(ImageContainer)`
     box-shadow: .6rem .6rem .2rem .1rem #000;
   }
 `
-const CardNumber = styled.p`
+export const CardNumber = styled.p`
   text-align: center;
   color: ${({theme}) => theme.colors.white} !important;
 
@@ -110,13 +110,13 @@ const CardNumber = styled.p`
     font-size: 4.5rem;
   }
 `
-const Inner = styled.div`
+export const Inner = styled.div`
   text-align: center;
   width: 100%;
   max-width: 29rem;
   color: #d99f47;
 `
-const Title = styled.p`
+export const Title = styled.p`
   font-size: 1.9rem;
   margin-bottom: .7rem;
   color: #d99f47;
@@ -126,7 +126,7 @@ const Title = styled.p`
   }
 `
 
-const Name = styled.p`
+export const Name = styled.p`
   margin-bottom: .7rem;
   width: 15rem;
   min-height: 2.875rem;
@@ -146,14 +146,14 @@ const Name = styled.p`
   }
 `
 
-const BeerType = styled.p`
+export const BeerType = styled.p`
   font-size: 1.8rem;
 
   ${ screen_breakpoints.xl } {
     font-size: 3rem;
   }
 `
-const BottomWrapper = styled(FlexContainer)`
+export const BottomWrapper = styled(FlexContainer)`
   padding-top: 1.5rem;
   border-top: .1rem solid ${({theme}) => theme.colors.red};
 
@@ -161,32 +161,16 @@ const BottomWrapper = styled(FlexContainer)`
     padding-top: 2rem;
   }
 `
-const CostInfo = styled(FlexContainer)`
+export const CostInfo = styled(FlexContainer)`
   font-size: 1.6rem;
 
   ${ screen_breakpoints.xl } {
     font-size: 3.5rem;
   }
 `
-const BeerValue = styled.p`
+export const BeerValue = styled.p`
   font-weight: 300;
 `
-const BeerCost = styled.p`
+export const BeerCost = styled.p`
   color: #ffeb00;
 `
-
-export {
-    Card,
-    TopWrapper,
-    Country,
-    Flag,
-    CardNumber,
-    Inner,
-    Title,
-    Name,
-    BeerType,
-    BottomWrapper,
-    CostInfo,
-    BeerValue,
-    BeerCost
-}

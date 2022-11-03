@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import {Header, Product, Gallery} from '../../components/index'
 import navigationData from '../../components/Navigation/navigation.data'
 

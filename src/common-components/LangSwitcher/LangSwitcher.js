@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from 'react-redux'
 import {setLanguage} from '../../store/slices/selectLanguageSlice'
-import {Wrapper, LanguageSwicthButton} from './LangSwitcher.styles'
+import * as Styled from './LangSwitcherStyles'
 
 const LangSwitcher = () => {
     const dispatch = useDispatch()
@@ -10,19 +10,19 @@ const LangSwitcher = () => {
     }
 
     return (
-        <Wrapper>
-            <LanguageSwicthButton 
+        <Styled.Wrapper>
+            <Styled.LanguageSwicthButton 
                 onClick={() => toSwitchLanguage('PL')}
                 langActive={langSwitch === 'PL'}
             >PL
-            </LanguageSwicthButton>
+            </Styled.LanguageSwicthButton>
 
-            <LanguageSwicthButton 
+            <Styled.LanguageSwicthButton 
                 onClick={() => toSwitchLanguage('RU')}
                 langActive={langSwitch === 'RU'}
             >RU
-            </LanguageSwicthButton>
-        </Wrapper>
+            </Styled.LanguageSwicthButton>
+        </Styled.Wrapper>
     )
 }
 

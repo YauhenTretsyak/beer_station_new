@@ -2,22 +2,12 @@ import {useSelector} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import {v4 as uuidv4} from 'uuid'
 import useLocation from '../../hooks/useLocation'
+import useLanguage from '../../hooks/useLanguage'
 import {IconLink} from '../../common-components'
 import navigationData from './navigation.data'
 import socialsData from '../../dataComponents/socials.data'
-
 import logo from '../../assets/BS_logo.png'
-import {  
-    NavigationWrapper, 
-    IconsWrapper, 
-    LogoImage,
-    WorkTimeInfoWrapper,
-    WorkTimeTitle,
-    WorkTime, 
-    MenuWrapper,
-    MenuLink
-} from './Navigation.styles'
-import useLanguage from '../../hooks/useLanguage'
+import * as Styled from './NavigationStyles'
 
 const icons = socialsData.map(item => (
     <IconLink 
@@ -37,34 +27,34 @@ const Navigation = (props) => {
 
     const MenuLinks = menuInfo.map(item => (
         mainPage 
-            ? <MenuLink key={uuidv4()} href={item.link}>
+            ? <Styled.MenuLink key={uuidv4()} href={item.link}>
                 { item.linkText }
-            </MenuLink>
-            : <MenuLink as={NavLink} key={uuidv4()} to={item.link}>
+            </Styled.MenuLink>
+            : <Styled.MenuLink as={NavLink} key={uuidv4()} to={item.link}>
                 { item.linkText }
-            </MenuLink>
+            </Styled.MenuLink>
     ))
 
     return (
-        <NavigationWrapper>
-            <LogoImage>
+        <Styled.NavigationWrapper>
+            <Styled.LogoImage>
                 <img src={ logo } alt="logo" />
-            </LogoImage>
-            <WorkTimeInfoWrapper>
-                <WorkTimeTitle>
+            </Styled.LogoImage>
+            <Styled.WorkTimeInfoWrapper>
+                <Styled.WorkTimeTitle>
                     { locationInfo.workTitle }
-                </WorkTimeTitle>
-                <WorkTime>
+                </Styled.WorkTimeTitle>
+                <Styled.WorkTime>
                     { locationInfo.workTime }
-                </WorkTime>
-            </WorkTimeInfoWrapper>
-            <MenuWrapper>
+                </Styled.WorkTime>
+            </Styled.WorkTimeInfoWrapper>
+            <Styled.MenuWrapper>
                 { MenuLinks }
-            </MenuWrapper>
-            <IconsWrapper>
+            </Styled.MenuWrapper>
+            <Styled.IconsWrapper>
                 { icons }
-            </IconsWrapper>
-        </NavigationWrapper>
+            </Styled.IconsWrapper>
+        </Styled.NavigationWrapper>
     )
 }
 

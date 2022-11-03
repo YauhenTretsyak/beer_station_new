@@ -1,5 +1,5 @@
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader'
-import {LoadingSpinnerWrapper, Title} from './LoadingSpinner.styles'
+import * as Styled from './LoadingSpinnerStyles'
 
 const override = {
     display: 'block',
@@ -10,8 +10,8 @@ const override = {
 }
 
 const LoadingSpinner = ({loading, color, size, titleSize}) => (
-    <LoadingSpinnerWrapper>
-        <Title titleSize={titleSize}>Loading...</Title>
+    <Styled.LoadingSpinnerWrapper>
+        <Styled.Title titleSize={titleSize}>Loading...</Styled.Title>
         <ClimbingBoxLoader
             color={color}
             loading={loading}
@@ -20,7 +20,7 @@ const LoadingSpinner = ({loading, color, size, titleSize}) => (
             aria-label="ClimbingBoxLoader"
             data-testid="loader"
         />
-    </LoadingSpinnerWrapper>
+    </Styled.LoadingSpinnerWrapper>
 )
 
 export default LoadingSpinner

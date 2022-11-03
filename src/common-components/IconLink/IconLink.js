@@ -1,13 +1,12 @@
-import {LinkWrapper} from './IconLink.styles'
+import * as Styled from './IconLinkStyles'
 
 const IconLink = (props) => {
-
     const {link, icon} = props
 
     return (
-        <LinkWrapper href={ link } >
+        <Styled.LinkWrapper href={link} >
             { icon }
-        </LinkWrapper>
+        </Styled.LinkWrapper>
     )
 }
 

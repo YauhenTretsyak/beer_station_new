@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom'
 import {FlexContainer, ImageContainer} from '../../styles/StyledElements'
 import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 
-const Name = styled.p`
+export const Name = styled.p`
   margin-bottom: .7rem;
   width: 15rem;
   min-height: 2.875rem;
@@ -28,7 +28,7 @@ const Name = styled.p`
   }
 `
 
-const Slide = styled(NavLink)`
+export const Slide = styled(NavLink)`
   position: relative;
   display: block;
   margin-top: 1.7rem;
@@ -118,14 +118,14 @@ const Slide = styled(NavLink)`
     color: ${({theme}) => theme.colors.orange};
   }
 `
-const TopWrapper = styled(FlexContainer)`
+export const TopWrapper = styled(FlexContainer)`
   margin-bottom: 1.5rem;
   justify-content: space-around;
 `
-const CountryWrapper = styled.div`
+export const CountryWrapper = styled.div`
   margin-right: .5rem;
 `
-const Flag = styled(ImageContainer)`
+export const Flag = styled(ImageContainer)`
   width: 5rem;
 
   ${ screen_breakpoints.xl } {
@@ -137,36 +137,36 @@ const Flag = styled(ImageContainer)`
     transition: all .2s ease-in-out;
   }
 `
-const CardNumber = styled.p`
+export const CardNumber = styled.p`
   text-align: center;
   font-size: 3.7rem;
   color: ${({theme}) => theme.colors.white} !important;
 `
-const BeerInfoWrapper = styled.div`
+export const BeerInfoWrapper = styled.div`
   text-align: center;
 `
-const Title = styled.p`
+export const Title = styled.p`
   font-size: 1.9rem;
   margin-bottom: .7rem;
 `
 
-const BeerType = styled.p`
+export const BeerType = styled.p`
   font-size: 1.8rem;
 `
-const BottomWrapper = styled(FlexContainer)`
+export const BottomWrapper = styled(FlexContainer)`
   padding-top: 1.5rem;
   border-top: .1rem solid ${({theme}) => theme.colors.red};
 `
-const CostInfo = styled(FlexContainer)`
+export const CostInfo = styled(FlexContainer)`
   font-size: 1.6rem;
 
   ${ screen_breakpoints.xl } {
     font-size: 1.8rem;
   }
 `
-const BeerValue = styled.p``
-const BeerCost = styled.p``
-const DateInfo = styled.p`
+export const BeerValue = styled.p``
+export const BeerCost = styled.p``
+export const DateInfo = styled.p`
   position: absolute;
   top: -.9rem;
   right: 1.5rem;
@@ -178,20 +178,3 @@ const DateInfo = styled.p`
     font-size: 1.7rem;
   }
 `
-
-export {
-    Name,
-    Slide,
-    TopWrapper,
-    CountryWrapper,
-    Flag,
-    CardNumber,
-    BeerInfoWrapper,
-    Title,
-    BeerType,
-    BottomWrapper,
-    CostInfo,
-    BeerValue,
-    BeerCost,
-    DateInfo,
-}

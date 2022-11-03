@@ -1,77 +1,60 @@
 import flagsListData from '../../dataComponents/flagList.data'
-
-import {
-    Card,
-    TopWrapper,
-    Country,
-    Flag,
-    CardNumber,
-    Inner,
-    Title,
-    Name,
-    BeerType,
-    BottomWrapper,
-    CostInfo,
-    BeerValue,
-    BeerCost
-} from './BeerCard.styles'
-
+import * as Styled from './BeerCardStyles'
 
 const BeerCard = (props) => {
-
     const {cardNumber, title, name, type, vol03, vol05, vol1, country} = props
     const flagImage = flagsListData.filter(el => el.id === country).map(item => item.imagePath)
 
     return (
-        <Card>
-            <TopWrapper>
-                <Country>
-                    <Flag>
+        <Styled.Card>
+            <Styled.TopWrapper>
+                <Styled.Country>
+                    <Styled.Flag>
                         <img src={ flagImage } alt="country's flag" />
-                    </Flag>
-                    <CardNumber>
+                    </Styled.Flag>
+                    <Styled.CardNumber>
             #{ cardNumber }
-                    </CardNumber>
-                </Country>
-                <Inner>
-                    <Title>
+                    </Styled.CardNumber>
+                </Styled.Country>
+                <Styled.Inner>
+                    <Styled.Title>
                         { title || '--' }
-                    </Title>
-                    <Name>
+                    </Styled.Title>
+                    <Styled.Name>
                         { name || '--' }
-                    </Name>
-                    <BeerType>
+                    </Styled.Name>
+                    <Styled.BeerType>
                         { type || '--' }
-                    </BeerType>
-                </Inner>
-            </TopWrapper>
-            <BottomWrapper>
-                <CostInfo>
-                    <BeerValue>
+                    </Styled.BeerType>
+                </Styled.Inner>
+            </Styled.TopWrapper>
+            <Styled.BottomWrapper>
+                <Styled.CostInfo>
+                    <Styled.BeerValue>
             0.3L - 
-                    </BeerValue>
-                    <BeerCost>
+                    </Styled.BeerValue>
+                    <Styled.BeerCost>
                         { vol03 || '--' } zł
-                    </BeerCost>
-                </CostInfo>
-                <CostInfo>
-                    <BeerValue>
+                    </Styled.BeerCost>
+                </Styled.CostInfo>
+                <Styled.CostInfo>
+                    <Styled.BeerValue>
             0.5L - 
-                    </BeerValue>
-                    <BeerCost>
+                    </Styled.BeerValue>
+                    <Styled.BeerCost>
                         { vol05 || '--' } zł
-                    </BeerCost>
-                </CostInfo>
-                <CostInfo>
-                    <BeerValue>
+                    </Styled.BeerCost>
+                </Styled.CostInfo>
+                <Styled.CostInfo>
+                    <Styled.BeerValue>
             1L - 
-                    </BeerValue>
-                    <BeerCost>
+                    </Styled.BeerValue>
+                    <Styled.BeerCost>
                         { vol1 || '--' } zł
-                    </BeerCost>
-                </CostInfo>
-            </BottomWrapper>
-        </Card>
+                    </Styled.BeerCost>
+                </Styled.CostInfo>
+            </Styled.BottomWrapper>
+        </Styled.Card>
     )
 }
 

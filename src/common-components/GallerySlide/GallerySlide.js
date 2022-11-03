@@ -1,13 +1,13 @@
 import {memo} from 'react'
-import {Wrapper, Image} from './GallerySlide.styles'
+import * as Styled from './GallerySlideStyles'
 
 const GallerySlide = (props) => {
     const {slideImage} = props
 
     return (
-        <Wrapper>
-            <Image src={ slideImage } alt="BS's slide" />
-        </Wrapper>
+        <Styled.Wrapper>
+            <Styled.Image src={ slideImage } alt="BS's slide" />
+        </Styled.Wrapper>
     )
 }
 

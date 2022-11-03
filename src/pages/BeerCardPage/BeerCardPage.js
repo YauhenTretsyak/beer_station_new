@@ -1,8 +1,10 @@
 import {useSelector, useDispatch} from 'react-redux'
 import {useParams} from 'react-router-dom'
+import useLanguage from '../../hooks/useLanguage'
 import {Header} from '../../components/index'
 import {BeerCard, LoadingSpinner} from '../../common-components'
 import navigationData from '../../components/Navigation/navigation.data'
+import beerCardPageData from './beerCardPage.data'
 import {getLocationData} from '../../store/slices/getLocationDataSlice'
 
 import * as Styled from './BeerCardPageStyles'
@@ -11,12 +13,12 @@ import * as Styled from './BeerCardPageStyles'
 const BeerCardPage = () => {
     let params = useParams()
     const dispatch = useDispatch()
-    const cardNumber = Number(params.id)
-    const isDataLoading = useSelector(state => state.locationData.loading)
-    const beerInfo = useSelector(state => state.locationData.cards)
+    const {loading: isDataLoading, cards: beerInfo}= useSelector(state => state.locationData)
     const location = useSelector(state => state.actualLocation.location)
+    const langSwitch = useSelector(state => state.selectLanguage.langSwitch)
+    const cardNumber = Number(params.id)
     const beer = beerInfo.find(beerCard => beerCard.id === cardNumber)
-
+    const beerInterestingData = useLanguage(beerCardPageData, langSwitch)
     
     if (beerInfo.length === 0) dispatch(getLocationData({location: location, kind: 'beer'}))
 
@@ -45,7 +47,7 @@ const BeerCardPage = () => {
                             vol1={ beer.vol1 }
                         />)}
                     <Styled.BeersInteresting>
-            Ежегодно 17 марта в мире отмечается ещё один праздник, связанный с пивом — День Святого Патрика, крестителя ирландцев. Его придумали ирландские эмигранты в США в XVIII-XIX веках, желая сохранить память о своих корнях. О самом Патрике достоверно известно крайне мало, некоторые исследователи даже сомневаются в его существовании. Исторически он не был связан с алкогольными напитками, а традиция пить крепкое тёмное пиво в этот день достаточно новая и, возможно, связана с продвижением бренда Guinness. 
+                        {beerInterestingData[0].info}
                     </Styled.BeersInteresting>
                 </Styled.BeerPageInfoWrapper>
             </Styled.BeerCardPageWrapper>
