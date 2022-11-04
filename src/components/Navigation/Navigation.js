@@ -1,5 +1,6 @@
 import {useSelector} from 'react-redux'
 import {NavLink} from 'react-router-dom'
+import ScrollIntoView from 'react-scroll-into-view'
 import {v4 as uuidv4} from 'uuid'
 import useLocation from '../../hooks/useLocation'
 import useLanguage from '../../hooks/useLanguage'
@@ -27,7 +28,7 @@ const Navigation = (props) => {
 
     const MenuLinks = menuInfo.map(item => (
         mainPage 
-            ? <Styled.MenuLink key={uuidv4()} href={item.link}>
+            ? <Styled.MenuLink as={ScrollIntoView} key={uuidv4()} selector={item.link}>
                 { item.linkText }
             </Styled.MenuLink>
             : <Styled.MenuLink as={NavLink} key={uuidv4()} to={item.link}>

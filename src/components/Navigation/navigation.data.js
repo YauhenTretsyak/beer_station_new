@@ -37,22 +37,22 @@ const navigationData = {
             PL: [
                 {
                     linkText: 'Piwo',
-                    link: '/'
+                    link: '#beer_section'
                 },
                 {
                     linkText: 'Galeria',
-                    link: '/'
+                    link: '#gallery_section'
                 }
             ],
   
             RU: [
                 {
                     linkText: 'Пиво',
-                    link: '/'
+                    link: '#beer_section'
                 },
                 {
                     linkText: 'Галерея',
-                    link: '/'
+                    link: '#gallery_section'
                 }
             ]
         },

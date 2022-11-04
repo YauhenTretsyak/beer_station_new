@@ -51,7 +51,7 @@ const Product = () => {
     ))
 
     return (
-        <Styled.ProductContainer onLoad={ startWidth }>
+        <Styled.ProductContainer id="beer_section" onLoad={startWidth}>
             <Styled.ProductTitle>
                 {title}
                 <span> {address}</span>

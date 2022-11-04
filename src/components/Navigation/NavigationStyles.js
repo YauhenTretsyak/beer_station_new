@@ -98,6 +98,7 @@ export const MenuLink = styled.a`
   transition: all .15s ease-in-out;
 
   &:hover {
+    cursor: pointer;
     color: ${({theme}) => theme.colors.yellow};
     text-shadow: 0.1rem 0.2rem .3rem #431d00;
   }

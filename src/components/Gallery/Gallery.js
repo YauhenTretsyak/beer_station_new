@@ -22,7 +22,7 @@ const Gallery = () => {
     ))
 
     return (
-        <Styled.Container>
+        <Styled.Container id="gallery_section">
             <Styled.Title>
                 {title}
                 <span> {address}</span>
