@@ -37,14 +37,15 @@ const BeerCardPage = () => {
                             titleSize="3"
                         />)
                         : (<BeerCard
-                            country={ beer.country }
-                            cardNumber={ beer.id }
-                            title={ beer.title }
-                            name={ beer.name }
-                            type={ beer.type }
-                            vol03={ beer.vol03 }
-                            vol05={ beer.vol05 }
-                            vol1={ beer.vol1 }
+                            country={beer.country}
+                            cardNumber={beer.id}
+                            title={beer.title}
+                            name={beer.name}
+                            type={beer.type}
+                            volAlc={beer.volAlc}
+                            vol03={beer.vol03}
+                            vol05={beer.vol05}
+                            vol1={beer.vol1}
                         />)}
                     <Styled.BeersInteresting>
                         {beerInterestingData[0].info}

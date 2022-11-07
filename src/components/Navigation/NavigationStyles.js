@@ -55,6 +55,10 @@ export const LogoImage = styled(ImageContainer)`
 export const WorkTimeInfoWrapper = styled.div`
   width: 13rem;
 
+  ${ screen_breakpoint.xxs } {
+    width: ${({isMainPage}) => isMainPage ? '13rem' : '18rem'};
+  }
+
   ${ screen_breakpoint.xs } {
     width: 17rem;
   }
@@ -81,6 +85,8 @@ export const WorkTime = styled.p`
 export const MenuWrapper = styled(FlexContainer)`
   display: none;
 
+  ${({isMainPage}) => isMainPage ? '' : 'display: flex;'}
+
   ${ screen_breakpoint.md } {
     display: flex;
     width: 19rem;
@@ -92,10 +98,14 @@ export const MenuWrapper = styled(FlexContainer)`
 `
 export const MenuLink = styled.a`
   text-decoration: none;
-  font-size: 4.5rem;
+  font-size: 3.5rem;
   color: ${({theme}) => theme.colors.gold};
   text-shadow: .1rem .2rem .2rem #431d00;
   transition: all .15s ease-in-out;
+
+  ${ screen_breakpoint.md } {
+    font-size: 4.5rem;
+  }
 
   &:hover {
     cursor: pointer;

@@ -8,7 +8,6 @@ import {productData, beerSliderSettings} from './product.data'
 import {getLocationData} from '../../store/slices/getLocationDataSlice'
 import * as Styled from './ProductStyles'
 
-
 const Product = () => {
     const [isMobileMode, setIsMobileMode] = useState(true)
     const {location, address} = useSelector(state => state.actualLocation)
@@ -34,7 +33,7 @@ const Product = () => {
     })
 
     const slides = beerCardsData.map(item => (
-        <SwiperSlide key={ uuidv4() }>
+        <SwiperSlide key={uuidv4()}>
             <BeerSlide 
                 linkToCard={ `/beer_page/${location}/${ item.id }` }
                 country={item.country}
@@ -42,6 +41,7 @@ const Product = () => {
                 title={item.title}
                 name={item.name}
                 type={item.type}
+                volAlc={item.volAlc}
                 vol03={item.vol03}
                 vol05={item.vol05}
                 vol1={item.vol1}
@@ -51,7 +51,7 @@ const Product = () => {
     ))
 
     return (
-        <Styled.ProductContainer id="beer_section" onLoad={startWidth}>
+        <Styled.ProductContainer id="beer_section" onLoad={ startWidth }>
             <Styled.ProductTitle>
                 {title}
                 <span> {address}</span>

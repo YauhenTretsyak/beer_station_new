@@ -2,7 +2,7 @@ import flagsListData from '../../dataComponents/flagList.data'
 import * as Styled from './BeerCardStyles'
 
 const BeerCard = (props) => {
-    const {cardNumber, title, name, type, vol03, vol05, vol1, country} = props
+    const {cardNumber, title, name, type, volAlc, vol03, vol05, vol1, country} = props
     const flagImage = flagsListData.filter(el => el.id === country).map(item => item.imagePath)
 
     return (
@@ -24,7 +24,7 @@ const BeerCard = (props) => {
                         { name || '--' }
                     </Styled.Name>
                     <Styled.BeerType>
-                        { type || '--' }
+                        {`${type} ${volAlc}%`}
                     </Styled.BeerType>
                 </Styled.Inner>
             </Styled.TopWrapper>

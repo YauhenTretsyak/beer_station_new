@@ -10,13 +10,7 @@ import socialsData from '../../dataComponents/socials.data'
 import logo from '../../assets/BS_logo.png'
 import * as Styled from './NavigationStyles'
 
-const icons = socialsData.map(item => (
-    <IconLink 
-        key={ uuidv4() }
-        link={ item.link }
-        icon={ item.icon }
-    />
-))
+
 
 const Navigation = (props) => {
     const {navigationLinksData, mainPage} = props
@@ -25,6 +19,14 @@ const Navigation = (props) => {
     const locationHeaderData = useLocation(navigationData, location)
     const locationInfo = useLanguage(locationHeaderData, langSwitch)
     const menuInfo = useLanguage(navigationLinksData, langSwitch)
+
+    const icons = socialsData.map(item => (
+        <IconLink 
+            key={ uuidv4() }
+            link={ item.link[location] }
+            icon={ item.icon }
+        />
+    ))
 
     const MenuLinks = menuInfo.map(item => (
         mainPage 
@@ -41,7 +43,7 @@ const Navigation = (props) => {
             <Styled.LogoImage>
                 <img src={ logo } alt="logo" />
             </Styled.LogoImage>
-            <Styled.WorkTimeInfoWrapper>
+            <Styled.WorkTimeInfoWrapper isMainPage={mainPage}>
                 <Styled.WorkTimeTitle>
                     { locationInfo.workTitle }
                 </Styled.WorkTimeTitle>
@@ -49,7 +51,7 @@ const Navigation = (props) => {
                     { locationInfo.workTime }
                 </Styled.WorkTime>
             </Styled.WorkTimeInfoWrapper>
-            <Styled.MenuWrapper>
+            <Styled.MenuWrapper isMainPage={mainPage}>
                 { MenuLinks }
             </Styled.MenuWrapper>
             <Styled.IconsWrapper>

@@ -1,4 +1,4 @@
-const headerData = {
+export const headerData = {
     kepna: {
         locationAdress: 'Kępna, 15',
         barAdress: 'Warszawa, ul. Kępna, 15',
@@ -14,9 +14,12 @@ const headerData = {
     ursynow: {
         locationAdress: 'K.E. Narodowej 47',
         barAdress: 'Warszawa, ul. K.E.Narodowej 47',
-        tel: '519 020 211',
+        tel: '509 995 000',
         googleLocation: 'https://goo.gl/maps/dDsVtjJuHJ3BgTit9'
     },
 }
 
-export default headerData
+export const telTitleTranslate = {
+    PL: 'rezerwacja:',
+    RU: 'резервация:',
+}

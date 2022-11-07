@@ -102,4 +102,13 @@ export const Telephone = styled.a`
     transform: translateY(-50%);
   }
 `
+export const TelephoneTitle = styled.span`
+  position: absolute;
+  top: -1.5rem;
+  right: 0;
+  font-size: 1.6rem;
+  font-weight: 200;
+  color: ${({theme}) => theme.colors.silver};
+`
+
 export const InfoContainer = styled(FlexContainer)``

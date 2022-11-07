@@ -6,7 +6,7 @@ import * as Styled from './BeerSlideStyles'
 
 const BeerSlide = (props) => {
 
-    const {linkToCard, cardNumber, title, name, type, vol03, vol05, vol1, country, updateDate} = props
+    const {linkToCard, cardNumber, title, name, type, volAlc, vol03, vol05, vol1, country, updateDate} = props
 
     const flagImage = flagsListData.filter(el => el.id === country).map(item => item.imagePath)
 
@@ -33,7 +33,7 @@ const BeerSlide = (props) => {
                         {name || '--'}
                     </Styled.Name>
                     <Styled.BeerType>
-                        {type || '--'}
+                        {(type || volAlc) ? `${type} ${volAlc}%` : '--'}
                     </Styled.BeerType>
                 </Styled.BeerInfoWrapper>
             </Styled.TopWrapper>

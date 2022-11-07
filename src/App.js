@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import {HelmetProvider} from 'react-helmet-async'
 import {ThemeProvider} from 'styled-components'
 import GlobalStyle from './styles/GlobalStyle'
