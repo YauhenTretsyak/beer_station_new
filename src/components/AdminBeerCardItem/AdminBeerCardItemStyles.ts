@@ -42,10 +42,11 @@ export const AdminBeerCardItem = styled.div<AdminBeerCardItemProps>`
     ${ screen_breakpoints.xl } {
         margin-top: 0;
         margin-bottom: 3rem;
-        padding: 1.5rem 4rem;
+        padding: 1.5rem 3rem;
     }
 
     ${ screen_breakpoints.xxl } {
+        padding: 1.5rem 4rem;
         max-width: 37rem;
     }
 
@@ -119,6 +120,7 @@ export const InputFlexWrapper = styled.div`
         width: 60%;
     }
 `
+
 export const ButtonsWrapper = styled(FlexContainer)`
     justify-content: start;
     margin-top: 1.4rem;
@@ -151,4 +153,64 @@ export const InputLabel = styled.p`
 export const InputTypeText = styled(Input)`
 `
 export const InputTypeNumber = styled(Input)`
+`
+
+export const BeerTypeWrapper = styled(FlexContainer)`
+    flex-wrap: nowrap;
+    justify-content: left;
+
+    ${screen_breakpoints.sm} {
+        flex-wrap: wrap;
+    }
+
+    ${screen_breakpoints.md} {
+        flex-wrap: nowrap;
+    }
+`
+export const InputLabelBeer = styled(InputLabel)`
+    min-width: 6.5rem;
+
+    ${screen_breakpoints.xs} {
+        min-width: 7.6rem;
+    }
+`
+export const BeerTypeInputWrapper = styled(FlexContainer)`
+    justify-content: left;
+    width: 68%;
+
+    ${screen_breakpoints.xxs} {
+        width: 70%;
+    }
+
+    ${screen_breakpoints.sm} {
+        width: 100%;
+    }
+
+    ${screen_breakpoints.md} {
+        width: 75%;
+    }
+
+    ${screen_breakpoints.xl} {
+        width: 68.3%;
+    }
+
+    & > input {
+        width: 9.2rem;
+
+        ${screen_breakpoints.xxs} {
+            width: 10.2rem;
+        }
+
+        ${screen_breakpoints.sm} {
+            width: 12.2rem;
+        }
+    }
+`
+export const AlcInputWrapper = styled(FlexContainer)`
+    & > input {
+        width: 3rem;
+    }
+`
+export const InputLabelAlc = styled(InputLabel)`
+    min-width: 2.2rem;
 `

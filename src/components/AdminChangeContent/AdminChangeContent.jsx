@@ -1,9 +1,11 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import useLanguage from '../../hooks/useLanguage'
 import {setIsPasswordValid} from '../../store/slices/setIsLoginOkSlice'
 import {LoadingSpinner, AlertModal} from '../../common-components'
 import {v4 as uuidv4} from 'uuid'
 import {AdminBeerCardItem, LoginBar} from '..'
+import {translations} from '../translations'
 import * as Styled from './AdminChangeContentStyles'
 
 const AdminChangeContent = () => {
@@ -12,6 +14,8 @@ const AdminChangeContent = () => {
     const actualLocation = useSelector(state => state.actualLocation.location)
     const isAuthSuccessful = useSelector(state => state.isLoginOk.isAuthSuccessful)
     const isPasswordInvalid = useSelector(state => state.isLoginOk.isPasswordInvalid)
+    const langSwitch = useSelector(state => state.selectLanguage.langSwitch)
+    const alertText = useLanguage(translations, langSwitch).changeContent.alert
     const dispatch = useDispatch()
 
     const isLoading = useSelector(state => state.locationData.loading)
@@ -52,7 +56,7 @@ const AdminChangeContent = () => {
                 isOpen={isPasswordInvalid}
             >
                 <AlertModal 
-                    message="Incorrect Password!!!"
+                    message={alertText}
                     isOpen={isPasswordInvalid}
                     modalFunc={handleCloseErrorModal}
                 />

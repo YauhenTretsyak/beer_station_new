@@ -1,26 +1,38 @@
-import React, {useState} from 'react'
-// import {SwitchContext} from '../../context/SwitchContext'
+import React from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import {setLanguage} from '../../store/slices/selectLanguageSlice'
 import {Wrapper, LanguageSwicthButton} from './LangSwitcherStyles'
 
-const LangSwitcher: React.FC<JSX.Element> = () => {
-    // const {LanguageSwitcher} = useContext(SwitchContext)
-    const [langActive, setLangActive] = useState<boolean>(true)
-    const toSwitchLanguage = (language: string, langActive: boolean) => {
-        // LanguageSwitcher(language) 
-        setLangActive(langActive)
+export type LangSwitcherProps = {
+    width?: string
+}
+
+const LangSwitcher: React.FC<LangSwitcherProps> = ({width}) => {
+    const dispatch = useDispatch()
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const langSwitch = useSelector(state => state.selectLanguage.langSwitch)
+    const toSwitchLanguage = (language: string) => {
+        dispatch(setLanguage(language))
     }
 
     return (
-        <Wrapper>
+        <Wrapper width={width}>
             <LanguageSwicthButton 
-                onClick={() => toSwitchLanguage('PL', true)}
-                langActive={langActive}
+                onClick={() => toSwitchLanguage('PL')}
+                langActive={langSwitch === 'PL'}
             >PL
             </LanguageSwicthButton>
 
             <LanguageSwicthButton 
-                onClick={() => toSwitchLanguage('RU', false)}
-                langActive={!langActive}
+                onClick={() => toSwitchLanguage('EN')}
+                langActive={langSwitch === 'EN'}
+            >EN
+            </LanguageSwicthButton>
+
+            <LanguageSwicthButton 
+                onClick={() => toSwitchLanguage('RU')}
+                langActive={langSwitch === 'RU'}
             >RU
             </LanguageSwicthButton>
         </Wrapper>

@@ -1,10 +1,13 @@
 import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import useLanguage from '../../hooks/useLanguage'
 import {getLocationData} from '../../store/slices/getLocationDataSlice'
 import {setLocation} from '../../store/slices/setLocationSlice'
 import {setIsloginOk, setIsloginInvalid} from '../../store/slices/setIsLoginOkSlice'
 import {selectOptionsData} from '../../dataComponents/selectLocationData'
 import {beerSlidesDataP} from '../../dataComponents/beerSlidesDataP'
+import {translations} from '../translations'
+import {LangSwitcher} from '../../common-components/'
 import * as Styled from './LoginBarStyles'
 
 const LoginBar: React.FC<JSX.Element> = () => {
@@ -13,6 +16,10 @@ const LoginBar: React.FC<JSX.Element> = () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const isChangesSaved = useSelector(state => state.flagIsChangesSaved.isChangesSaved)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const langSwitch = useSelector(state => state.selectLanguage.langSwitch)
+    const alertText = useLanguage(translations, langSwitch).loginBar.alert
     
     const [selectedLocation, setSelectedLocation] = useState('kepna')
     const [isLoginBtnDisabled, setIsLoginBtnDisabled] = useState(true)
@@ -44,7 +51,8 @@ const LoginBar: React.FC<JSX.Element> = () => {
         if (isLoginBtnDisabled || !beerSlidesDataP) return
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        if (pass === beerSlidesDataP[location]) {
+        const isPswOk = pass === beerSlidesDataP[location].main || pass === beerSlidesDataP[location].work
+        if (isPswOk) {
             getLocationCardData(location)
             dispatch(setLocation(location))
             dispatch(setIsloginOk())
@@ -56,6 +64,9 @@ const LoginBar: React.FC<JSX.Element> = () => {
 
     return (
         <Styled.LoginBar>
+            <Styled.LangSwitcherWrapper>
+                <LangSwitcher width="12.9" />
+            </Styled.LangSwitcherWrapper>
             <Styled.SelectLocation
                 funcToChange={changeLocation}
                 onChange={toSelectLocation}
@@ -76,9 +87,10 @@ const LoginBar: React.FC<JSX.Element> = () => {
             {!isChangesSaved && (
                 <Styled.AlertWrapper
                     isOpen={!isChangesSaved}
+                    className="login_bar_alert"
                 >
                     <Styled.AlertMessage>
-                        Please Save or Cancel cards changes!!!
+                        {alertText}
                     </Styled.AlertMessage>
                 </Styled.AlertWrapper>
             )}

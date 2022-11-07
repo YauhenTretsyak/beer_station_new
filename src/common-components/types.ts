@@ -8,7 +8,7 @@ export interface LoadingSpinnerProps {
 }
 
 export interface InputProps {
-    type: 'password' | 'number' | 'text';
+    type: 'password' | 'number' | 'text' | 'fractionalNumber';
     funcToChange: (pass: string) => void;
     onChange: (func: (value: string) => void, value: string) => void;
     placeholder?: string;

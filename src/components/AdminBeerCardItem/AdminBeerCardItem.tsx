@@ -1,23 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import useLanguage from '../../hooks/useLanguage'
 import moment from 'moment'
+import {AdminBeerCardItemProps, ActiveCardsData} from '../types'
 import {setActiveFlagOfChanges} from '../../store/slices/setFlagIsChangesSaved'
 
 import {getDatabase, ref, set} from 'firebase/database'
-
+import {translations} from '../translations'
 import flagsListData from '../../dataComponents/flagListData'
 import * as Styled from './AdminBeerCardItemStyles'
 import {Select, Input, Button} from '../../common-components'
-
-interface AdminBeerCardItemProps {
-    id: number;
-    location: string;
-}
-
-interface ActiveCardsData {
-    id: number;
-    isChanges: boolean;
-}
 
 const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
     id,
@@ -28,14 +20,19 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
     const beerCardsData = useSelector(state => state.locationData.cards).find(item => item.id === id)
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
+    const langSwitch = useSelector(state => state.selectLanguage.langSwitch)
+    const labelsText = useLanguage(translations, langSwitch).cardItem
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const activeCardsData: ActiveCardsData[] = useSelector(state => state.flagIsChangesSaved.activeCardsData)
     const dispatch = useDispatch()
     const [isDataChanged, setIsDataChanged] = useState<boolean>(false)
-    const {country, name, title, type, vol1, vol03, vol05} = beerCardsData
+    const {country, name, title, type, volAlc, vol1, vol03, vol05} = beerCardsData
     const [newCountry, setNewCountry] = useState<string>('') 
     const [newName, setNewName] = useState<string>('')
     const [newTitle, setNewTitle] = useState<string>('')
     const [newType, setNewType] = useState<string>('')
+    const [newVolAlc, setNewVolAlc] = useState<string>('')
     const [newVol1, setNewVol1] = useState<string>('')
     const [newVol03, setNewVol03] = useState<string>('')
     const [newVol05, setNewVol05] = useState<string>('')
@@ -44,12 +41,13 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
     const imagePath = flagsListData.find(item => item.id === newCountry)?.imagePath
     useEffect(() => {
         setNewCountry(country)
-        setNewName(name.length === 0 ? '--' : name)
-        setNewTitle(title.length === 0 ? '--' : title)
-        setNewType(type.length === 0 ? '--' : type)
-        setNewVol1(vol1.length === 0 ? '--' : vol1)
-        setNewVol03(vol03.length === 0 ? '--' : vol03)
-        setNewVol05(vol05.length === 0 ? '--' : vol05)
+        setNewName(name)
+        setNewTitle(title)
+        setNewType(type)
+        setNewVol1(vol1)
+        setNewVol03(vol03)
+        setNewVol05(vol05)
+        setNewVolAlc(volAlc)
     }, [id])
 
     const saveTrueFlagsCards = () => {
@@ -91,6 +89,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
             name: newName,
             title: newTitle,
             type: newType,
+            volAlc: newVolAlc,
             vol1: newVol1,
             vol03: newVol03,
             vol05: newVol05,
@@ -117,6 +116,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
             setNewName(name)
             setNewTitle(title)
             setNewType(type)
+            setNewVolAlc(volAlc)
             setNewVol1(vol1)
             setNewVol03(vol03)
             setNewVol05(vol05)
@@ -132,7 +132,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
             </Styled.CardNumber>
             <Styled.InputFlexWrapper>
                 <Styled.InputLabel>
-                    Country:
+                    {labelsText.country}:
                 </Styled.InputLabel>
                 <Select
                     selectOptionsData={flagsListData}
@@ -144,44 +144,61 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
             </Styled.InputFlexWrapper>
             <Styled.InputFlexWrapper>
                 <Styled.InputLabel>
-                    Brand:
+                    {labelsText.brand}:
                 </Styled.InputLabel>
                 <Input 
                     type="text"
                     placeholder={newTitle ?? '--'}
-                    incomeValue={newTitle ?? '--'}
+                    incomeValue={newTitle}
                     funcToChange={setNewTitle}
                     onChange={changeDataFunc}
                 />
             </Styled.InputFlexWrapper>
             <Styled.InputFlexWrapper>
                 <Styled.InputLabel>
-                    Beer name:
+                    {labelsText.name}:
                 </Styled.InputLabel>
                 <Input 
                     type="text"
                     placeholder={newName ?? '--'}
-                    incomeValue={newName ?? '--'}
+                    incomeValue={newName}
                     funcToChange={setNewName}
                     onChange={changeDataFunc}
                 />
             </Styled.InputFlexWrapper>
-            <Styled.InputFlexWrapper>
-                <Styled.InputLabel>
-                    Beer type:
-                </Styled.InputLabel>
-                <Input 
-                    type="text"
-                    placeholder={newType ?? '--'}
-                    incomeValue={newType ?? '--'}
-                    funcToChange={setNewType}
-                    onChange={changeDataFunc}
-                />
-            </Styled.InputFlexWrapper>
+            <Styled.BeerTypeWrapper>
+                <Styled.BeerTypeInputWrapper>
+                    <Styled.InputLabelBeer>
+                        {labelsText.type}:
+                    </Styled.InputLabelBeer>
+                    <Input 
+                        type="text"
+                        placeholder={newType ?? '--'}
+                        incomeValue={newType}
+                        funcToChange={setNewType}
+                        onChange={changeDataFunc}
+                    />
+                </Styled.BeerTypeInputWrapper>
+                <Styled.AlcInputWrapper>
+                    <Styled.InputLabelAlc>
+                        {labelsText.volAlc}:
+                    </Styled.InputLabelAlc>
+                    <Styled.InputTypeNumber
+                        type="fractionalNumber"
+                        placeholder={newVolAlc ?? '--'}
+                        incomeValue={newVolAlc}
+                        funcToChange={setNewVolAlc}
+                        onChange={changeDataFunc}
+                    />
+                    <Styled.InputLabelAlc>
+                        %
+                    </Styled.InputLabelAlc>
+                </Styled.AlcInputWrapper>
+            </Styled.BeerTypeWrapper>
             <Styled.ElementsLine>
                 <Styled.InputWrapper>
                     <Styled.InputLabel>
-                        0.3L cost:
+                        0.3L {labelsText.cost}:
                     </Styled.InputLabel>
                     <Styled.InputTypeNumber
                         type="number"
@@ -193,7 +210,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
                 </Styled.InputWrapper>
                 <Styled.InputWrapper>
                     <Styled.InputLabel>
-                        0.5L cost:
+                        0.5L {labelsText.cost}:
                     </Styled.InputLabel>
                     <Styled.InputTypeNumber 
                         type="number"
@@ -205,7 +222,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
                 </Styled.InputWrapper>
                 <Styled.InputWrapper>
                     <Styled.InputLabel>
-                        1L cost:
+                        1L {labelsText.cost}:
                     </Styled.InputLabel>
                     <Styled.InputTypeNumber 
                         type="number"

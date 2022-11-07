@@ -2,16 +2,21 @@ import styled from 'styled-components'
 import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 import {FlexContainer} from '../../styles/StyledElements'
 
+interface WrapperProps {
+  width?: string;
+}
+
 interface LanguageSwitchButtonProps {
   langActive: boolean;
 }
 
-const Wrapper = styled(FlexContainer)`
+const Wrapper = styled(FlexContainer)<WrapperProps>`
   display: flex;
   justify-content: space-between;
   margin: auto;
   margin-right: 0;
   width: 8.9rem;
+  width: ${({width}) => width ? `${width}rem` : '8.9rem'};
 `
 const LanguageSwicthButton = styled.button<LanguageSwitchButtonProps>`
   display: flex;
@@ -33,7 +38,7 @@ const LanguageSwicthButton = styled.button<LanguageSwitchButtonProps>`
         ? '2px 2px 3px #7f3607;'
         : '.2rem .2rem .2rem #f4cf76;'
 };
-  color: ${({theme}) => theme.colors.grey};
+  color: ${({theme, langActive}) => langActive ? '#630606' : theme.colors.grey};
   transition: all .1s ease-in-out;
 
   &:hover {

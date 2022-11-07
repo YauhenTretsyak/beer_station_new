@@ -42,10 +42,27 @@ export const LoginBar = styled(FlexContainer)`
         }
     }
 
-    & > div {
+    & .login_bar_alert {
         margin-right: 0;
         width: 6.2rem;
         height: 3.2rem;
+    }
+`
+
+export const LangSwitcherWrapper = styled.div`
+    transform: translateY(-50%);
+
+    ${screen_breakpoints.sm} {
+        position: absolute;
+        left: -2.7rem;
+        transform: translateY(0%);
+    }
+
+    ${screen_breakpoints.md} {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
     }
 `
 

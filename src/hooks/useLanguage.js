@@ -3,6 +3,9 @@ const useLanguage = (langData, lang) => {
     case 'PL': 
         langData = langData.PL
         break
+    case 'EN': 
+        langData = langData.EN
+        break
     case 'RU': 
         langData = langData.RU
         break
