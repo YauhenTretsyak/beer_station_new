@@ -46,6 +46,7 @@ const BeerCardPage = () => {
                             vol03={beer.vol03}
                             vol05={beer.vol05}
                             vol1={beer.vol1}
+                            updateDate={beer.updateDate}
                         />)}
                     <Styled.BeersInteresting>
                         {beerInterestingData[0].info}

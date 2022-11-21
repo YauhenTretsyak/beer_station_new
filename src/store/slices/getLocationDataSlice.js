@@ -8,7 +8,7 @@ export const getLocationData = createAsyncThunk(
     'location/getLocationData',
     async (locationPath) => {
         const dbRef = await ref(getDatabase(app))
-        const locationData = await get(child(dbRef, `${locationPath.location}/${locationPath.kind}`))
+        const locationData = await get(child(dbRef, `${locationPath.location}`))
             .then((snapshot) => snapshot.val())
             .catch((error) => {
                 console.error(error)
@@ -21,6 +21,7 @@ const locationDataSlice = createSlice({
     name: 'location',
     initialState: {
         cards: [],
+        events: [],
         loading: true,
         error: null
     },
@@ -36,7 +37,8 @@ const locationDataSlice = createSlice({
             state.error = null
         },
         [getLocationData.fulfilled]: (state, action) => {
-            state.cards = action.payload
+            state.cards = action.payload.beer
+            state.events = action.payload.events ? action.payload.events : []
             state.loading = !action.payload ?? false
             state.error = !action.payload ?? null
         },

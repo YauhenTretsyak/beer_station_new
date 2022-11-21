@@ -15,9 +15,9 @@ const Product = () => {
     const langSwitch = useSelector(state => state.selectLanguage.langSwitch)
     const title = useLanguage(productData, langSwitch)
     const dispatch = useDispatch()
-    
+ 
     useEffect(() => {
-        dispatch(getLocationData({location: location, kind: 'beer'}))
+        dispatch(getLocationData({location: location}))
     }, [location])
 
     const startWidth = () => {

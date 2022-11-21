@@ -174,3 +174,15 @@ export const BeerValue = styled.p`
 export const BeerCost = styled.p`
   color: #ffeb00;
 `
+export const DateInfo = styled.p`
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+  color: #f3f3f3 !important;
+  font-size: 1.4rem;
+  font-weight: 200;
+
+  & > span {
+    font-size: 1.7rem;
+  }
+`

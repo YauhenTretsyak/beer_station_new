@@ -24,11 +24,11 @@ const navigationData = {
     ursynow: {
         PL: {
             workTitle: 'Otwarte:',
-            workTime: 'wt-nd: 14.00 - 01.00',
+            workTime: 'wt-nd: 12.00 - 00.00',
         },
         RU: {
             workTitle: 'Открыто:',
-            workTime: 'вт-вс: 14.00 - 01.00',
+            workTime: 'вт-вс: 12.00 - 00.00',
         }
     },
 
