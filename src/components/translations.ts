@@ -18,6 +18,17 @@ export const translations: Translations = {
         },
         changeContent: {
             alert: 'Błędne hasło!!!'
+        },
+        adminEvents: {
+            addBtnTitle: 'Dodaj event'
+        },
+        adminEventsItem: {
+            typeTitle: 'Typ eventu',
+            nameTitle: 'Nazwa eventu',
+            descriptionTitle: 'Opis eventu',
+            linkTitle: 'Link do eventu:',
+            dateTitle: 'Data eventu:',
+            startTimeTitle: 'Czas rospoczęcia eventu',
         }
     },
     EN: {
@@ -37,6 +48,17 @@ export const translations: Translations = {
         },
         changeContent: {
             alert: 'Incorrect Password!!!'
+        },
+        adminEvents: {
+            addBtnTitle: 'Add event'
+        },
+        adminEventsItem: {
+            typeTitle: 'Type of event',
+            nameTitle: 'Name of event',
+            descriptionTitle: 'Description of eventu',
+            linkTitle: 'Link to event:',
+            dateTitle: 'Data of event:',
+            startTimeTitle: 'Start time event:',
         }
     },
     RU: {
@@ -56,6 +78,17 @@ export const translations: Translations = {
         },
         changeContent: {
             alert: 'Неверный пароль!!!'
+        },
+        adminEvents: {
+            addBtnTitle: 'Добавить событие'
+        },
+        adminEventsItem: {
+            typeTitle: 'Тип события',
+            nameTitle: 'Имя события',
+            descriptionTitle: 'Описание события',
+            linkTitle: 'Ссылка на событие:',
+            dateTitle: 'Дата события:',
+            startTimeTitle: 'Время начала:',
         }
     },
 }

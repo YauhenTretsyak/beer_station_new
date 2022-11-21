@@ -4,12 +4,12 @@ import useLanguage from '../../hooks/useLanguage'
 import moment from 'moment'
 import {AdminBeerCardItemProps, ActiveCardsData} from '../types'
 import {setActiveFlagOfChanges} from '../../store/slices/setFlagIsChangesSaved'
-
+import {Select, Input, CardsButtonsBox, AlertCard} from '../../common-components'
 import {getDatabase, ref, set} from 'firebase/database'
 import {translations} from '../translations'
+
 import flagsListData from '../../dataComponents/flagListData'
 import * as Styled from './AdminBeerCardItemStyles'
-import {Select, Input, Button} from '../../common-components'
 
 const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
     id,
@@ -37,6 +37,12 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
     const [newVol03, setNewVol03] = useState<string>('')
     const [newVol05, setNewVol05] = useState<string>('')
 
+    const [isAlertActive, setIsAlertActive] = useState({isActive: false, isSuccessful: false})
+
+    const displayAlert = (isSuccessful: boolean) => {
+        setIsAlertActive({isActive: true, isSuccessful: isSuccessful})
+        setTimeout(() => {setIsAlertActive({isActive: false, isSuccessful: isSuccessful})}, 1400)
+    }
 
     const imagePath = flagsListData.find(item => item.id === newCountry)?.imagePath
     useEffect(() => {
@@ -72,7 +78,9 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
         dispatch(setActiveFlagOfChanges(activeCardsDataFiltered))
     }
 
-    const changeDataFunc = (func: (value: string) => void, value: string) => {
+    const changeDataFunc = (value: string, func?: (value: string) => void, ) => {
+        if (!func) return
+
         func(value)
         if (!isDataChanged) {
             setIsDataChanged(true)
@@ -98,14 +106,16 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
             then(() => {
                 setIsDataChanged(false)
                 saveFalseFlagsCards()
+                displayAlert(true)
             }).
             catch((error) => {
+                displayAlert(false)
                 console.error(error)
             })
     }
 
-    const saveNewData = () => {
-        if (isDataChanged) {
+    const saveNewData = (isRefresh: boolean) => {
+        if (isDataChanged || isRefresh) {
             writeCardData()
         }
     }
@@ -127,6 +137,9 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
 
     return (
         <Styled.AdminBeerCardItem isDataChanged={isDataChanged}>
+            <AlertCard 
+                isAlertActive={isAlertActive}
+            />
             <Styled.CardNumber>
                 #{id}
             </Styled.CardNumber>
@@ -147,7 +160,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
                     {labelsText.brand}:
                 </Styled.InputLabel>
                 <Input 
-                    type="text"
+                    type="textUpperCase"
                     placeholder={newTitle ?? '--'}
                     incomeValue={newTitle}
                     funcToChange={setNewTitle}
@@ -159,7 +172,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
                     {labelsText.name}:
                 </Styled.InputLabel>
                 <Input 
-                    type="text"
+                    type="textUpperCase"
                     placeholder={newName ?? '--'}
                     incomeValue={newName}
                     funcToChange={setNewName}
@@ -172,7 +185,7 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
                         {labelsText.type}:
                     </Styled.InputLabelBeer>
                     <Input 
-                        type="text"
+                        type="textUpperCase"
                         placeholder={newType ?? '--'}
                         incomeValue={newType}
                         funcToChange={setNewType}
@@ -233,20 +246,12 @@ const AdminBeerCardItem: React.FC<AdminBeerCardItemProps> = ({
                     />
                 </Styled.InputWrapper>
             </Styled.ElementsLine>
-            <Styled.ButtonsWrapper>
-                <Button 
-                    onClick={() => {saveNewData()}}
-                    label="Save"
-                    type="apply"
-                    isDisabled={!isDataChanged}
-                />
-                <Button 
-                    onClick={() => resetChanges()}
-                    label="Cancel"
-                    type="cancel"
-                    isDisabled={!isDataChanged}
-                />
-            </Styled.ButtonsWrapper>
+            <CardsButtonsBox 
+                saveData={saveNewData} 
+                resetChanges={resetChanges} 
+                isDisabled={!isDataChanged}
+                isRefresh
+            />
         </Styled.AdminBeerCardItem>
     )
 }

@@ -1,7 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit'
 import locationDataSlice from './slices/getLocationDataSlice'
 import isLoginOkSlice from './slices/setIsLoginOkSlice'
-import setLocationSlice from './slices/setLocationSlice'
+import setLocationParamsSlice from './slices/setLocationParamsSlice'
 import flagIsChangesSavedSlice from './slices/setFlagIsChangesSaved'
 import selectLanguageSlice from './slices/selectLanguageSlice'
 
@@ -9,7 +9,7 @@ export const store = configureStore({
     reducer: {
         locationData: locationDataSlice,
         isLoginOk: isLoginOkSlice,
-        actualLocation: setLocationSlice,
+        actualLocationParams: setLocationParamsSlice,
         flagIsChangesSaved: flagIsChangesSavedSlice,
         selectLanguage: selectLanguageSlice,
     },

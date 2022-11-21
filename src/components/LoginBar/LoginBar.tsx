@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import useLanguage from '../../hooks/useLanguage'
 import {getLocationData} from '../../store/slices/getLocationDataSlice'
-import {setLocation} from '../../store/slices/setLocationSlice'
+import {setLocation} from '../../store/slices/setLocationParamsSlice'
 import {setIsloginOk, setIsloginInvalid} from '../../store/slices/setIsLoginOkSlice'
 import {selectOptionsData} from '../../dataComponents/selectLocationData'
 import {beerSlidesDataP} from '../../dataComponents/beerSlidesDataP'
@@ -10,7 +10,7 @@ import {translations} from '../translations'
 import {LangSwitcher} from '../../common-components/'
 import * as Styled from './LoginBarStyles'
 
-const LoginBar: React.FC<JSX.Element> = () => {
+const LoginBar: () => JSX.Element = () => {
 
     const dispatch = useDispatch()
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -33,19 +33,21 @@ const LoginBar: React.FC<JSX.Element> = () => {
         setPass(pass)
     }
 
-    const toEnterPassword = (func: (value: string) => void, value: string) => {
-        func(value)
-        setIsLoginBtnDisabled(false)
+    const toEnterPassword = (value: string, func?: (value: string) => void) => {
+        if (func) {
+            func(value)
+            setIsLoginBtnDisabled(false)
+        }
     }
 
-    const toSelectLocation= (func: (value: string) => void, value: string) => {
-        func(value)
+    const toSelectLocation= (value: string, func?: (value: string) => void ) => {
+        if (func) func(value)
     }
 
     const getLocationCardData = (location: string) => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        dispatch(getLocationData({location: location, kind: 'beer'}))
+        dispatch(getLocationData({location: location}))
     }
     const handleLogin = (location: string) => {
         if (isLoginBtnDisabled || !beerSlidesDataP) return

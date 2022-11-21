@@ -2,7 +2,7 @@
 import {HelmetProvider} from 'react-helmet-async'
 import {ThemeProvider} from 'styled-components'
 import GlobalStyle from './styles/GlobalStyle'
-import {Routes, Route} from 'react-router-dom'
+// import {Routes, Route} from 'react-router-dom'
 import {theme} from './styles/theme'
 import {HelmetBlock} from './common-components/index'
 import {Footer} from './components/'
@@ -21,9 +21,13 @@ function App() {
                     description="beerstation"
                     faviconUrl={favicon}
                 />
-                <Routes>
+                <AdminPanelMainPage />
+                {/* <Routes>
                     <Route path="/" element={<AdminPanelMainPage /> } />
-                </Routes>
+                    <Route path="/events" element={<></>}>
+                        <Route path=":location" element={<></>} />
+                    </Route>
+                </Routes> */}
                 <Footer />
             </ThemeProvider>
         </HelmetProvider>

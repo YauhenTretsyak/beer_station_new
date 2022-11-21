@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 
-export const Input = styled.input`
+export const Textarea = styled.textarea`
     font-size: 1.4rem;
     background: inherit;
     outline: none;

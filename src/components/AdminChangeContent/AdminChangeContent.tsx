@@ -2,31 +2,45 @@ import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import useLanguage from '../../hooks/useLanguage'
 import {setIsPasswordValid} from '../../store/slices/setIsLoginOkSlice'
-import {LoadingSpinner, AlertModal} from '../../common-components'
-import {v4 as uuidv4} from 'uuid'
-import {AdminBeerCardItem, LoginBar} from '..'
+import {LoginBar, AdminBeerCards, AdminEvent} from '..'
+import {AlertModal, KindSwitcher} from '../../common-components'
 import {translations} from '../translations'
 import * as Styled from './AdminChangeContentStyles'
 
-const AdminChangeContent = () => {
-
-    const beerCardsData = useSelector(state => state.locationData.cards)
-    const actualLocation = useSelector(state => state.actualLocation.location)
+const AdminChangeContent: () => JSX.Element = () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const {location: actualLocation, locationKind} = useSelector(state => state.actualLocationParams)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const isAuthSuccessful = useSelector(state => state.isLoginOk.isAuthSuccessful)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const isPasswordInvalid = useSelector(state => state.isLoginOk.isPasswordInvalid)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const langSwitch = useSelector(state => state.selectLanguage.langSwitch)
     const alertText = useLanguage(translations, langSwitch).changeContent.alert
     const dispatch = useDispatch()
 
-    const isLoading = useSelector(state => state.locationData.loading)
+    const beerCards = <AdminBeerCards isAuthSuccessful={isAuthSuccessful} />
+    const eventsCards = <AdminEvent isAuthSuccessful={isAuthSuccessful} />
 
-    const beerCardsToChange = beerCardsData.map(item => (
-        <AdminBeerCardItem 
-            key={uuidv4()}
-            id={item.id}
-            location={actualLocation}
-        />
-    ))
+    let contentToChange: JSX.Element
+
+    switch (locationKind) {
+    case 'beer':
+        contentToChange = beerCards
+        break
+    case 'events':
+        contentToChange = eventsCards
+        break
+    default: 
+        contentToChange = beerCards
+        break
+    }
+
+    
 
     const handleCloseErrorModal = () => {
         dispatch(setIsPasswordValid())
@@ -40,18 +54,12 @@ const AdminChangeContent = () => {
                     {actualLocation}
                 </Styled.LocationTitle>
             )}
-            <Styled.AdminCardsWrapper>
-                {isAuthSuccessful && (
-                    isLoading  
-                        ?( <LoadingSpinner 
-                            loading={isLoading}
-                            color="#cfc600"
-                            size={10}
-                            titleSize="3"
-                        />)
-                        : beerCardsToChange
-                )}
-            </Styled.AdminCardsWrapper>
+
+            <KindSwitcher />
+
+            
+            {contentToChange}
+            
             <Styled.ErrorMessageWrapper
                 isOpen={isPasswordInvalid}
             >

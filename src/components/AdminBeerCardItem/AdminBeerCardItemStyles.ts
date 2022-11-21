@@ -1,6 +1,7 @@
+/* eslint-disable indent */
 import styled from 'styled-components'
 import FlexContainer from '../../styles/StyledElements/FlexContainer'
-import {Select, Input, Button} from '../../common-components'
+import {Input} from '../../common-components'
 import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 
 interface AdminBeerCardItemProps {
@@ -80,8 +81,8 @@ export const AdminBeerCardItem = styled.div<AdminBeerCardItemProps>`
         color: ${({theme}) => theme.colors.orange};
     }
 
-    ${({isDataChanged}) => isDataChanged ?
-        `background-color: #4e3308;
+    ${({isDataChanged}) => isDataChanged
+        ? `background-color: #4e3308;
             box-shadow: 0 0 1rem .3rem #ffe277;
 
             & p {
@@ -98,8 +99,7 @@ export const AdminBeerCardItem = styled.div<AdminBeerCardItemProps>`
                 height: 8.3rem;
                 box-shadow: .5rem .5rem 0 0 #000;
             }`
-        : 
-        ''
+            : ''
         }
 `
 export const CardNumber = styled.span`
@@ -121,10 +121,6 @@ export const InputFlexWrapper = styled.div`
     }
 `
 
-export const ButtonsWrapper = styled(FlexContainer)`
-    justify-content: start;
-    margin-top: 1.4rem;
-`
 export const FlagImg = styled.img`
     position: absolute;
     top: 0;
@@ -214,3 +210,5 @@ export const AlcInputWrapper = styled(FlexContainer)`
 export const InputLabelAlc = styled(InputLabel)`
     min-width: 2.2rem;
 `
+
+

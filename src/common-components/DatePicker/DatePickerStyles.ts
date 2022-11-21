@@ -1,7 +1,16 @@
 import styled from 'styled-components'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 import screen_breakpoints from '../../styles/StyledElements/screen_breakpoints'
 
-export const Input = styled.input`
+export const DatePickerElement = styled(DatePicker)`
+    width: 100%;
+
+    ${screen_breakpoints.md} {
+        width: 20rem;
+    }
+`
+export const DateInput = styled.input`
     font-size: 1.4rem;
     background: inherit;
     outline: none;
@@ -13,6 +22,5 @@ export const Input = styled.input`
 
     &::placeholder {
         color: ${({theme}) => theme.colors.silver};
-        opacity: .3;
     }
 `

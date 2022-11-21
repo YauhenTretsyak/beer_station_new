@@ -1,14 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {v4 as uuidv4} from 'uuid'
-import {SelectOptions} from '../types'
+import {SelectProps} from '../types'
 import * as Styled from './SelectStyles'
-
-interface SelectProps {
-    selectOptionsData: SelectOptions[];
-    funcToChange: (option: string) => void;
-    onChange: (func: (value: string) => void, value: string) => void;
-    selectedValue: string;
-}
 
 const Select: React.FC<SelectProps> = ({selectOptionsData, selectedValue, funcToChange, onChange}) => {
 
@@ -23,7 +16,7 @@ const Select: React.FC<SelectProps> = ({selectOptionsData, selectedValue, funcTo
     ))
 
     const handleSelect = (value: string) => {
-        onChange(funcToChange, value)
+        onChange(value, funcToChange)
     }
 
     return (

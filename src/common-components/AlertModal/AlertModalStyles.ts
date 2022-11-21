@@ -4,6 +4,7 @@ import FlexContainer from '../../styles/StyledElements/FlexContainer'
 interface AlertModalStylesProps {
     isModalOpen: boolean;
     width?: string;
+    height?: string;
     isErrorMessage?: boolean;
 }
 
@@ -16,6 +17,8 @@ export const AlertModal = styled(FlexContainer)<AlertModalStylesProps>`
     max-width: 40rem;
     /* height: 100%;
     max-height: 10rem; */
+    max-width: ${({width}) => width};
+    min-height: ${({height}) => height};
     padding: 2rem 2.5rem;
 `
 export const CloseElem = styled.span`

@@ -1,37 +1,45 @@
 import React from 'react'
-import {InputProps} from '../types'
+import {InputProps, InputTextTypesEnum} from '../types'
 import * as Styled from './InputStyles'
 
-const Input: React.FC<InputProps> = ({type, placeholder, incomeValue, funcToChange, onChange}) => {
+
+const Input: React.FC<InputProps> = ({type, placeholder, incomeValue, funcToChange, onChange, textParams}) => {
 
     const onChangeNumber = (value: string) => {
         const replacedNumber = value.replace(/[^0-9]/ig, '')
         const costValue = replacedNumber[0] === '0' ? replacedNumber.substring(1) : replacedNumber
-        onChange(funcToChange, costValue)
+        onChange(costValue, funcToChange)
     }
 
     const onChangeText = (value: string) => {
-        onChange(funcToChange, value.toUpperCase())
+        onChange(value, funcToChange, textParams)
+    }
+
+    const onChangeTextUpperCase = (value: string) => {
+        onChange(value.toUpperCase(), funcToChange, textParams)
     }
 
     const onChangeFractionalNumber = (value: string) => {
         const replacedNumber = value.replace(/[^0-9.]/ig, '')
-        onChange(funcToChange, replacedNumber)
+        onChange(replacedNumber, funcToChange)
     }
 
     const handleOnChange = (value: string) => {
         switch (type) {
-        case 'number': 
+        case InputTextTypesEnum.NUMBER: 
             onChangeNumber(value)
             break
-        case 'text': 
+        case InputTextTypesEnum.TEXT: 
             onChangeText(value)
             break
-        case 'fractionalNumber': 
+        case InputTextTypesEnum.TEXT_UPPERCASE: 
+            onChangeTextUpperCase(value)
+            break
+        case InputTextTypesEnum.FRACTIONAL_NUMBER: 
             onChangeFractionalNumber(value)
             break
         default: 
-            onChange(funcToChange, value)
+            onChange(value, funcToChange)
         }
     }
 

@@ -10,7 +10,6 @@ export const Button = styled.button<ButtonProps>(
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-right: 1.4rem;
         width: 5.6rem;
         height: 2.2rem;
         border-radius: .7rem;
